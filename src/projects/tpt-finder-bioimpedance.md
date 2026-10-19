@@ -35,8 +35,8 @@ On an earlier board, BioZ v2, I calibrated the sensing chain to 0.034% error at 
 
 ## The problem
 
-Surgeons still find the parathyroid glands mainly by eye, and the glands are small, variable and easy to confuse with the tissue around them.
-Damaging or removing them by accident can cause hypoparathyroidism.
+More than 150,000 thyroidectomies are performed in the US each year, and surgeons still find the parathyroid glands mainly by eye.
+The glands are only 2–3 mm across, variable, and easy to confuse with the tissue around them; in 5–7% of cases they are damaged or removed by accident, which can cause hypoparathyroidism.
 The lab is characterizing three sensing modalities separately (bioimpedance, ultrasound and photonics) before combining them in a multimodal classifier.
 My part is bioimpedance. The signal chain has to measure tissue impedance with instrument error well below the differences between tissues, and it has to be trustworthy at the low-impedance end of the range.
 
@@ -119,6 +119,7 @@ As a researcher I chased a persistent 60 Hz artifact and traced it to the oscill
 ## Credits & acknowledgements
 
 - UW BioRobotics Lab, PI Blake Hannaford.
+- Mentor: Andrew Lewis, PhD.
 - Built with the TPT-Finder team (UW BioRobotics Lab).
 - The AD5933 driver started from a labmate's branch before I rewrote and documented it.
 - The prize was awarded to the TPT-Finder team.

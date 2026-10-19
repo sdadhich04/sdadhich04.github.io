@@ -31,7 +31,7 @@
     "category": "Sensing & instrumentation",
     "tools": [
       "Bioimpedance measurement (AD5933 / AD5934)",
-      "Op-amp front ends (INA333, AD8606)",
+      "Analog front-end design (INA333, AD8606)",
       "Sensor calibration & noise characterization",
       "Data-acquisition pipelines",
       "IMU integration (BNO085)",
@@ -77,6 +77,7 @@
       "Kalman filtering (state estimation)",
       "Real-time closed-loop BCI",
       "EMG signal processing",
+      "Neural signal processing",
       "Lab Streaming Layer (LSL)",
       "MATLAB",
       "Audio features (librosa)"
@@ -105,7 +106,7 @@
       "Environmental stress testing (thermal, EMI)",
       "Faraday cage / EMI shielding",
       "Fault-injection testing",
-      "3D-printable parts (STL)",
+      "3D printing (STL parts)",
       "Root-cause debugging"
     ],
     "evidence": [
@@ -146,6 +147,28 @@
       {
         "label": "BackOnTrack repo (15/15 commits mine)",
         "href": "https://github.com/sdadhich04/Project-Back-on-Track"
+      }
+    ]
+  },
+  {
+    "category": "Research & communication",
+    "tools": [
+      "Technical writing (posters, manuscript co-authorship)",
+      "Statistical analysis",
+      "Research ethics training (CITI)"
+    ],
+    "evidence": [
+      {
+        "label": "Publications",
+        "href": "/publications/"
+      },
+      {
+        "label": "Real-time EMG BCI",
+        "href": "/projects/emg-bci/"
+      },
+      {
+        "label": "Certifications",
+        "href": "/about/#certifications"
       }
     ]
   }

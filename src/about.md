@@ -10,7 +10,8 @@ pageClass: page-about
 
 ## Bio
 
-I'm an electrical and computer engineer in Seattle, and I work on the layer between sensors and models: the analog front end, the firmware that samples it, and the checks that show the data can be trusted.
+I care about the moment a noisy analog signal becomes a decision someone can trust, especially when that decision is a clinical one.
+I'm an electrical and computer engineer in Seattle, and I work on the layer between sensors and models: the analog front end, the firmware that samples it, and the checks that show the data holds up.
 I graduated from the University of Washington in June 2026 with a BS in Electrical & Computer Engineering and a minor in Neural Computation & Engineering.
 
 At the UW BioRobotics Lab I lead biomedical instrumentation and impedance work for TPT-Finder, where I built a tetrapolar bioimpedance board and a two-electrode bioimpedance pen.
@@ -20,16 +21,22 @@ Other recent work: I wrote all of the firmware for a four-person course team's p
 ## Education
 
 **University of Washington**, Seattle
-BS, Electrical & Computer Engineering · June 2026
+BS, Electrical & Computer Engineering · Sep 2022 – June 2026
 Minor: Neural Computation & Engineering
 
 - Dean's List (multiple quarters)
 - Annual Dean's List, 2025–2026
 
+## Certifications
+
+- **CITI Program** · Sep 2026: Responsible Conduct of Research for Engineers ([verify](https://www.citiprogram.org/verify/?w6deeb2f5-1de7-4004-b28b-a78a7d0581d2-79316896)) · Data or Specimens Only Research ([verify](https://www.citiprogram.org/verify/?w0f160280-11a6-433a-afc1-0e83b9e85bb0-79316895)) · Conflicts of Interest ([verify](https://www.citiprogram.org/verify/?w89610d9b-5722-4403-926b-0490bedf01a4-79316897))
+- **NextGen Civic Leader Badge** · UW Community Engagement and Leadership Education (CELE) Center · May 2026 ([verify](https://washington.badges.parchment.com/public/share/assertions/linkedin_credentials/RYCJdjssQjCeTcCV7hLqcA))
+
 ## Current roles
 
 - **● Active** · **Data Acquisition & Instrumentation Engineer**, ARC Lab (PI: Prof. Sep Makhsous) · Jun 2026–present
 - **● Active** · **Biomedical Instrumentation & Impedance Lead**, UW BioRobotics Lab (PI: Blake Hannaford) · Sep 2025–present
+- **● Active** · **Undergraduate Researcher**, UW BioRobotics Lab · Jun 2024–present
 
 ## Experience
 
@@ -54,12 +61,12 @@ Minor: Neural Computation & Engineering
 - I support the ultrasound and photonics sub-modalities, and I wrote the team's UW Undergraduate Research Symposium abstract.
 - Our TPT-Finder team won the inaugural SoundBio Lab Ignite Prize, among 67 competing teams, at the Hollomon Health Innovation Challenge (Buerk Center), March 2026.
 
-**Undergraduate Researcher** · Jun 2024–Sep 2025 · `COMPLETED`
+**Undergraduate Researcher** · Jun 2024–present · `● ACTIVE`
 
-- I characterized a 770 nm LED and 785 nm bandpass filter pair for the photonics excitation module.
+- I characterized a 770 nm LED and 785 nm bandpass filter pair for the photonics excitation module, to validate autofluorescence detection.
 - I designed a KiCad reference board that simulates tissue-like impedances, to validate the lab's first bioimpedance prototype.
 - I rewrote and documented the AD5933 I2C driver against the datasheet, starting from a labmate's branch.
-- I traced a persistent 60 Hz artifact to the oscilloscope rather than the circuit, and collected clinical tissue samples with a hospital collaborator.
+- I traced a persistent 60 Hz artifact to the oscilloscope rather than the circuit, and collected clinical tissue samples with a hospital collaborator while expanding onto the ultrasound sub-team.
 
 ### Project SHIELD · UW ECE capstone for Guide Air Labs
 **Hardware & Product Design Lead** · co-hardware lead (with Thomas Glass) and procurement lead · Jan–Jun 2026 · `COMPLETED`
@@ -72,10 +79,19 @@ Minor: Neural Computation & Engineering
 ### Central Research Laboratory, Bharat Electronics
 **Computer Vision Robotics Intern** · Aug–Sep 2025 · `COMPLETED`
 
+- I built an online-learning pipeline for YOLOv8 that keeps refining the model from user feedback, and cut inference latency from 145 ms to 52 ms with INT8 quantization.
+- I implemented LoRA adapter fine-tuning for fast model updates on resource-constrained embedded systems, which cut model size by 40% while holding 87% detection accuracy.
+- I built a FastAPI serving layer with automated feedback processing and model versioning, which raised throughput by 25% and cut the memory footprint by 50%.
+
 ### UW NextGen Civic Leader Corps
 **Student Advisor** · Dec 2022–Jun 2026 · `COMPLETED`
 
 See Leadership below.
+
+### MV Surgical Technologies
+**Engineering Research Intern** · Dec 2022–Jan 2023 · `COMPLETED`
+
+- I collected and analyzed medical-device performance data under varying pressure conditions, and made an internal documentation video for a product review.
 
 ## Leadership
 
@@ -93,9 +109,11 @@ I was a student advisor to the program for three and a half years.
 ### Co-Founder · ULI · Dec 2023–Mar 2024 · `COMPLETED`
 - I co-founded an AI-driven platform for early dementia detection, focused on machine-learning voice analysis.
 - I drove product direction through user research, which reached a 75% interest rate in pilot programs.
+- Our team won first place at Leaner Startups' AI Hackathon 5.0.
 
 ### Campus activities · University of Washington
 - Extended Reality Association (XRA)
+- Husky Table Tennis
 - Maple Hall council
 - Residential Community Student Association (RCSA)
 
