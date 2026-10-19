@@ -1,0 +1,199 @@
+{
+  "items": {
+    "backontrack-telemetry": {
+      "src": "/assets/svg/backontrack-telemetry.svg",
+      "kind": "plot",
+      "width": 720,
+      "height": 360,
+      "title": "BackOnTrack: upper-back pitch and EMG over one recorded session",
+      "desc": "48,593 telemetry frames over 40.5 minutes at a median 50 ms frame interval. Upper panel: upper-back IMU pitch in degrees. Lower panel: EMG in millivolts.",
+      "caption": "Upper-back pitch (BNO085) and the MyoWare 2.0 signal at the ADC over one 40.5-minute session I wore the device for, from the BLE log in the public repo (tools/bot_20260609_213341.csv). Frames come every 50 ms (20 Hz); the plot draws the min–max band per 7-second window. Only the upper IMU was running, and one calibration-sentinel frame was dropped (48,593 of 48,594 frames plotted). Raw signals, not classifier output. Team project: Sparsh, Matthew, Parneet and Ella."
+    },
+    "emg-bci-lag-sweep": {
+      "src": "/assets/svg/emg-bci-lag-sweep.svg",
+      "kind": "plot",
+      "width": 720,
+      "height": 372,
+      "title": "EMG cursor BCI: successful reaches and failed center holds versus added feedback lag",
+      "desc": "Successful reaches out of 19 attempts, by measured added lag (script setting in brackets): 0 ms (0): 10, about 125 ms (100): 16, about 360 ms (300): 2, about 590 ms (500): 4. Failed center holds: 0 ms: 4, about 125 ms: 5, about 360 ms: 49, about 590 ms: 78. One run per lag condition; the loop ran about 0.12 s instead of the nominal 0.1 s, so the settings of 100, 300 and 500 ms gave about 125, 360 and 590 ms.",
+      "caption": "Successful reaches (of 19) and failed center holds at each added feedback lag, counted from the task events in the repo's .mat runs. The loop ran about 120 ms instead of the nominal 100 ms, so the script settings of 100, 300 and 500 ms gave about 125, 360 and 590 ms of added lag. Each lag condition is one run, so the ≈125 ms run beating 0 ms can't be separated from practice or run-to-run effects; the drop from ≈360 ms upward is the effect. Recorded in a three-person EE 466 lab group with Jonathan and Olivia.",
+      "table": {
+        "headers": [
+          "Added lag (measured)",
+          "Script setting (ms)",
+          "Reach attempts",
+          "Successful reaches",
+          "Success rate",
+          "Median time to target (s)",
+          "Target-hold fails",
+          "Reach timeouts",
+          "Failed center holds"
+        ],
+        "rows": [
+          [
+            "0 ms",
+            "0",
+            "19",
+            "10",
+            "0.526",
+            "2.75",
+            "8",
+            "1",
+            "4"
+          ],
+          [
+            "≈125 ms",
+            "100",
+            "19",
+            "16",
+            "0.842",
+            "2.5",
+            "3",
+            "0",
+            "5"
+          ],
+          [
+            "≈360 ms",
+            "300",
+            "19",
+            "2",
+            "0.105",
+            "2.3",
+            "16",
+            "1",
+            "49"
+          ],
+          [
+            "≈590 ms",
+            "500",
+            "19",
+            "4",
+            "0.211",
+            "2.05",
+            "12",
+            "3",
+            "78"
+          ]
+        ]
+      }
+    },
+    "smartcrib-quantization": {
+      "src": "/assets/svg/smartcrib-quantization.svg",
+      "kind": "plot",
+      "width": 720,
+      "height": 290,
+      "title": "SmartCrib: INT8 quantization shrank model and memory with no accuracy change",
+      "desc": "Model size: Keras 58.8 kB, float32 TFLite 12.5 kB, INT8 TFLite 7.4 kB. Tensor arena: float32 56.3 kB, INT8 27.6 kB. Accuracy 94.8% for both on 96 test windows.",
+      "caption": "Model size and estimated tensor arena, Keras → float32 TFLite → INT8, from the public repo's reports (model_sizes.csv, metrics_summary.csv). The arena sizes are the repo's estimates, and on-device latency was not measured. Both TFLite models scored 94.8% accuracy on the 96 held-out test windows. Joint project with Jonathan Lu.",
+      "table": {
+        "headers": [
+          "Measure",
+          "Model",
+          "Bytes"
+        ],
+        "rows": [
+          [
+            "model size",
+            "Keras (training)",
+            "58752"
+          ],
+          [
+            "model size",
+            "Float32 TFLite",
+            "12508"
+          ],
+          [
+            "model size",
+            "INT8 TFLite",
+            "7392"
+          ],
+          [
+            "tensor arena (est.)",
+            "Float32 TFLite",
+            "56320"
+          ],
+          [
+            "tensor arena (est.)",
+            "INT8 TFLite",
+            "27648"
+          ]
+        ]
+      }
+    },
+    "backontrack-system": {
+      "src": "/assets/svg/backontrack-system.svg",
+      "kind": "diagram",
+      "width": 760,
+      "height": 360,
+      "title": "BackOnTrack: wearable posture firmware on an ESP32-S3",
+      "desc": "A BNO085 IMU on the upper back over SPI and a MyoWare 2.0 EMG sensor on the ADC feed FreeRTOS tasks and queues on an ESP32-S3. A processing task calibrates, computes posture features, runs a rule-based classifier with good posture plus five fault states, and keeps session statistics. Outputs: a NimBLE GATT packet to a desktop receiver that logs CSV, and serial CSV or JSON telemetry. A second lower-back IMU is configured but disabled at runtime.",
+      "caption": "Firmware block diagram, drawn from the public repo's README and source. The lower-back IMU is configured but disabled at runtime."
+    },
+    "emg-bci-loop": {
+      "src": "/assets/svg/emg-bci-loop.svg",
+      "kind": "diagram",
+      "width": 760,
+      "height": 300,
+      "title": "EMG cursor control: closed loop with an added feedback lag",
+      "desc": "Two EMG channels arrive as a Lab Streaming Layer stream. Every 0.1 seconds MATLAB takes the mean absolute value of each channel, a three-state Kalman filter estimates cursor position, velocity and offset, a lag buffer delays the displayed state by 0, 100, 300 or 500 milliseconds, and the display shows a one-dimensional center-out task. The participant watches the cursor and changes muscle activity, closing the loop.",
+      "caption": "The closed loop, drawn from the public repo's README and lag-sweep script."
+    },
+    "smartcrib-pipeline": {
+      "src": "/assets/svg/smartcrib-pipeline.svg",
+      "kind": "diagram",
+      "width": 760,
+      "height": 330,
+      "title": "SmartCrib: training pipeline and on-device cry detection",
+      "desc": "Offline: Donate-a-Cry cry clips and ESC-50 negatives become 40-frame by 13-coefficient MFCC features, train a compact Conv1D model, which is quantized to an 7.4 kB INT8 TensorFlow Lite model, and a threshold sweep picks 0.7 to meet a 0.90 recall target. On device: an Arduino Nano 33 BLE Sense records from its PDM microphone, computes MFCCs for each one-second window, runs the INT8 model, applies the threshold and a three-window majority vote, and raises a GPIO alert to an ESP32 bridge that sounds a buzzer and exposes a BLE alert.",
+      "caption": "Training pipeline (offline) and on-device detection (Nano 33 BLE Sense → ESP32 alert bridge), drawn from the public repo's README and source."
+    },
+    "faraday-cage-line": {
+      "src": "/assets/svg/faraday-cage-line.svg",
+      "kind": "art",
+      "width": 949,
+      "height": 1401,
+      "title": "Faraday cage test enclosure, line drawing from my Onshape CAD",
+      "desc": "Exploded axonometric line drawing of a two-part shielding enclosure, 190 by 190 by 200 millimetres, with its lid lifted above the body and a panel of holes on the front. Visible edges are solid; hidden edges are faint dashed lines.",
+      "caption": null
+    },
+    "shield-pcb-line": {
+      "src": "/assets/svg/shield-pcb-line.svg",
+      "kind": "art",
+      "width": 762,
+      "height": 621,
+      "title": "Project SHIELD sensor DAQ board, drawn from its KiCad Gerbers",
+      "desc": "Line drawing of the ESP32-S3 sensor data-acquisition PCB co-designed for Project SHIELD. Top-layer copper is drawn in cream and bottom-layer copper in faint tan: the ESP32-S3 module footprint in the centre, sensor headers around it, and the traces and ground pour between them.",
+      "caption": "The SHIELD ESP32-S3 DAQ PCB I co-designed with Thomas Glass, drawn from its public Gerbers: top copper in cream, bottom copper in tan."
+    },
+    "tpt-finder-poster-2026": {
+      "src": "/assets/img/tpt-finder-poster-2026.png",
+      "kind": "image",
+      "raster": true,
+      "title": null
+    }
+  },
+  "projects": {
+    "tpt-finder-bioimpedance": {
+      "card": "tpt-finder-poster-2026"
+    },
+    "project-shield": {
+      "main": "shield-pcb-line",
+      "card": "faraday-cage-line"
+    },
+    "backontrack": {
+      "main": "backontrack-system",
+      "plot": "backontrack-telemetry",
+      "card": "backontrack-telemetry"
+    },
+    "smartcrib": {
+      "main": "smartcrib-pipeline",
+      "plot": "smartcrib-quantization",
+      "card": "smartcrib-quantization"
+    },
+    "emg-bci": {
+      "main": "emg-bci-loop",
+      "plot": "emg-bci-lag-sweep",
+      "card": "emg-bci-lag-sweep"
+    }
+  }
+}

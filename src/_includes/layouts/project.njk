@@ -1,0 +1,41 @@
+---
+layout: layouts/base.njk
+pageClass: page-project
+---
+{%- set next = collections.project | nextAfter(page.url) -%}
+<article class="wrap project">
+  <div class="project__top">
+    <a href="/projects/">← All projects</a>
+    <p class="project__meta"><span class="label">{{ pathway }}</span>{{ context | chip("context") | safe }}{{ status | chip("status") | safe }}</p>
+  </div>
+
+  <header class="project__head">
+    <h1>{{ title }}</h1>
+    <p class="lead">{{ result }}</p>
+    <p class="project__role"><span class="label">Role</span>{{ role }}</p>
+    <p class="tags">{{ stack | join(" · ") }}</p>
+  </header>
+
+  {% if mainVisual %}{% figure mainVisual, "", true %}{% endif %}
+
+  {% include "partials/keynums.njk" %}
+
+  {%- set sections = content | toc %}
+  <nav class="toc" aria-label="On this page">
+    <span class="label">On this page</span>
+    <ol>{% for h in sections %}<li><a href="#{{ h.id }}">{{ h.text }}</a></li>{% endfor %}</ol>
+  </nav>
+
+  <div class="prose">
+    {{ content | projectBody(plotVisual) | safe }}
+  </div>
+
+  <footer class="project__foot">
+    {%- if links and links.length %}
+    <ul class="btn-row">{% for l in links %}<li><a class="btn btn--secondary" href="{{ l }}">{{ l | repoLabel }} <span aria-hidden="true">→</span></a></li>{% endfor %}</ul>
+    {%- endif %}
+    {%- if next and next.url != page.url %}
+    <a class="project__next" href="{{ next.url }}"><span class="label">Next project →</span>{{ next.data.title }}</a>
+    {%- endif %}
+  </footer>
+</article>

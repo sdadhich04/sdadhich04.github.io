@@ -1,0 +1,152 @@
+[
+  {
+    "category": "Embedded & firmware",
+    "tools": [
+      "ESP32-S3",
+      "ESP-IDF",
+      "FreeRTOS",
+      "C / C++",
+      "Dual-core task pinning",
+      "SPI",
+      "Bluetooth Low Energy",
+      "SD-card logging (FAT)",
+      "Arduino"
+    ],
+    "evidence": [
+      {
+        "label": "BackOnTrack firmware",
+        "href": "/projects/backontrack/"
+      },
+      {
+        "label": "Project SHIELD",
+        "href": "/projects/project-shield/"
+      },
+      {
+        "label": "SmartCrib (joint project with Jonathan Lu)",
+        "href": "/projects/smartcrib/"
+      }
+    ]
+  },
+  {
+    "category": "Sensing & instrumentation",
+    "tools": [
+      "Bioimpedance measurement (AD5933 / AD5934)",
+      "Op-amp front ends (INA333, AD8606)",
+      "Sensor calibration & noise characterization",
+      "Data-acquisition pipelines",
+      "IMU integration (BNO085)",
+      "Wearable IMU + EMG sensing",
+      "Environmental sensors (pressure, temperature, sound, light)",
+      "Bench debugging (oscilloscope)"
+    ],
+    "evidence": [
+      {
+        "label": "TPT-Finder bioimpedance (BioZ v4)",
+        "href": "/projects/tpt-finder-bioimpedance/"
+      },
+      {
+        "label": "Project SHIELD",
+        "href": "/projects/project-shield/"
+      },
+      {
+        "label": "BackOnTrack firmware",
+        "href": "/projects/backontrack/"
+      }
+    ]
+  },
+  {
+    "category": "Edge ML",
+    "tools": [
+      "TensorFlow Lite Micro",
+      "INT8 post-training quantization",
+      "TensorFlow / Keras",
+      "MFCC feature extraction",
+      "PDM audio sampling",
+      "Arduino Nano 33 BLE Sense (Cortex-M4)"
+    ],
+    "evidence": [
+      {
+        "label": "SmartCrib (joint project with Jonathan Lu)",
+        "href": "/projects/smartcrib/"
+      }
+    ]
+  },
+  {
+    "category": "Signal processing & neural data",
+    "tools": [
+      "Kalman filtering (state estimation)",
+      "Real-time closed-loop BCI",
+      "EMG signal processing",
+      "Lab Streaming Layer (LSL)",
+      "MATLAB",
+      "Audio features (librosa)"
+    ],
+    "evidence": [
+      {
+        "label": "Real-time EMG BCI",
+        "href": "/projects/emg-bci/"
+      },
+      {
+        "label": "BackOnTrack firmware",
+        "href": "/projects/backontrack/"
+      },
+      {
+        "label": "SmartCrib (joint project with Jonathan Lu)",
+        "href": "/projects/smartcrib/"
+      }
+    ]
+  },
+  {
+    "category": "Hardware design & test",
+    "tools": [
+      "KiCad (schematic + PCB layout)",
+      "BOM & vendor comparison",
+      "Vibration / shaker-table testing",
+      "Environmental stress testing (thermal, EMI)",
+      "Faraday cage / EMI shielding",
+      "Fault-injection testing",
+      "3D-printable parts (STL)",
+      "Root-cause debugging"
+    ],
+    "evidence": [
+      {
+        "label": "Project SHIELD",
+        "href": "/projects/project-shield/"
+      },
+      {
+        "label": "TPT-Finder bioimpedance (BioZ v4)",
+        "href": "/projects/tpt-finder-bioimpedance/"
+      },
+      {
+        "label": "BackOnTrack firmware",
+        "href": "/projects/backontrack/"
+      }
+    ]
+  },
+  {
+    "category": "Software & tooling",
+    "tools": [
+      "Python",
+      "Serial test automation (pyserial)",
+      "NumPy",
+      "pandas",
+      "scikit-learn",
+      "CMake (ESP-IDF builds)",
+      "Git / GitHub"
+    ],
+    "evidence": [
+      {
+        "label": "Project SHIELD",
+        "href": "/projects/project-shield/"
+      },
+      {
+        "label": "SmartCrib (joint project with Jonathan Lu)",
+        "href": "/projects/smartcrib/"
+      },
+      {
+        "label": "BackOnTrack repo (15/15 commits mine)",
+        "href": "https://github.com/sdadhich04/Project-Back-on-Track"
+      }
+    ]
+  }
+]

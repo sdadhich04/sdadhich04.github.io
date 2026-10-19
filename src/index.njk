@@ -1,0 +1,68 @@
+---
+layout: layouts/base.njk
+permalink: /
+pageClass: page-home
+eleventyComputed:
+  title: "{{ home.title }}"
+  description: "{{ home.description }}"
+---
+{%- set nameParts = home.name.split(" ") -%}
+<section class="wrap hero" aria-labelledby="hero-name">
+  <ul class="hero__roles" aria-label="{{ home.nowHeading }}">
+  {%- for r in home.roles %}
+    <li class="label">{% if r.active %}{{ "● Active" | chip | safe }}{% endif %}<span>{{ r.role }}</span><span>· {{ r.dates }}</span></li>
+  {%- endfor %}
+  </ul>
+  <div class="hero__main">
+    <div>
+      <h1 class="hero__name" id="hero-name">{% for n in nameParts %}<span>{{ n }}</span>{% endfor %}</h1>
+      <p class="hero__positioning">{{ home.positioning }}</p>
+      <p class="hero__intro">{{ home.intro }}</p>
+    </div>
+    <div class="hero__actions">
+    {%- for b in home.buttons %}
+      <a class="btn {{ 'btn--primary' if loop.first else 'btn--secondary' }}" href="{{ b.href }}">{{ b.label }} <span aria-hidden="true">→</span></a>
+    {%- endfor %}
+    </div>
+  </div>
+  {%- set art = media.items[home.hero.name] %}
+  <figure class="hero-art">
+    <img src="{{ art.src }}" width="{{ art.width }}" height="{{ art.height }}" alt="{{ home.hero.alt }}" decoding="async" eleventy:ignore>
+    <figcaption class="owncap">
+      {%- for c in home.hero.caption %}<span>{{ c }}</span>{% endfor %}
+      <a href="{{ home.hero.link.href }}">{{ home.hero.link.label }}</a>
+    </figcaption>
+  </figure>
+</section>
+
+<section class="wrap section" aria-labelledby="featured">
+  <div class="section__head">
+    <h2 id="featured" class="label-heading">{{ home.featuredHeading }}</h2>
+    <a href="/projects/">All projects →</a>
+  </div>
+  <ul class="cards">
+  {%- for f in home.featured %}
+    {% include "partials/card.njk" %}
+  {%- endfor %}
+  </ul>
+</section>
+
+<section class="wrap section" aria-labelledby="toolkit">
+  <div class="section__head">
+    <h2 id="toolkit" class="label-heading">{{ home.toolkitHeading }}</h2>
+  </div>
+  <p class="section__intro">{{ home.toolkitIntro }}</p>
+  {% include "partials/toolkit.njk" %}
+</section>
+
+<section class="wrap section" aria-labelledby="contact">
+  <div class="contact">
+    <h2 id="contact">{{ home.contactHeading }}</h2>
+    <dl class="contact__list">
+    {%- for c in home.contact %}
+      <div><dt class="label">{{ c.label }}</dt><dd><a href="{{ c.href }}">{{ c.text }}</a></dd></div>
+    {%- endfor %}
+    </dl>
+    <p class="label">{{ home.location }}</p>
+  </div>
+</section>

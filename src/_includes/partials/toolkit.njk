@@ -1,0 +1,14 @@
+{#- Technical toolkit (R20, V3): category │ tools │ evidence links -#}
+<table class="toolkit">
+  <caption class="visually-hidden">Technical toolkit: each category, its tools, and the projects that show the work</caption>
+  <thead class="visually-hidden"><tr><th scope="col">Category</th><th scope="col">Tools</th><th scope="col">Evidence</th></tr></thead>
+  <tbody>
+  {%- for row in toolkit %}
+    <tr>
+      <th scope="row">{{ row.category }}</th>
+      <td>{{ row.tools | join(" · ") }}</td>
+      <td><ul>{% for e in row.evidence %}<li><a href="{{ e.href }}">{{ e.label }} →</a></li>{% endfor %}</ul></td>
+    </tr>
+  {%- endfor %}
+  </tbody>
+</table>

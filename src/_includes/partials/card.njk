@@ -1,0 +1,12 @@
+{#- featured project card (R4): visual, title, chips, result and role, tags; the whole card is one link. Expects `f` from home.json -#}
+<li>
+  <a class="card" href="{{ f.href }}">
+    <div class="card__visual">{% cardVisual media.projects[f.slug].card %}</div>
+    <h3 class="card__title">{{ f.title }}</h3>
+    <p class="chips">{% for c in f.chips %}{{ c | chip | safe }}{% endfor %}</p>
+    {%- for t in f.text %}
+    <p class="card__text{% if t[0] == '*' %} card__ack{% endif %}">{{ t | mdInline | safe }}</p>
+    {%- endfor %}
+    <p class="tags">{{ f.tags | join(" · ") }}</p>
+  </a>
+</li>

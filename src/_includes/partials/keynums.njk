@@ -1,0 +1,9 @@
+{#- key-numbers box (R5): 4–6 cells, big value above a mono label -#}
+<section aria-labelledby="key-numbers">
+  <h2 id="key-numbers" class="label-heading">Key numbers</h2>
+  <dl class="keynums">
+  {%- for k in key_numbers %}
+    <div><dt>{{ k.label }}</dt><dd{% if k.value | length > 14 %} class="is-long"{% endif %}>{{ k.value }}</dd></div>
+  {%- endfor %}
+  </dl>
+</section>

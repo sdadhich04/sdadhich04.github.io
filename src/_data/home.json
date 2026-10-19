@@ -1,0 +1,170 @@
+{
+  "title": "Sparsh Dadhich",
+  "description": "Embedded ML for medical sensing. Bioimpedance instruments, sensor data-acquisition hardware and firmware, and ML that runs on microcontrollers.",
+  "name": "Sparsh Dadhich",
+  "positioning": "Embedded ML for medical sensing",
+  "intro": "I build bioimpedance instruments, sensor data-acquisition boards and test rigs, and firmware that runs ML models on microcontrollers.",
+  "nowHeading": "Now",
+  "roles": [
+    {
+      "active": true,
+      "role": "Data Acquisition & Instrumentation Engineer, ARC Lab",
+      "dates": "Jun 2026–present"
+    },
+    {
+      "active": true,
+      "role": "Biomedical Instrumentation & Impedance Lead, UW BioRobotics Lab",
+      "dates": "Sep 2025–present"
+    }
+  ],
+  "buttons": [
+    {
+      "label": "See projects",
+      "href": "/projects/"
+    },
+    {
+      "label": "Email me",
+      "href": "mailto:sparshdadhich@gmail.com"
+    }
+  ],
+  "hero": {
+    "alt": "Line drawing of the Project SHIELD sensor DAQ board, top and bottom copper, from its KiCad Gerbers",
+    "src": "/assets/svg/shield-pcb-line.svg",
+    "name": "shield-pcb-line",
+    "caption": [
+      "I CO-DESIGNED THIS",
+      "SHIELD DAQ PCB",
+      "ESP32-S3",
+      "KICAD"
+    ],
+    "link": {
+      "label": "See the build →",
+      "href": "/projects/project-shield/"
+    }
+  },
+  "featuredHeading": "Featured projects",
+  "featured": [
+    {
+      "title": "TPT-Finder bioimpedance instrument (BioZ v4)",
+      "slug": "tpt-finder-bioimpedance",
+      "href": "/projects/tpt-finder-bioimpedance/",
+      "chips": [
+        "LAB · TEAM",
+        "● ACTIVE"
+      ],
+      "text": [
+        "TPT-Finder is a pen-like multisensing surgical instrument meant to tell thyroid from parathyroid tissue in real time during surgery. I designed its tetrapolar bioimpedance board, BioZ v4 (AD5933, INA333, AD8606 Howland current source). On an earlier board, BioZ v2, I calibrated the sensing chain to 0.034% error at 33 kHz (2200 Ω calibration). I ran the ex-vivo study and all 500+ tissue measurements. My role: Biomedical Instrumentation & Impedance Lead."
+      ],
+      "tags": [
+        "bioimpedance",
+        "AD5933",
+        "analog front end",
+        "calibration",
+        "KiCad"
+      ]
+    },
+    {
+      "title": "Project SHIELD: sensor DAQ board and stress-test rig",
+      "slug": "project-shield",
+      "href": "/projects/project-shield/",
+      "chips": [
+        "TEAM · LAB",
+        "● ACTIVE"
+      ],
+      "text": [
+        "An ESP32-S3 data-acquisition board for a design with 8 sensor types, plus the rig that stress-tests it. On the capstone I was co-hardware lead (with Thomas Glass) and procurement lead. I designed and built the Faraday cage for the EMI tests and wrote the automation for the orbital-shaker vibration rig, and at ARC Lab I lead the undergraduate team running the stress-test campaign."
+      ],
+      "tags": [
+        "ESP32-S3",
+        "PCB design",
+        "DAQ",
+        "test automation",
+        "EMI"
+      ]
+    },
+    {
+      "title": "BackOnTrack: wearable posture monitor",
+      "slug": "backontrack",
+      "href": "/projects/backontrack/",
+      "chips": [
+        "COURSE · TEAM OF 4",
+        "PROTOTYPE"
+      ],
+      "text": [
+        "A wearable posture monitor: an ESP32-S3 with BNO085 IMUs for the upper and lower back and a MyoWare 2.0 EMG sensor on the upper trapezius, as the team's user manual describes it. It was a four-person EE/BIOEN 461 course team, and I wrote all of the firmware (15/15 commits): modular FreeRTOS/ESP-IDF code and a real-time rule-based classifier (good posture + 5 fault states with the one IMU the public firmware runs). Checked against real-time movements, its classification was 95.3% accurate."
+      ],
+      "tags": [
+        "ESP32-S3",
+        "FreeRTOS",
+        "ESP-IDF",
+        "IMU",
+        "EMG"
+      ]
+    },
+    {
+      "title": "SmartCrib: on-device infant cry detector",
+      "slug": "smartcrib",
+      "href": "/projects/smartcrib/",
+      "chips": [
+        "COURSE · JOINT",
+        "PROTOTYPE"
+      ],
+      "text": [
+        "Joint project with Jonathan Lu. PDM microphone → MFCC → an INT8 TensorFlow Lite Micro model running fully on an Arduino Nano 33 BLE Sense (Cortex-M4), with an ESP32 alert bridge over BLE. Built as the EE/CSE 474 final project."
+      ],
+      "tags": [
+        "TinyML",
+        "TFLM",
+        "INT8",
+        "MFCC",
+        "BLE"
+      ]
+    },
+    {
+      "title": "Real-time EMG BCI",
+      "slug": "emg-bci",
+      "href": "/projects/emg-bci/",
+      "chips": [
+        "COURSE · LAB GROUP OF 3",
+        "COMPLETED"
+      ],
+      "text": [
+        "I built a real-time EMG cursor BCI end to end: EMG streaming, a Kalman-filter closed-loop cursor, and a feedback-lag sweep.",
+        "*Built for EE 466 (Winter 2026) at UW in a three-person lab group with Jonathan and Olivia, following the course protocol and script outlines by A. L. Orsborn. The code here and the lag-sweep analysis are my own.*"
+      ],
+      "tags": [
+        "EMG",
+        "Kalman filter",
+        "closed-loop control",
+        "MATLAB",
+        "LSL"
+      ]
+    }
+  ],
+  "toolkitHeading": "Technical toolkit",
+  "toolkitIntro": "Each row links to the project that shows the work.",
+  "contactHeading": "Contact",
+  "contact": [
+    {
+      "label": "Email",
+      "text": "sparshdadhich@gmail.com",
+      "href": "mailto:sparshdadhich@gmail.com"
+    },
+    {
+      "label": "LinkedIn",
+      "text": "linkedin.com/in/sparsh-dadhich",
+      "href": "https://www.linkedin.com/in/sparsh-dadhich"
+    },
+    {
+      "label": "GitHub",
+      "text": "github.com/sdadhich04",
+      "href": "https://github.com/sdadhich04"
+    },
+    {
+      "label": "Résumé",
+      "text": "Download résumé (PDF)",
+      "href": "/resume.pdf"
+    }
+  ],
+  "location": "Based in Seattle, WA."
+}

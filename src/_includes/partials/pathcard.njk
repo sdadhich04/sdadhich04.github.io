@@ -1,0 +1,31 @@
+{#- pathway card (R29). Expects `c` from pathways.json -#}
+<article class="card card--pathway">
+  <h4 class="card__title">
+    {%- if c.links.length == 1 %}<a href="{{ c.links[0].href }}">{{ c.title }}</a>{% else %}{{ c.title }}{% endif -%}
+  </h4>
+  {%- set ctx = c.context %}{% set st = c.status %}
+  {% include "partials/chips.njk" %}
+  {%- if c.contextNote %}
+  <p class="card__role">{{ c.contextNote }}</p>
+  {%- endif %}
+  <p class="card__text">{{ c.result | mdInline | safe }}</p>
+  {%- if c.ack %}
+  <p class="card__text card__ack">{{ c.ack | mdInline | safe }}</p>
+  {%- endif %}
+  {%- if c.statusText %}
+  <p class="card__text">{{ c.statusText | mdInline | safe }}</p>
+  {%- endif %}
+  {%- if c.links.length > 1 %}
+  <ul class="card__links">{% for l in c.links %}<li><a href="{{ l.href }}">{{ l.label }} →</a></li>{% endfor %}</ul>
+  {%- endif %}
+  <p class="tags">{{ c.tags | join(" · ") }}</p>
+  {%- if c.also.length %}
+  <div class="card__also"><span class="label">Also in this pathway</span>
+    {%- if c.also.length == 1 %}
+    <p>{{ c.also[0] | mdInline | safe }}</p>
+    {%- else %}
+    <ul>{% for a in c.also %}<li>{{ a | mdInline | safe }}</li>{% endfor %}</ul>
+    {%- endif %}
+  </div>
+  {%- endif %}
+</article>

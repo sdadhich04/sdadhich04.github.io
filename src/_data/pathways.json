@@ -1,0 +1,274 @@
+[
+  {
+    "name": "Embedded systems & firmware",
+    "card": {
+      "title": "BackOnTrack: posture-monitor firmware",
+      "result": "I wrote all of the firmware (15/15 commits) for a four-person course team's wearable posture monitor: modular FreeRTOS/ESP-IDF on an ESP32-S3, with a real-time rule-based classifier (good posture + 5 fault states) that was 95.3% accurate when checked against real-time movements.",
+      "context": [
+        "COURSE · TEAM OF 4"
+      ],
+      "contextNote": "EE/BIOEN 461; team: Sparsh, Matthew, Parneet, Ella",
+      "status": [
+        "PROTOTYPE"
+      ],
+      "statusText": null,
+      "tags": [
+        "ESP32-S3",
+        "FreeRTOS",
+        "ESP-IDF",
+        "C/C++",
+        "SPI",
+        "BLE"
+      ],
+      "links": [
+        {
+          "href": "/projects/backontrack/",
+          "label": "BackOnTrack: wearable posture monitor"
+        }
+      ],
+      "also": [
+        "EE 474 labs (bare-metal ESP32-S3 GPIO, timer and PWM; ISRs, I2C and a priority scheduler; a FreeRTOS SRTF scheduler on a dual-core ESP32-S3)."
+      ]
+    }
+  },
+  {
+    "name": "TinyML / edge ML",
+    "card": {
+      "title": "SmartCrib: on-device cry detector",
+      "result": "Joint project with Jonathan Lu. PDM mic → MFCC → INT8 TensorFlow Lite Micro model running fully on-device on an Arduino Nano 33 BLE Sense (Cortex-M4), with an ESP32 alert bridge over BLE.",
+      "context": [
+        "COURSE · JOINT"
+      ],
+      "contextNote": "EE/CSE 474 final project",
+      "status": [
+        "PROTOTYPE"
+      ],
+      "statusText": null,
+      "tags": [
+        "TFLM",
+        "INT8",
+        "MFCC",
+        "Cortex-M4",
+        "BLE"
+      ],
+      "links": [
+        {
+          "href": "/projects/smartcrib/",
+          "label": "SmartCrib: on-device infant-cry detection"
+        }
+      ],
+      "also": [
+        "EE 446 TinyML compression work (INT8 quantization, pruning, distillation; magic wand, human-activity recognition, keyword spotting)."
+      ]
+    }
+  },
+  {
+    "name": "Biomedical instrumentation & medical sensing",
+    "card": {
+      "title": "TPT-Finder bioimpedance instrument (BioZ v4)",
+      "result": "A tetrapolar bioimpedance board, BioZ v4 (AD5933, INA333, AD8606 Howland current source). On the earlier BioZ v2 I calibrated the sensing chain to 0.034% error at 33 kHz (2200 Ω calibration), and I ran the ex-vivo study and all 500+ tissue measurements.",
+      "context": [
+        "LAB · TEAM"
+      ],
+      "contextNote": "UW BioRobotics Lab; my role: Biomedical Instrumentation & Impedance Lead",
+      "status": [
+        "● ACTIVE"
+      ],
+      "statusText": null,
+      "tags": [
+        "bioimpedance",
+        "AD5933",
+        "instrumentation amp",
+        "calibration",
+        "KiCad"
+      ],
+      "links": [
+        {
+          "href": "/projects/tpt-finder-bioimpedance/",
+          "label": "TPT-Finder bioimpedance instrument (BioZ v4)"
+        }
+      ],
+      "also": [
+        "a two-electrode bioimpedance pen (AD5934), and support for the ultrasound and photonics sub-modalities."
+      ]
+    }
+  },
+  {
+    "name": "Data acquisition, test & reliability",
+    "card": {
+      "title": "Project SHIELD: sensor DAQ board and stress-test rig",
+      "result": "An ESP32-S3 data-acquisition board for a design with 8 sensor types, plus the Faraday cage and orbital-shaker automation that stress-test it for SHIBench.",
+      "context": [
+        "TEAM · LAB"
+      ],
+      "contextNote": "Guide Air Labs capstone: co-hardware lead (with Thomas Glass) and procurement lead; ARC Lab: stress-test campaign lead",
+      "status": [
+        "● ACTIVE"
+      ],
+      "statusText": null,
+      "tags": [
+        "ESP32-S3",
+        "PCB design",
+        "DAQ",
+        "vibration testing",
+        "EMI",
+        "Python"
+      ],
+      "links": [
+        {
+          "href": "/projects/project-shield/",
+          "label": "Project SHIELD: sensor DAQ board and stress-test rig"
+        }
+      ],
+      "also": [
+        "[`Faraday-Cage-design-`](https://github.com/sdadhich04/Faraday-Cage-design-) (6/6 commits his): the 3D-printable cage, as Onshape CAD exports (STL and STEP).",
+        "`shaker-table-test` (4/4 commits his): the Python runners that drive the shaker table. Not linked.",
+        "`Project_Shield_PCB` (10/13 commits his): zipped KiCad project versions of the board."
+      ]
+    }
+  },
+  {
+    "name": "Neural engineering / BCI",
+    "card": {
+      "title": "Real-time EMG BCI",
+      "result": "I built a real-time EMG cursor BCI end to end: EMG streaming, a Kalman-filter closed-loop cursor, and a feedback-lag sweep.",
+      "ack": "Built for EE 466 (Winter 2026) at UW in a three-person lab group with Jonathan and Olivia, following the course protocol and script outlines by A. L. Orsborn. The code here and the lag-sweep analysis are my own.",
+      "context": [
+        "COURSE"
+      ],
+      "contextNote": null,
+      "status": [
+        "COMPLETED"
+      ],
+      "statusText": null,
+      "tags": [
+        "EMG",
+        "Kalman filter",
+        "closed loop",
+        "MATLAB",
+        "Lab Streaming Layer"
+      ],
+      "links": [
+        {
+          "href": "/projects/emg-bci/",
+          "label": "Real-time EMG cursor BCI with a feedback-lag sweep"
+        }
+      ],
+      "also": [
+        "ECoG spike detection (EE 460)."
+      ]
+    }
+  },
+  {
+    "name": "Machine learning (EngineerGraph)",
+    "card": {
+      "title": "EngineerGraph: a local evidence engine",
+      "result": "A knowledge graph (7,170 nodes, 22,325 edges) over 46,472 indexed files that links 316 skills to the files and commits that prove them. It uses hybrid BM25 + vector search, and I cut a search from 1,604 SQL statements to 14 (0.4 s) with the ranking proven identical. The suite has 702 tests passed + 7 skipped.",
+      "context": [
+        "SOLO"
+      ],
+      "contextNote": null,
+      "status": [
+        "● ACTIVE"
+      ],
+      "statusText": null,
+      "tags": [
+        "Python",
+        "SQLite FTS5",
+        "sqlite-vec",
+        "FastAPI",
+        "BM25 + vectors",
+        "pytest"
+      ],
+      "links": [],
+      "also": [
+        "Computer Vision Robotics Intern, Central Research Laboratory, Bharat Electronics (Aug–Sep 2025)."
+      ]
+    }
+  },
+  {
+    "name": "Signal processing / DSP",
+    "card": {
+      "title": "Signal processing inside SmartCrib and TPT-Finder",
+      "result": "The DSP work sits inside two featured projects: the MFCC front end that feeds SmartCrib's INT8 model, and the sensing-chain calibration and impedance analysis at 33 kHz behind TPT-Finder's 0.034% error (measured on BioZ v2).",
+      "context": [
+        "JOINT · LAB"
+      ],
+      "contextNote": "SmartCrib: joint project with Jonathan Lu; TPT-Finder: UW BioRobotics Lab",
+      "status": [
+        "PROTOTYPE",
+        "● ACTIVE"
+      ],
+      "statusText": null,
+      "tags": [
+        "MFCC",
+        "feature extraction",
+        "impedance analysis",
+        "calibration"
+      ],
+      "links": [
+        {
+          "href": "/projects/smartcrib/",
+          "label": "SmartCrib: on-device infant-cry detection"
+        },
+        {
+          "href": "/projects/tpt-finder-bioimpedance/",
+          "label": "TPT-Finder bioimpedance instrument (BioZ v4)"
+        }
+      ],
+      "also": [
+        "EE 242 Fourier and audio signal-processing labs (eight Jupyter notebooks)."
+      ]
+    }
+  },
+  {
+    "name": "Digital design / computer architecture",
+    "card": {
+      "title": "LEGv8 CPU in SystemVerilog",
+      "result": "A LEGv8 processor built up from an ALU and a single-cycle datapath to a 5-stage pipeline with forwarding and a cache hierarchy.",
+      "context": [
+        "COURSE · TEAM"
+      ],
+      "contextNote": "EE 469; team project with Ankith and Alexander Vuu",
+      "status": [
+        "COMPLETED"
+      ],
+      "statusText": null,
+      "tags": [
+        "SystemVerilog",
+        "pipelining",
+        "forwarding",
+        "cache"
+      ],
+      "links": [],
+      "also": [
+        "EE 271 digital-logic labs in SystemVerilog for the DE1-SoC (multiplexers, seven-segment display, FSMs, button debouncing, LFSR)."
+      ]
+    }
+  },
+  {
+    "name": "Robotics: sensing & control",
+    "card": {
+      "title": "Sensing & control (no robot yet)",
+      "result": "I haven't built a robot. The pieces I'd bring to one come from other projects: Kalman-filter state estimation in a closed loop (EMG BCI), IMU sensing with a BNO085 (BackOnTrack), automated test rigs (the SHIELD orbital-shaker sequencer), and CAD for a 3D-printable Faraday cage.",
+      "context": [],
+      "contextNote": null,
+      "status": [],
+      "statusText": "A small robotics build is planned after launch (for example, an ESP32 closed-loop servo or motor controller with an IMU).",
+      "tags": [
+        "state estimation",
+        "closed-loop control",
+        "IMU",
+        "test automation",
+        "CAD"
+      ],
+      "links": [
+        {
+          "href": "/projects/emg-bci/",
+          "label": "Real-time EMG cursor BCI with a feedback-lag sweep"
+        }
+      ],
+      "also": []
+    }
+  }
+]

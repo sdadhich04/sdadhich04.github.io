@@ -1,0 +1,30 @@
+{
+  "name": "sdadhich04.github.io",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Portfolio site of Sparsh Dadhich, built with Eleventy.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "check:links": "linkinator _site --recurse --skip \"^https?://(?!(localhost|127.0.0.1)[:/])\" --skip \"^(mailto|data):\" --verbosity info",
+    "check:links:external": "linkinator _site --recurse --skip \"^(mailto|data):\" --verbosity error",
+    "lhci:mobile": "lhci autorun --config=lighthouserc.mobile.json",
+    "lhci:desktop": "lhci autorun --config=lighthouserc.desktop.json"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.7",
+    "@11ty/eleventy-img": "7.0.0",
+    "@fontsource/inter": "5.3.0",
+    "@fontsource/inter-tight": "5.3.0",
+    "@fontsource/jetbrains-mono": "5.3.0",
+    "@lhci/cli": "0.15.1",
+    "linkinator": "8.1.0",
+    "markdown-it": "15.0.3",
+    "markdown-it-anchor": "10.0.0",
+    "node-html-parser": "9.0.5"
+  }
+}

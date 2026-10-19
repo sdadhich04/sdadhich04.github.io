@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+permalink: /projects/
+pageClass: page-projects
+title: Projects · Sparsh Dadhich
+description: Projects by Sparsh Dadhich, grouped by pathway, from embedded firmware and TinyML to bioimpedance instrumentation, sensor data acquisition and closed-loop EMG control.
+---
+<div class="wrap page-head">
+  <h1>Projects</h1>
+</div>
+
+<section class="wrap section" aria-labelledby="featured" style="padding-top:0">
+  <div class="section__head"><h2 id="featured" class="label-heading">Featured</h2></div>
+  <ul class="cards">
+  {%- for f in home.featured %}
+    {% include "partials/card.njk" %}
+  {%- endfor %}
+  </ul>
+</section>
+
+<section class="wrap section" aria-labelledby="by-pathway">
+  <div class="section__head"><h2 id="by-pathway" class="label-heading">By pathway</h2></div>
+  {%- for p in pathways %}
+  <section class="pathway" aria-labelledby="pw-{{ loop.index }}">
+    <h3 class="pathway__name" id="pw-{{ loop.index }}">{{ p.name }}</h3>
+    {%- set c = p.card %}
+    {% include "partials/pathcard.njk" %}
+  </section>
+  {%- endfor %}
+</section>

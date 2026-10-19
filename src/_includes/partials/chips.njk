@@ -1,0 +1,5 @@
+{#- context + status chips; expects `ctx` and `st` (list or single string) -#}
+<p class="chips">
+{%- for c in ([ctx] if ctx is string else (ctx or [])) %}{{ c | chip("context") | safe }}{% endfor -%}
+{%- for s in ([st] if st is string else (st or [])) %}{{ s | chip("status") | safe }}{% endfor -%}
+</p>
