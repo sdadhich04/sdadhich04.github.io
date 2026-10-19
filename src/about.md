@@ -101,17 +101,48 @@ I was a student advisor to the program for three and a half years.
 
 ## Coursework
 
-Course code and title, each tagged with the pathway it supports. The left column is the ECE major and the right column is the Neural Computation & Engineering minor.
+Engineering, math and statistics courses from my degree, grouped by the part of the degree they counted toward and tagged with the pathway each one supports. Where courses form a sequence, only the last one is listed.
 
-| ECE major | Pathway | NC&E minor | Pathway |
-|---|---|---|---|
-| EE 474 Intro to Embedded Systems | Embedded | EE 460 Neural Engineering | Neural/BCI |
-| EE 446 Tiny ML for Low-Power Computing | TinyML | EE 461 Neural Engineering Tech Studio (minor capstone) | Neural/BCI |
-| EE 469 Computer Architecture I | Digital design | EE 466 Neural Computation & Engineering Lab | Neural/BCI |
-| EE 271 Digital Circuits & Systems | Digital design | AMATH 342 Neural Coding & Computation | Neural/BCI |
-| EE 242 Signals, Systems & Data I | Signal processing | CSE 415 Introduction to AI | ML / robotics |
-| EE 233 Circuit Theory | Instrumentation | | |
-| EE 497/498 Entrepreneurial Capstone (SHIELD) | Test & measurement | | |
-| EE 499 Undergraduate Research (BioRobotics Lab) | Instrumentation | | |
-| CSE 416 Introduction to Machine Learning | ML | | |
-| STAT 390 Statistical Methods in Engineering & Science | Test & measurement | | |
+### ECE major
+
+| Course | Pathway |
+|---|---|
+| EE 474 Intro to Embedded Systems | Embedded |
+| EE 446 Tiny ML for Low-Power Computing | TinyML |
+| EE 469 Computer Architecture I | Digital design |
+| EE 271 Digital Circuits & Systems | Digital design |
+| EE 242 Signals, Systems & Data I | Signal processing |
+| EE 241 Programming for Signal Processing | Signal processing |
+| EE 233 Circuit Theory | Instrumentation |
+| EE 280 Exploring Devices | Instrumentation |
+| EE 201 Computer Hardware Skills | Hardware |
+| EE 497/498 Entrepreneurial Capstone (SHIELD) | Test & measurement |
+| EE 499 Undergraduate Research (BioRobotics Lab) | Instrumentation |
+| CSE 416 Introduction to Machine Learning | ML |
+| CSE 373 Data Structures & Algorithms | Software |
+| CSE 123 Computer Programming III | Software |
+| ME 123 Visualization & CAD | CAD |
+| EE 393 Advanced Technical Communication | Communication |
+
+### Neural Computation & Engineering minor
+
+| Course | Pathway |
+|---|---|
+| EE 460 Neural Engineering | Neural/BCI |
+| EE 461 Neural Engineering Tech Studio (minor capstone) | Neural/BCI |
+| EE 466 Neural Computation & Engineering Lab | Neural/BCI |
+| AMATH 342 Neural Coding & Computation | Neural/BCI |
+| AMATH 422 Computational Models in Biology | Modeling |
+| CSE 415 Introduction to AI | ML / robotics |
+| EE 423 Introduction to Synthetic Biology | Bioengineering |
+| NEUSCI 450 Neuroscience Papers | Neural/BCI |
+| PHIL 242 Medical Ethics | Neuroethics |
+
+### Math & statistics
+
+| Course | Pathway |
+|---|---|
+| MATH 207 Introduction to Differential Equations | |
+| MATH 208 Matrix Algebra | |
+| MATH 224 Advanced Multivariable Calculus | |
+| STAT 390 Statistical Methods in Engineering & Science | Test & measurement |

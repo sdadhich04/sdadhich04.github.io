@@ -353,10 +353,11 @@ a.card:hover .card__title { color: var(--accent); }
   .page-about .psec__head h2, .page-interests .psec__head h2 { font-size: 1.875rem; margin: 0; position: sticky; top: var(--space-4); }
 }
 .page-interests .psec { margin-top: var(--space-4); }
-.coursework { display: grid; gap: var(--space-4); }
-@media (min-width: 52rem) { .coursework { grid-template-columns: 1fr 1fr; } }
-.coursework h3 { margin-top: 0; font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-label); text-transform: uppercase; letter-spacing: .14em; color: var(--faint); }
-.coursework ul { list-style: none; padding: 0; margin: 0; }
+.coursework { display: grid; gap: var(--space-5); }
+@media (min-width: 52rem) { .coursework { grid-template-columns: 1fr 1fr; align-items: start; } }
+.cw-col { display: grid; gap: var(--space-5); }
+.coursework h3 { margin: 0 0 var(--space-2); font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-label); text-transform: uppercase; letter-spacing: .14em; color: var(--faint); }
+.coursework ul { list-style: none; padding: 0; margin: 0; border-bottom: 1px solid var(--line); }
 .coursework li { display: grid; grid-template-columns: 5.5rem 1fr; gap: 0 var(--space-3); padding: var(--space-2) 0; border-top: 1px solid var(--line); margin: 0; }
 .cw__code { font-family: var(--font-mono); font-weight: 500; font-size: 0.8125rem; color: var(--faint); padding-top: .15em; }
 .cw__title { color: var(--text); }
