@@ -1,17 +1,39 @@
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
-import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+import Image, { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import {
-  chip, figure, cardVisual, toc, repoLabel, projectBody, pageBody, inlineCss, slugify,
+  chip, figure, toc, repoLabel, projectBody, pageBody, inlineCss, slugify, esc,
 } from "./lib/render.js";
 
 const FONTS = {
   "node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2": "assets/fonts/inter-400.woff2",
   "node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2": "assets/fonts/inter-500.woff2",
-  "node_modules/@fontsource/inter-tight/files/inter-tight-latin-700-normal.woff2": "assets/fonts/inter-tight-700.woff2",
-  "node_modules/@fontsource/inter-tight/files/inter-tight-latin-800-normal.woff2": "assets/fonts/inter-tight-800.woff2",
+  "node_modules/@fontsource/big-shoulders-display/files/big-shoulders-display-latin-900-normal.woff2": "assets/fonts/big-shoulders-display-900.woff2",
   "node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-500-normal.woff2": "assets/fonts/jetbrains-mono-500.woff2",
 };
+
+// Home hero render: transparent PNG, art-directed (wide render from 48rem up, the squarer
+// mobile render below), AVIF/WebP/PNG at several widths, loaded eagerly as the likely LCP image.
+async function heroPicture(wideName, mobileName, alt) {
+  const opts = (widths) => ({
+    widths, formats: ["avif", "webp", "png"],
+    urlPath: "/assets/img/r/", outputDir: "_site/assets/img/r/",
+    sharpAvifOptions: { quality: 60 }, sharpWebpOptions: { quality: 80 },
+  });
+  const wide = await Image(`src/assets/img/${wideName}.png`, opts([640, 960, 1300, 1844]));
+  const mob = mobileName ? await Image(`src/assets/img/${mobileName}.png`, opts([420, 824])) : null;
+  const MOBILE = "(max-width: 47.99rem)";
+  const wideSizes = "(min-width: 72rem) 38rem, (min-width: 48rem) 52vw, 100vw";
+  const srcset = (meta, fmt) => meta[fmt].map((m) => m.srcset).join(", ");
+  const sources = [];
+  for (const fmt of ["avif", "webp"]) {
+    if (mob) sources.push(`<source type="image/${fmt}" media="${MOBILE}" srcset="${srcset(mob, fmt)}" sizes="80vw">`);
+    sources.push(`<source type="image/${fmt}" srcset="${srcset(wide, fmt)}" sizes="${wideSizes}">`);
+  }
+  if (mob) sources.push(`<source type="image/png" media="${MOBILE}" srcset="${srcset(mob, "png")}" sizes="80vw">`);
+  const fb = wide.png[1] || wide.png[0];
+  return `<picture>${sources.join("")}<img src="${fb.url}" srcset="${srcset(wide, "png")}" sizes="${wideSizes}" width="${fb.width}" height="${fb.height}" alt="${esc(alt)}" fetchpriority="high" decoding="async" eleventy:ignore></picture>`;
+}
 
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/svg");
@@ -52,7 +74,7 @@ export default function (eleventyConfig) {
     return i < 0 ? null : items[(i + 1) % items.length];
   });
   eleventyConfig.addShortcode("figure", (id, caption, eager) => figure(id, { caption: caption || undefined, eager: !!eager }));
-  eleventyConfig.addShortcode("cardVisual", cardVisual);
+  eleventyConfig.addAsyncShortcode("heroPicture", heroPicture);
   eleventyConfig.addGlobalData("inlineCss", () => inlineCss());
   eleventyConfig.addGlobalData("buildYear", () => new Date().getFullYear());
 

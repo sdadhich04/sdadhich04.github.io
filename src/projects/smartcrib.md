@@ -25,7 +25,6 @@ permalink: /projects/smartcrib/
 tags: [project]
 mainVisual: smartcrib-pipeline
 plotVisual: smartcrib-quantization
-cardVisual: smartcrib-quantization
 order: 4
 ---
 

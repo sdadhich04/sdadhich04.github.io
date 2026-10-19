@@ -1,27 +1,28 @@
-/* Design tokens (DESIGN-SYSTEM.md). Dark theme only at launch. */
+/* Design tokens (DESIGN-SYSTEM.md v2): red on true black. Dark theme only at launch. */
 :root {
   /* colour */
-  --bg:        #0E0E0C;  /* page */
-  --surface:   #171714;  /* cards, tables */
-  --line:      rgb(242 237 227 / 0.10);  /* borders */
-  --grid:      rgb(242 237 227 / 0.05);  /* background grid, decorative */
-  --text:      #F2EDE3;  /* 16.6:1 on bg */
-  --muted:     #A9A398;  /* 7.7:1, secondary text */
-  --faint:     #8C877D;  /* 5.4:1, labels and meta (AA) */
-  --accent:    #D2AE72;  /* 9.2:1, warm tan: links, highlights, plot emphasis */
-  --active:    #6CCB8A;  /* 9.7:1, the "● Active" dot and label only */
-  --on-cream:  #0E0E0C;  /* text on the cream primary button (16.6:1) */
+  --bg:        #000000;  /* page: true black, flat, no grid */
+  --text:      #F2E9E4;  /* 17.6:1 on bg, body and headings */
+  --muted:     #9C9389;  /* 7.9:1, secondary text */
+  --faint:     #8C877D;  /* 6.4:1, labels and meta */
+  --line:      rgb(242 233 228 / 0.14);  /* hairlines: the only separator */
+  --accent:    #E8483A;  /* 4.9:1, warm signal red: hover, tags, block markers, plot emphasis */
+  --active:    #4CD97A;  /* 10.3:1, the "● Active" dot and label only */
+  --on-cream:  #000000;  /* text on the off-white primary button */
+  --underline: rgb(242 233 228 / 0.4);  /* link underline at rest */
 
   /* type */
-  --font-display: "Inter Tight", system-ui, sans-serif;   /* 700–800, headings */
-  --font-body:    "Inter", system-ui, sans-serif;         /* 400/500 */
-  --font-mono:    "JetBrains Mono", ui-monospace, monospace; /* labels, code, axis text */
+  --font-display: "Big Shoulders Display", "Inter", system-ui, sans-serif;  /* 900 */
+  --font-body:    "Inter", system-ui, sans-serif;                          /* 400/500 */
+  --font-mono:    "JetBrains Mono", ui-monospace, monospace;               /* labels, code, axis text */
 
-  --fs-hero:  clamp(3rem, 9vw, 7.5rem);   /* the name */
+  --fs-hero:  clamp(3rem, 10vw, 8rem);   /* the name, condensed, oversized */
   --fs-h1:    clamp(2rem, 5vw, 3.5rem);
   --fs-h2:    clamp(1.5rem, 3vw, 2.25rem);
   --fs-body:  1.0625rem;  /* 17 px */
+  --fs-meta:  0.625rem;   /* 10 px mono, the hero meta lines */
   --fs-label: 0.75rem;    /* mono, UPPERCASE, letter-spacing .14em */
+  --lh-hero:  0.84;
   --lh-body:  1.6;
 
   /* space and layout */
@@ -29,5 +30,9 @@
   --space-5: 2.5rem; --space-6: 4rem;  --space-7: 6rem;
   --max-w:   72rem;   /* 1152 px content width */
   --gutter:  clamp(1rem, 4vw, 2.5rem);
-  --radius:  2px;     /* near-square, technical */
+  --radius:  0;       /* square: no fills means no corners to soften */
+  --header-h: 4rem;
+
+  /* motion */
+  --dur-hover: 150ms;
 }

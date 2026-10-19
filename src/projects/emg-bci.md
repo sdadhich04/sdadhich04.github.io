@@ -24,7 +24,6 @@ permalink: /projects/emg-bci/
 tags: [project]
 mainVisual: emg-bci-loop
 plotVisual: emg-bci-lag-sweep
-cardVisual: emg-bci-lag-sweep
 order: 5
 ---
 

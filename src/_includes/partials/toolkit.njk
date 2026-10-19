@@ -7,7 +7,7 @@
     <tr>
       <th scope="row">{{ row.category }}</th>
       <td>{{ row.tools | join(" · ") }}</td>
-      <td><ul>{% for e in row.evidence %}<li><a href="{{ e.href }}">{{ e.label }} →</a></li>{% endfor %}</ul></td>
+      <td><ul>{% for e in row.evidence %}<li><a class="mono-link" href="{{ e.href }}">{{ e.label }}&nbsp;→</a></li>{% endfor %}</ul></td>
     </tr>
   {%- endfor %}
   </tbody>

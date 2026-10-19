@@ -1,12 +1,18 @@
-{#- featured project card (R4): visual, title, chips, result and role, tags; the whole card is one link named by its title and described by its result line. Expects `f` from home.json -#}
+{#- featured project card (R4): left marker, chips, title, result and role, sparkline + key number, tags; the whole card is one link named by its title and described by its result line. Expects `f` from home.json -#}
 <li>
-  <a class="card" href="{{ f.href }}" aria-labelledby="card-{{ f.slug }}" aria-describedby="card-{{ f.slug }}-result">
-    <div class="card__visual">{% cardVisual media.projects[f.slug].card %}</div>
-    <h3 class="card__title" id="card-{{ f.slug }}">{{ f.title }}</h3>
+  <a class="card" href="{{ f.href }}" aria-labelledby="card-{{ f.slug }}" aria-describedby="card-{{ f.slug }}-result card-{{ f.slug }}-key">
     <p class="chips">{% for c in f.chips %}{{ c | chip | safe }}{% endfor %}</p>
+    <h3 class="card__title" id="card-{{ f.slug }}">{{ f.title }}</h3>
     {%- for t in f.text %}
     <p class="card__text{% if t[0] == '*' %} card__ack{% endif %}"{% if loop.first %} id="card-{{ f.slug }}-result"{% endif %}>{{ t | mdInline | safe }}</p>
     {%- endfor %}
+    {%- if f.key %}
+    <p class="card__key" id="card-{{ f.slug }}-key">
+      {%- if f.sparkline %}{% set sp = media.items[f.sparkline] %}<img class="card__spark" src="{{ sp.src }}" width="{{ sp.width }}" height="{{ sp.height }}" alt="" loading="lazy" decoding="async" eleventy:ignore>{% endif -%}
+      <span class="card__num">{{ f.key.value }}</span>
+      <span class="card__keylabel">{{ f.key.label }}</span>
+    </p>
+    {%- endif %}
     <p class="tags">{{ f.tags | join(" · ") }}</p>
   </a>
 </li>

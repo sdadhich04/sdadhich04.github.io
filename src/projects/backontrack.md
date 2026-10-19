@@ -25,7 +25,6 @@ permalink: /projects/backontrack/
 tags: [project]
 mainVisual: backontrack-system
 plotVisual: backontrack-telemetry
-cardVisual: backontrack-telemetry
 order: 3
 ---
 

@@ -7,44 +7,33 @@ eleventyComputed:
   description: "{{ home.description }}"
 ---
 {%- set nameParts = home.name.split(" ") -%}
-<section class="wrap hero" aria-labelledby="hero-name">
-  <div class="hero__main">
-    <div>
-      <h1 class="hero__name" id="hero-name">{% for n in nameParts %}<span>{{ n }}</span>{% endfor %}</h1>
-      <p class="hero__positioning">{{ home.positioning }}</p>
-      {%- if home.status %}
-      <p class="hero__status"><span class="hero__dot" aria-hidden="true">●</span> {{ home.status }}</p>
-      {%- endif %}
-      <p class="hero__intro">{{ home.intro }}</p>
+<section class="hero" aria-labelledby="hero-name">
+  <div class="hero__grid">
+    <p class="hero__cred">{{ home.credentials | join(" · ") }}{% if home.status %} <span class="hero__status"><span class="hero__sep" aria-hidden="true">|</span> <span class="hero__open">{{ home.status }}</span></span>{% endif %}</p>
+    <h1 class="hero__name" id="hero-name">{% for n in nameParts %}<span>{{ n }}</span>{% endfor %}</h1>
+    <p class="hero__positioning">{{ home.positioning }}</p>
+    <div class="hero__now">
+      <h2 class="visually-hidden" id="now">{{ home.nowHeading }}</h2>
+      <ul class="hero__roles" aria-labelledby="now">
+      {%- for r in home.roles %}
+        <li>{% if r.active %}<span class="hero__dot" aria-hidden="true">●</span><span class="visually-hidden">Active: </span>{% endif %}{{ r.lab }} · {{ r.area }}</li>
+      {%- endfor %}
+      </ul>
     </div>
     <div class="hero__actions">
     {%- for b in home.buttons %}
       <a class="btn {{ 'btn--primary' if loop.first else 'btn--secondary' }}" href="{{ b.href }}">{{ b.label }} <span aria-hidden="true">→</span></a>
     {%- endfor %}
     </div>
+    <a class="hero__scroll" href="#featured">Scroll <span aria-hidden="true">↓</span></a>
+    <div class="hero__art">{% heroPicture home.hero.name, home.hero.mobile, home.hero.alt %}</div>
   </div>
-  <div class="hero__now">
-    <h2 class="label-heading" id="now">{{ home.nowHeading }}</h2>
-    <ul class="hero__roles" aria-labelledby="now">
-    {%- for r in home.roles %}
-      <li>{% if r.active %}<span class="hero__dot" aria-hidden="true">●</span> {% endif %}<span class="hero__role">{{ r.role }}</span> <span class="hero__dates">{{ r.dates }}</span></li>
-    {%- endfor %}
-    </ul>
-  </div>
-  {%- set art = media.items[home.hero.name] %}
-  <figure class="hero-art">
-    <img src="{{ art.src }}" width="{{ art.width }}" height="{{ art.height }}" alt="{{ home.hero.alt }}" decoding="async" eleventy:ignore>
-    <figcaption class="owncap">
-      {%- for c in home.hero.caption %}<span>{{ c }}</span>{% endfor %}
-      <a href="{{ home.hero.link.href }}">{{ home.hero.link.label }}</a>
-    </figcaption>
-  </figure>
 </section>
 
 <section class="wrap section" aria-labelledby="featured">
   <div class="section__head">
     <h2 id="featured" class="label-heading">{{ home.featuredHeading }}</h2>
-    <a href="/projects/">All projects →</a>
+    <a class="mono-link" href="/projects/">All projects →</a>
   </div>
   <ul class="cards">
   {%- for f in home.featured %}

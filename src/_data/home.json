@@ -1,21 +1,25 @@
 {
   "title": "Sparsh Dadhich",
   "description": "Embedded ML for medical sensing. Bioimpedance instruments, sensor data-acquisition hardware and firmware, and ML that runs on microcontrollers.",
+  "credentials": [
+    "BS ECE, University of Washington",
+    "June 2026",
+    "Seattle, WA"
+  ],
+  "status": "Open to work",
   "name": "Sparsh Dadhich",
   "positioning": "Embedded ML for medical sensing",
-  "intro": "I build bioimpedance instruments, sensor data-acquisition boards and test rigs, and firmware that runs ML models on microcontrollers.",
-  "status": "Open to work.",
   "nowHeading": "Now",
   "roles": [
     {
       "active": true,
-      "role": "Data Acquisition & Instrumentation Engineer, ARC Lab",
-      "dates": "Jun 2026–present"
+      "lab": "Autonomy, Robotics, and Connectivity Lab",
+      "area": "Data Acquisition"
     },
     {
       "active": true,
-      "role": "Biomedical Instrumentation & Impedance Lead, UW BioRobotics Lab",
-      "dates": "Sep 2025–present"
+      "lab": "BioRobotics Lab",
+      "area": "Biomedical Instrumentation"
     }
   ],
   "buttons": [
@@ -29,19 +33,9 @@
     }
   ],
   "hero": {
-    "alt": "Line drawing of the Project SHIELD sensor DAQ board, top and bottom copper, from its KiCad Gerbers",
-    "src": "/assets/svg/shield-pcb-line.svg",
-    "name": "shield-pcb-line",
-    "caption": [
-      "I CO-DESIGNED THIS",
-      "SHIELD DAQ PCB",
-      "ESP32-S3",
-      "KICAD"
-    ],
-    "link": {
-      "label": "See the build →",
-      "href": "/projects/project-shield/"
-    }
+    "alt": "Project SHIELD sensor data-acquisition board, rendered in 3D from its KiCad layout",
+    "name": "shield-render-wide",
+    "mobile": "shield-render-mobile"
   },
   "featuredHeading": "Featured projects",
   "featured": [
@@ -57,6 +51,11 @@
         "A tetrapolar bioimpedance board (BioZ v4) for a pen-like surgical probe that tells thyroid from parathyroid tissue in real time; I ran the ex-vivo study and all 500+ tissue measurements.",
         "I designed the board as Biomedical Instrumentation & Impedance Lead at the UW BioRobotics Lab."
       ],
+      "key": {
+        "value": "0.034%",
+        "label": "calibration error at 33 kHz (BioZ v2)"
+      },
+      "sparkline": null,
       "tags": [
         "bioimpedance",
         "AD5933",
@@ -77,6 +76,11 @@
         "An ESP32-S3 data-acquisition board for 8 sensor types, built for about $1,700 of a $4,000 sponsor budget, plus the rig that stress-tests it.",
         "Co-hardware lead (with Thomas Glass) and procurement lead on the capstone; at ARC Lab I lead the stress-test campaign and built the rig automation."
       ],
+      "key": {
+        "value": "8",
+        "label": "sensor types on one DAQ board"
+      },
+      "sparkline": null,
       "tags": [
         "ESP32-S3",
         "PCB design",
@@ -97,6 +101,11 @@
         "A wearable posture monitor whose on-device classifier got 95 of 100 live movements right in an informal check.",
         "I wrote all of the firmware for a four-person EE/BIOEN 461 course team."
       ],
+      "key": {
+        "value": "95 / 100",
+        "label": "live movements classified correctly"
+      },
+      "sparkline": "spark-backontrack-pitch",
       "tags": [
         "ESP32-S3",
         "FreeRTOS",
@@ -117,6 +126,11 @@
         "An infant-cry detector that runs fully on an Arduino Nano 33 BLE Sense; the INT8 model is 41% smaller than float32 with the same test results.",
         "Joint project with Jonathan Lu, built as the EE/CSE 474 final project."
       ],
+      "key": {
+        "value": "7.4 kB",
+        "label": "INT8 model, 41% smaller than float32"
+      },
+      "sparkline": "spark-smartcrib-size",
       "tags": [
         "TinyML",
         "TFLM",
@@ -137,6 +151,11 @@
         "An EMG-driven cursor with a Kalman filter; successful reaches fell from 10–16 to 2–4 of 19 as the added feedback lag rose from ≈0–125 ms to ≈360–590 ms.",
         "*Built for EE 466 (Winter 2026) at UW in a three-person lab group with Jonathan and Olivia, following the course protocol and script outlines by A. L. Orsborn. The code here and the lag-sweep analysis are my own.*"
       ],
+      "key": {
+        "value": "16 → 2",
+        "label": "successful reaches of 19, ≈125 → ≈360 ms lag"
+      },
+      "sparkline": "spark-emg-reaches",
       "tags": [
         "EMG",
         "Kalman filter",

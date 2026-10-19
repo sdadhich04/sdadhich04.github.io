@@ -120,6 +120,33 @@
         ]
       }
     },
+    "spark-backontrack-pitch": {
+      "src": "/assets/svg/spark-backontrack-pitch.svg",
+      "kind": "plot",
+      "width": 160,
+      "height": 40,
+      "title": "BackOnTrack: upper-back pitch over one 40.5-minute session",
+      "desc": "Median upper-back pitch per 30-second window across the 9 June 2026 logged session (48,593 frames), ranging from 7 to 24 degrees.",
+      "caption": null
+    },
+    "spark-emg-reaches": {
+      "src": "/assets/svg/spark-emg-reaches.svg",
+      "kind": "plot",
+      "width": 160,
+      "height": 40,
+      "title": "EMG BCI: successful reaches by added feedback lag",
+      "desc": "Successful reaches out of 19: about 0 ms 10, about 125 ms 16, about 360 ms 2, about 590 ms 4 (higher lags highlighted).",
+      "caption": null
+    },
+    "spark-smartcrib-size": {
+      "src": "/assets/svg/spark-smartcrib-size.svg",
+      "kind": "plot",
+      "width": 160,
+      "height": 40,
+      "title": "SmartCrib: model size by format",
+      "desc": "Model size: Keras 58.8 kB, float32 TFLite 12.5 kB, INT8 TFLite 7.4 kB (highlighted).",
+      "caption": null
+    },
     "backontrack-system": {
       "src": "/assets/svg/backontrack-system.svg",
       "kind": "diagram",
@@ -163,7 +190,23 @@
       "height": 621,
       "title": "Project SHIELD sensor DAQ board, drawn from its KiCad Gerbers",
       "desc": "Line drawing of the ESP32-S3 sensor data-acquisition PCB co-designed for Project SHIELD. Top-layer copper is drawn in cream and bottom-layer copper in faint tan: the ESP32-S3 module footprint in the centre, sensor headers around it, and the traces and ground pour between them.",
-      "caption": "The SHIELD ESP32-S3 DAQ PCB I co-designed with Thomas Glass, drawn from its public Gerbers: top copper in cream, bottom copper in tan."
+      "caption": "The SHIELD ESP32-S3 DAQ PCB I co-designed with Thomas Glass, drawn from its public Gerbers: top copper in off-white, bottom copper in grey."
+    },
+    "shield-render-mobile": {
+      "src": "/assets/img/shield-render-mobile.png",
+      "kind": "image",
+      "raster": true,
+      "width": 824,
+      "height": 867,
+      "title": null
+    },
+    "shield-render-wide": {
+      "src": "/assets/img/shield-render-wide.png",
+      "kind": "image",
+      "raster": true,
+      "width": 1844,
+      "height": 1207,
+      "title": null
     },
     "tpt-finder-poster-2026": {
       "src": "/assets/img/tpt-finder-poster-2026.png",
@@ -179,27 +222,21 @@
     }
   },
   "projects": {
-    "tpt-finder-bioimpedance": {
-      "card": "tpt-finder-poster-2026"
-    },
+    "tpt-finder-bioimpedance": {},
     "project-shield": {
-      "main": "shield-pcb-line",
-      "card": "faraday-cage-line"
+      "main": "shield-pcb-line"
     },
     "backontrack": {
       "main": "backontrack-system",
-      "plot": "backontrack-telemetry",
-      "card": "backontrack-telemetry"
+      "plot": "backontrack-telemetry"
     },
     "smartcrib": {
       "main": "smartcrib-pipeline",
-      "plot": "smartcrib-quantization",
-      "card": "smartcrib-quantization"
+      "plot": "smartcrib-quantization"
     },
     "emg-bci": {
       "main": "emg-bci-loop",
-      "plot": "emg-bci-lag-sweep",
-      "card": "emg-bci-lag-sweep"
+      "plot": "emg-bci-lag-sweep"
     }
   }
 }

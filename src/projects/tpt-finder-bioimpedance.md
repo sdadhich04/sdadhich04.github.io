@@ -22,7 +22,6 @@ links: []
 layout: layouts/project.njk
 permalink: /projects/tpt-finder-bioimpedance/
 tags: [project]
-cardVisual: tpt-finder-poster-2026
 order: 1
 ---
 

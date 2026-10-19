@@ -5,7 +5,7 @@ pageClass: page-project
 {%- set next = collections.project | nextAfter(page.url) -%}
 <article class="wrap project">
   <div class="project__top">
-    <a href="/projects/">← All projects</a>
+    <a class="mono-link" href="/projects/">← All projects</a>
     <p class="project__meta"><span class="label">{{ pathway }}</span>{{ context | chip("context") | safe }}{{ status | chip("status") | safe }}</p>
   </div>
 

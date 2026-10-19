@@ -22,7 +22,6 @@ layout: layouts/project.njk
 permalink: /projects/project-shield/
 tags: [project]
 mainVisual: shield-pcb-line
-cardVisual: faraday-cage-line
 order: 2
 ---
 
