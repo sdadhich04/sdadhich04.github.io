@@ -23,7 +23,7 @@ async function heroPicture(wideName, mobileName, alt) {
   const wide = await Image(`src/assets/img/${wideName}.png`, opts([640, 960, 1300, 1844]));
   const mob = mobileName ? await Image(`src/assets/img/${mobileName}.png`, opts([420, 824])) : null;
   const MOBILE = "(max-width: 47.99rem)";
-  const wideSizes = "(min-width: 72rem) 38rem, (min-width: 48rem) 52vw, 100vw";
+  const wideSizes = "(min-width: 90rem) 69rem, (min-width: 48rem) 62vw, 100vw";   // matches the enlarged render (components.css)
   const srcset = (meta, fmt) => meta[fmt].map((m) => m.srcset).join(", ");
   const sources = [];
   for (const fmt of ["avif", "webp"]) {
@@ -55,10 +55,10 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     formats: ["avif", "webp", "auto"],
-    widths: [450, 900],
+    widths: [450, 900, 1400],
     urlPath: "/assets/img/r/",
     outputDir: "_site/assets/img/r/",
-    defaultAttributes: { loading: "lazy", decoding: "async", sizes: "(min-width: 60rem) 30rem, 100vw" },
+    defaultAttributes: { loading: "lazy", decoding: "async", sizes: "(min-width: 72rem) 36rem, (min-width: 52rem) 50vw, 100vw" },
   });
 
   eleventyConfig.addFilter("chip", chip);

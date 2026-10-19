@@ -147,13 +147,14 @@
 
 /* the board render, uncaptioned, with the white CSS backlight (the only gradient in the system) */
 .hero__art { grid-area: art; position: relative; min-height: 0; }
-.hero__art::before {
+.hero__render { position: absolute; inset: 0; }
+.hero__render::before {
   content: ""; position: absolute; pointer-events: none;
   top: -12%; bottom: -12%; left: 50%; translate: -50% 0; aspect-ratio: 1.2;
   background: radial-gradient(closest-side, rgb(255 255 255 / .24) 0%, rgb(255 255 255 / .07) 44%, transparent 74%);
 }
-.hero__art picture { position: absolute; inset: 0; }
-.hero__art img { position: relative; width: 100%; height: 100%; object-fit: contain; }
+.hero__render picture { position: absolute; inset: 0; }
+.hero__render img { position: relative; width: 100%; height: 100%; object-fit: contain; }
 
 @media (min-width: 48rem) {
   .hero__grid {
@@ -163,7 +164,24 @@
     grid-template-areas: ". art" "cred art" "name art" "pos art" "roles art" "act art" ". art" "scroll art";
   }
   .hero__cred { margin-top: 0; }
-  .hero__art::before { top: 50%; bottom: auto; left: -22%; right: -22%; translate: 0 -50%; aspect-ratio: 1.75; }
+
+  /* The render stays centred on the right column but grows until the board's left corner
+     nearly meets the end of the name. In the wide render the board spans 8.2 % → 96.2 % of the
+     image width, so its left corner sits 0.4176 × width left of centre and its right corner
+     0.462 × width right of centre. The width is the smallest of:
+       1. the board's left corner 1.5rem past the name (name width = 3.0625 × --fs-hero);
+       2. the board's right corner 2rem inside the viewport;
+       3. the hero's height (the render is 1844 × 1207). */
+  .hero__grid { container-type: inline-size; }
+  .hero__render {
+    inset: auto; left: 50%; top: 50%; translate: -50% -50%; aspect-ratio: 1844 / 1207;
+    width: min(
+      (75cqw - 0.875rem - 3.0625 * var(--fs-hero)) / 0.4176,
+      (50vw - 25cqw - 0.625rem - 2rem) / 0.462,
+      (max(100svh, 600px) - var(--header-h) - 4rem) * 1.528
+    );
+  }
+  .hero__render::before { top: 50%; bottom: auto; left: -22%; right: -22%; translate: 0 -50%; aspect-ratio: 1.75; }
 }
 
 /* ---------------------------------------------------------------- sections */
@@ -316,11 +334,25 @@ a.card:hover .card__title { color: var(--accent); }
 .prose .table-scroll td { white-space: normal; }
 
 /* ---------------------------------------------------------------- about, coursework, interests */
-.page { padding-top: var(--space-6); }
-.page h1 { font-size: clamp(2.5rem, 7vw, 5rem); margin-bottom: var(--space-5); }
-.page h2 { margin-top: var(--space-7); padding-top: var(--space-3); border-top: 1px solid var(--line); }
-.page h3 { margin-top: var(--space-5); }
+/* Plain pages use the full content width: title and intro, then sections split by a hairline.
+   About and Interests set each heading in a left column beside its text (from 56rem up). */
+.page { padding-top: var(--space-5); }
+.page h1 { font-size: clamp(2.5rem, 7vw, 5rem); margin: 0 0 var(--space-3); }
+.page__intro { margin-bottom: var(--space-2); }
+.page p, .page li { max-width: 46rem; }
+.page li { color: var(--text); }
+.page .table-scroll td { white-space: normal; }
+.psec { margin-top: var(--space-5); padding-top: var(--space-4); border-top: 1px solid var(--line); }
+.psec__head h2 { margin: 0 0 var(--space-3); scroll-margin-top: var(--space-4); }
+.psec__body > :first-child { margin-top: 0; }
+.psec__body > :last-child { margin-bottom: 0; }
+.page h3 { margin-top: var(--space-4); }
 .page-about h3 { font-size: 1.375rem; }
+@media (min-width: 56rem) {
+  .page-about .psec, .page-interests .psec { display: grid; grid-template-columns: 17rem minmax(0, 1fr); column-gap: var(--space-5); }
+  .page-about .psec__head h2, .page-interests .psec__head h2 { font-size: 1.875rem; margin: 0; position: sticky; top: var(--space-4); }
+}
+.page-interests .psec { margin-top: var(--space-4); }
 .coursework { display: grid; gap: var(--space-4); }
 @media (min-width: 52rem) { .coursework { grid-template-columns: 1fr 1fr; } }
 .coursework h3 { margin-top: 0; font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-label); text-transform: uppercase; letter-spacing: .14em; color: var(--faint); }
@@ -329,14 +361,15 @@ a.card:hover .card__title { color: var(--accent); }
 .cw__code { font-family: var(--font-mono); font-weight: 500; font-size: 0.8125rem; color: var(--faint); padding-top: .15em; }
 .cw__title { color: var(--text); }
 .cw__tag { grid-column: 2; font-family: var(--font-mono); font-size: var(--fs-label); text-transform: uppercase; letter-spacing: .1em; color: var(--faint); }
-.page-interests h2 { font-size: 1.75rem; margin-top: var(--space-6); }
 
-/* ---------------------------------------------------------------- publications: marker, no fill */
-.pubcard { display: grid; gap: var(--space-4); border-left: 2px solid var(--accent); padding: 0 0 0 13px; margin: var(--space-4) 0 var(--space-5); }
-@media (min-width: 52rem) { .pubcard:has(.pubcard__thumb) { grid-template-columns: 16rem 1fr; } }
-.pubcard h3 { margin-top: 0; font-family: var(--font-body); font-weight: 500; font-size: 1.1875rem; line-height: 1.35; letter-spacing: 0; }
-.pubcard__thumb { border: 1px solid var(--line); align-self: start; }
-.pubcard__thumb img { width: 100%; }
+
+/* ---------------------------------------------------------------- publications: poster beside its text, no marker */
+.pubcard { display: grid; gap: var(--space-4) var(--space-5); margin: 0 0 var(--space-5); }
+.psec__body > .pubcard:last-child { margin-bottom: 0; }
+@media (min-width: 52rem) { .pubcard:has(.pubcard__thumb) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; } }
+.pubcard h3 { margin-top: 0; font-family: var(--font-body); font-weight: 500; font-size: 1.375rem; line-height: 1.3; letter-spacing: 0; }
+.pubcard__thumb { border: 1px solid var(--line); }
+.pubcard__thumb a, .pubcard__thumb picture, .pubcard__thumb img { display: block; width: 100%; }
 .pubcard__body > :last-child { margin-bottom: 0; }
 .pubcard strong { font-weight: 500; color: var(--text); }
 .pubcard p { color: var(--muted); }
@@ -360,3 +393,6 @@ a.card:hover .card__title { color: var(--accent); }
   .brand__rule { display: none; }
   .resume-btn, .menu-btn { letter-spacing: .08em; padding: 0 .6rem; }
 }
+
+/* "Current roles" lines start with the ● Active chip, so the list needs no bullets */
+.psec--current-roles ul { list-style: none; padding-left: 0; }

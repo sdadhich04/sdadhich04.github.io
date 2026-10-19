@@ -26,7 +26,7 @@ eleventyComputed:
     {%- endfor %}
     </div>
     <a class="hero__scroll" href="#featured">Scroll <span aria-hidden="true">↓</span></a>
-    <div class="hero__art">{% heroPicture home.hero.name, home.hero.mobile, home.hero.alt %}</div>
+    <div class="hero__art"><div class="hero__render">{% heroPicture home.hero.name, home.hero.mobile, home.hero.alt %}</div></div>
   </div>
 </section>
 
