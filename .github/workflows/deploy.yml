@@ -45,12 +45,33 @@ jobs:
       - name: Lighthouse CI (desktop)
         run: npm run lhci:desktop
 
+      - name: Lighthouse scores
+        if: always()
+        run: |
+          node -e '
+          const fs = require("fs");
+          const rows = ["| Profile | Page | Performance | Accessibility | Best practices | SEO |", "|---|---|---|---|---|---|"];
+          for (const profile of ["mobile", "desktop"]) {
+            const dir = ".lighthouseci/" + profile;
+            if (!fs.existsSync(dir)) continue;
+            for (const f of fs.readdirSync(dir).filter((f) => f.endsWith(".report.json")).sort()) {
+              const j = JSON.parse(fs.readFileSync(dir + "/" + f, "utf8"));
+              const s = (c) => Math.round(j.categories[c].score * 100);
+              rows.push(`| ${profile} | ${new URL(j.finalDisplayedUrl).pathname} | ${s("performance")} | ${s("accessibility")} | ${s("best-practices")} | ${s("seo")} |`);
+            }
+          }
+          const out = rows.join("\n");
+          console.log(out);
+          if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, "### Lighthouse\n\n" + out + "\n");
+          '
+
       - name: Upload Lighthouse reports
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: lighthouse-reports
           path: .lighthouseci/
+          include-hidden-files: true
           retention-days: 14
 
       - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
