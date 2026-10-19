@@ -170,6 +170,12 @@
       "kind": "image",
       "raster": true,
       "title": null
+    },
+    "shield-capstone-poster-2026": {
+      "src": "/assets/img/shield-capstone-poster-2026.png",
+      "kind": "image",
+      "raster": true,
+      "title": null
     }
   },
   "projects": {

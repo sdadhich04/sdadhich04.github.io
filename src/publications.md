@@ -25,6 +25,17 @@ The poster's bioimpedance results, a 0.034% calibration error at 33 kHz (2200 Ω
 
 ## Sensor reliability & benchmarks
 
+### Project SHIELD: Smart Hardware Inspection for Early Latency Detection
+**Sparsh Dadhich**, Thomas Glass, Jocelyn He, Sam Korostov, Houser Zhang
+Poster on a capstone prototype · UW ECE ENGINE capstone, sponsored by Guide Air Labs · 2026
+`PRESENTED`
+
+[Poster (PDF)](/assets/pdf/shield-capstone-poster-2026.pdf)
+
+![Thumbnail of the Project SHIELD capstone poster](/assets/img/shield-capstone-poster-2026.png)
+
+The poster covers the capstone's DAQ board, its dual-core FreeRTOS firmware pipeline and the 100-hour nominal runs on the breadboard and PCB prototypes. I was co-hardware lead (with Thomas Glass) and procurement lead, and I designed the Faraday cage used for the EMI tests.
+
 ### SHIBench: A Benchmark for Sensor-Level Fault Detection on an Embedded Acquisition Platform
 Alperen Cucioglu, **Sparsh Dadhich**, Ameyan Dash, Nicolas Berredo, Gokul Nathan, Joydeep Saha, Sep Makhsous
 Manuscript in preparation for *Measurement* (Elsevier) · `IN PREPARATION`

@@ -137,6 +137,7 @@ I designed this: a two-part, 3D-printable Faraday cage for the EMI sessions (Ons
 - Two autonomous test sequencers in the team firmware (81-step bias injection; 4-session shaker table), plus the PC-side shaker scripts.
 - 8 of the 60 commits in the team's firmware repository are mine.
 - I am a co-author on the SHIBench manuscript, *SHIBench: A Benchmark for Sensor-Level Fault Detection on an Embedded Acquisition Platform*, in preparation for *Measurement* (Elsevier).
+- The capstone poster, presented at the UW ECE ENGINE capstone (2026): [Project SHIELD poster (PDF)](/assets/pdf/shield-capstone-poster-2026.pdf).
 
 ## What I'd do differently
 
