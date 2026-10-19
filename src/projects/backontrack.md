@@ -5,13 +5,11 @@ pathway: "Embedded systems & firmware"
 context: "Course team"
 status: Prototype
 role: "Wrote all of the firmware (15/15 commits) in a four-person EE/BIOEN 461 team (Sparsh, Matthew, Parneet, Ella)"
-result: "On-device, rule-based posture classification (good posture + 5 fault states with the upper IMU and one EMG channel), 95.3% accurate when checked against real-time movements, with raw sensor data streamed over BLE at 20 Hz"
+result: "On-device, rule-based posture classification (good posture + 5 fault states with the upper IMU and one EMG channel) that classified 95 of 100 live movements correctly in an informal check, with raw sensor data streamed over BLE at 20 Hz"
 stack: [ESP32-S3, ESP-IDF, FreeRTOS, C/C++, BNO085 IMU (SPI), MyoWare 2.0 EMG, BLE (NimBLE), Python]
 key_numbers:
-  - label: "Classification accuracy, checked against real-time movements"
-    value: "95.3%"
-  - label: "Firmware commits that are mine"
-    value: "15 of 15"
+  - label: "Live movements classified correctly (informal check)"
+    value: "95 of 100"
   - label: "Posture states"
     value: "7 designed; good + 5 fault states running on one IMU"
   - label: "Sampling: IMU / EMG / BLE"
@@ -37,7 +35,7 @@ BackOnTrack is a wearable posture-awareness prototype built by a four-person EE/
 As the team's user manual describes it, the system is an ESP32-S3 main module with two BNO085 IMUs, one on the upper back between the shoulder blades and one on the lower back near the lumbar region, a MyoWare 2.0 EMG sensor on the upper trapezius, vibration alerts, and a companion mobile app (iOS and Android) over BLE.
 It sorts posture into seven states (Good, Slouching, Leaning Forward, Leaning Left, Leaning Right, High Tension and Lumbar Collapse), and an alert fires only after a confirmation period.
 The public firmware currently runs the upper IMU only. The bundled BNO08x driver is single-instance, so the lower-back IMU, which Lumbar Collapse needs, is configured but disabled, and the device classifies good posture plus 5 fault states.
-Checked against real-time movements, the classification was 95.3% accurate.
+In an informal live check, it classified 95 of 100 movements correctly.
 It is a posture-awareness prototype, not a medical device.
 
 ## The problem
@@ -113,14 +111,14 @@ That library is single-instance, which is what forced the one-IMU design: the lo
 
 ## Testing
 
-- **Live check:** I checked the classification against real-time movements; it was 95.3% accurate. This was a check against live movements, not an evaluation on a labelled dataset.
+- **Live check:** I checked the classification against 100 live movements; it got 95 right. This was a check against live movements, not an evaluation on a labelled dataset.
 - **Test checklist** (`docs/testing.md`): pre-flash wiring checks, startup and calibration ranges, each posture state triggered on purpose, a lean shorter than 750 ms that must not trigger, gamification counters, and a 5-minute run with no crash and no frequent queue drops.
 - **Logged session:** I wore the device for a BLE log on 9 June 2026 that holds 48,594 packets over 40.5 minutes (20 Hz), with the upper IMU and EMG valid and the lower IMU off.
 
 ## Results
 
 - Working ESP-IDF firmware: one IMU plus EMG, on-device rule-based classification of good posture + 5 fault states, BLE streaming and BLE commands, serial telemetry, and streak tracking.
-- 95.3% classification accuracy, checked against real-time movements.
+- 95 of 100 live movements classified correctly (an informal check, not a labelled dataset).
 - A root-caused IMU calibration fault (mis-set BNO08x feature flags), documented with the diagnostic project in the repo.
 - A 40.5-minute logged session of 48,594 telemetry frames (upper-back IMU + EMG).
 

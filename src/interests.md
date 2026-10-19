@@ -29,4 +29,4 @@ Rigs and scripts that stress hardware the same way every time, and ways to tell 
 Body-worn sensing that has to work outside the lab, such as IMU and EMG wearables or wearable cardiac monitors.
 
 ## Sensing and control for robotics
-State estimation and closed-loop control, applied to robots. I haven't built a robot yet, and a small build is planned for after this site launches.
+State estimation and closed-loop control, applied to robots. I haven't built a robot yet.

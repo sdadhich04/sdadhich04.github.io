@@ -80,8 +80,8 @@ Most of the setup (bin width, decoder matrices, lag values and trial counts) fol
 
 ## What didn't work
 
-- **Baseline scaling runs on every loop.** The check that should compute the offset and scale once reads `if i %%FILLIN (some equality)`; in MATLAB the `%%` starts a comment, so the condition is just `if i`, which is always true, and the scaling is recomputed on every iteration.
-- **The normalized streaming script was left unfinished;** it still has template `FILLIN` markers.
+- **Baseline scaling runs on every loop.** The check that should compute the offset and scale once reads `if i %%FILLIN (some equality)`; in MATLAB the `%%` starts a comment, so the condition is just `if i`, which is always true, and the scaling is recomputed on every iteration. What that changed: the cursor only starts after the 10-second baseline window, and from then on the recomputation reads the same stored baseline samples, so the offset and scale stayed constant during every task. The real effect is on the calibration itself: during the baseline window each new sample was scaled with an in-progress estimate, so the final offset and scale came from already-scaled EMG rather than raw EMG as intended. Every lag condition ran the same code, so the bug doesn't explain the drop at higher lag, though it may have changed how sensitive the cursor felt overall. The copy in the repo is not fixed yet.
+- **The normalized streaming script was left unfinished;** it still has template `FILLIN` markers. It's a separate warm-up script, not the one that recorded the lag-sweep runs.
 
 ## Testing
 

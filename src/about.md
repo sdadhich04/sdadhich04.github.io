@@ -80,8 +80,7 @@ See Leadership below.
 ## Leadership
 
 ### SHIELD stress-test campaign lead · ARC Lab · Jun 2026–present · `● ACTIVE`
-I lead the undergraduate team that runs the SHIELD stress-test campaign.
-I assign the test sessions, train teammates on the shaker-rig and Faraday-cage setups, and review the data before it enters the shared dataset.
+I lead the undergraduate team that runs the SHIELD stress-test campaign; the details are under ARC Lab in Experience above.
 
 ### Student Advisor · UW NextGen Civic Leader Corps · Dec 2022–Jun 2026
 I was a student advisor to the program for three and a half years.

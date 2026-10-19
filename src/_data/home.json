@@ -4,6 +4,7 @@
   "name": "Sparsh Dadhich",
   "positioning": "Embedded ML for medical sensing",
   "intro": "I build bioimpedance instruments, sensor data-acquisition boards and test rigs, and firmware that runs ML models on microcontrollers.",
+  "status": "Open to work.",
   "nowHeading": "Now",
   "roles": [
     {
@@ -53,7 +54,8 @@
         "● ACTIVE"
       ],
       "text": [
-        "TPT-Finder is a pen-like multisensing surgical instrument meant to tell thyroid from parathyroid tissue in real time during surgery. I designed its tetrapolar bioimpedance board, BioZ v4 (AD5933, INA333, AD8606 Howland current source). On an earlier board, BioZ v2, I calibrated the sensing chain to 0.034% error at 33 kHz (2200 Ω calibration). I ran the ex-vivo study and all 500+ tissue measurements. My role: Biomedical Instrumentation & Impedance Lead."
+        "A tetrapolar bioimpedance board (BioZ v4) for a pen-like surgical probe that tells thyroid from parathyroid tissue in real time; I ran the ex-vivo study and all 500+ tissue measurements.",
+        "I designed the board as Biomedical Instrumentation & Impedance Lead at the UW BioRobotics Lab."
       ],
       "tags": [
         "bioimpedance",
@@ -72,7 +74,8 @@
         "● ACTIVE"
       ],
       "text": [
-        "An ESP32-S3 data-acquisition board for a design with 8 sensor types, plus the rig that stress-tests it. On the capstone I was co-hardware lead (with Thomas Glass) and procurement lead. I designed and built the Faraday cage for the EMI tests and wrote the automation for the orbital-shaker vibration rig, and at ARC Lab I lead the undergraduate team running the stress-test campaign."
+        "An ESP32-S3 data-acquisition board for 8 sensor types, built for about $1,700 of a $4,000 sponsor budget, plus the rig that stress-tests it.",
+        "Co-hardware lead (with Thomas Glass) and procurement lead on the capstone; at ARC Lab I lead the stress-test campaign and built the rig automation."
       ],
       "tags": [
         "ESP32-S3",
@@ -91,7 +94,8 @@
         "PROTOTYPE"
       ],
       "text": [
-        "A wearable posture monitor: an ESP32-S3 with BNO085 IMUs for the upper and lower back and a MyoWare 2.0 EMG sensor on the upper trapezius, as the team's user manual describes it. It was a four-person EE/BIOEN 461 course team, and I wrote all of the firmware (15/15 commits): modular FreeRTOS/ESP-IDF code and a real-time rule-based classifier (good posture + 5 fault states with the one IMU the public firmware runs). Checked against real-time movements, its classification was 95.3% accurate."
+        "A wearable posture monitor whose on-device classifier got 95 of 100 live movements right in an informal check.",
+        "I wrote all of the firmware for a four-person EE/BIOEN 461 course team."
       ],
       "tags": [
         "ESP32-S3",
@@ -110,7 +114,8 @@
         "PROTOTYPE"
       ],
       "text": [
-        "Joint project with Jonathan Lu. PDM microphone → MFCC → an INT8 TensorFlow Lite Micro model running fully on an Arduino Nano 33 BLE Sense (Cortex-M4), with an ESP32 alert bridge over BLE. Built as the EE/CSE 474 final project."
+        "An infant-cry detector that runs fully on an Arduino Nano 33 BLE Sense; the INT8 model is 41% smaller than float32 with the same test results.",
+        "Joint project with Jonathan Lu, built as the EE/CSE 474 final project."
       ],
       "tags": [
         "TinyML",
@@ -129,7 +134,7 @@
         "COMPLETED"
       ],
       "text": [
-        "I built a real-time EMG cursor BCI end to end: EMG streaming, a Kalman-filter closed-loop cursor, and a feedback-lag sweep.",
+        "An EMG-driven cursor with a Kalman filter; successful reaches fell from 10–16 to 2–4 of 19 as the added feedback lag rose from ≈0–125 ms to ≈360–590 ms.",
         "*Built for EE 466 (Winter 2026) at UW in a three-person lab group with Jonathan and Olivia, following the course protocol and script outlines by A. L. Orsborn. The code here and the lag-sweep analysis are my own.*"
       ],
       "tags": [

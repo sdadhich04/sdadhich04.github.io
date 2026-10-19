@@ -35,7 +35,19 @@
   background: transparent; color: var(--text); border: 1px solid var(--line); border-radius: var(--radius);
   font-family: var(--font-mono); font-size: var(--fs-label); letter-spacing: .14em; text-transform: uppercase; cursor: pointer;
 }
+.resume-btn {
+  display: none; margin-left: auto; min-height: 44px; padding: 0 var(--space-3); align-items: center;
+  color: var(--text); background: transparent; border: 1px solid var(--text); border-radius: var(--radius); text-decoration: none;
+  font-family: var(--font-mono); font-size: var(--fs-label); letter-spacing: .14em; text-transform: uppercase;
+}
 @media (max-width: 56rem) {
+  .site-header__inner { column-gap: var(--space-2); }
+  .js .resume-btn { display: inline-flex; }
+  .resume-btn, .menu-btn { padding: 0 .75rem; }
+  .js .resume-btn:has(+ .menu-btn[aria-expanded="true"]) { display: none; }
+  .js .resume-btn + .menu-btn { margin-left: var(--space-2); }
+  .js .resume-btn:has(+ .menu-btn[aria-expanded="true"]) + .menu-btn { margin-left: auto; }
+  .contact-icons .icon-link--resume { display: none; }
   .js .menu-btn { display: inline-flex; align-items: center; }
   .site-menu { width: 100%; flex-direction: column; align-items: stretch; gap: var(--space-2); padding-bottom: var(--space-3); }
   .js .site-menu { display: none; }
@@ -80,13 +92,19 @@
 
 /* ---------------------------------------------------------------- home hero */
 .hero { padding-block: var(--space-5) var(--space-6); }
-.hero__roles { list-style: none; padding: 0; margin: 0 0 var(--space-4); }
-.hero__roles li { display: flex; flex-wrap: wrap; gap: 0 .6em; color: var(--muted); }
 .hero__main { display: grid; gap: var(--space-4); align-items: end; }
 .hero__name { font-size: var(--fs-hero); line-height: 0.92; font-weight: 800; letter-spacing: -0.035em; margin: 0 0 var(--space-3); }
 .hero__name span { display: block; }
 .hero__positioning { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.25rem, 2.6vw, 1.75rem); color: var(--muted); margin: 0 0 var(--space-3); }
+.hero__status { font-size: var(--fs-body); font-weight: 500; color: var(--text); margin: 0 0 var(--space-3); }
+.hero__dot { color: var(--active); }
 .hero__intro { max-width: 40rem; color: var(--muted); margin: 0; }
+.hero__now { margin-top: var(--space-5); }
+.hero__now .label-heading { margin-bottom: var(--space-2); }
+.hero__roles { list-style: none; padding: 0; margin: 0; font-size: 1rem; line-height: 1.5; }
+.hero__roles li + li { margin-top: var(--space-2); }
+.hero__role { color: var(--text); }
+.hero__dates { color: var(--faint); white-space: nowrap; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
 @media (min-width: 56rem) {
   .hero__main { grid-template-columns: 1fr auto; }
@@ -263,4 +281,19 @@ a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
 
 /* ---------------------------------------------------------------- 404 */
 .notfound { padding-block: var(--space-7); }
+
+/* ---------------------------------------------------------------- contact strip (end of project, About, Publications) */
+.contact-strip { margin-top: var(--space-6); padding: var(--space-3) var(--space-4); background: var(--surface); border: 1px solid var(--line); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-4); }
+.contact-strip p { margin: 0; }
+.contact-strip ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 var(--space-4); }
+.contact-strip li + li { margin-top: 0; }
+.contact-strip a { display: inline-flex; align-items: center; min-height: 44px; }
+.project .contact-strip + .project__foot { margin-top: var(--space-4); }
 .fig--art .fig__method { display: block; font-family: var(--font-body); font-size: 0.875rem; text-transform: none; letter-spacing: 0; color: var(--muted); }
+
+/* small phones: keep brand, Résumé and Menu on one row */
+@media (max-width: 24rem) {
+  .brand { letter-spacing: .08em; }
+  .brand__rule { display: none; }
+  .resume-btn, .menu-btn { letter-spacing: .08em; padding: 0 .6rem; }
+}

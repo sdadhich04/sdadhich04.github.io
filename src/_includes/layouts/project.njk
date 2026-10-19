@@ -30,6 +30,8 @@ pageClass: page-project
     {{ content | projectBody(plotVisual) | safe }}
   </div>
 
+  {% include "partials/contactstrip.njk" %}
+
   <footer class="project__foot">
     {%- if links and links.length %}
     <ul class="btn-row">{% for l in links %}<li><a class="btn btn--secondary" href="{{ l }}">{{ l | repoLabel }} <span aria-hidden="true">→</span></a></li>{% endfor %}</ul>

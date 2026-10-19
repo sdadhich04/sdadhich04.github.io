@@ -2,6 +2,7 @@
 <header class="site-header">
   <div class="wrap site-header__inner">
     <a class="brand" href="/"><span class="brand__rule" aria-hidden="true"></span>{{ site.name | upper }}</a>
+    <a class="resume-btn" href="{{ site.resume }}">Résumé</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
     <div class="site-menu" id="site-menu">
       <nav aria-label="Primary">
@@ -15,7 +16,7 @@
         <li><a class="icon-link" href="mailto:{{ site.email }}" aria-label="Email {{ site.email }}">{{ icon("email") | safe }}<span class="icon-link__label" aria-hidden="true">Email</span></a></li>
         <li><a class="icon-link" href="{{ site.linkedin }}" aria-label="LinkedIn profile">{{ icon("linkedin") | safe }}<span class="icon-link__label" aria-hidden="true">LinkedIn</span></a></li>
         <li><a class="icon-link" href="{{ site.github }}" aria-label="GitHub profile">{{ icon("github") | safe }}<span class="icon-link__label" aria-hidden="true">GitHub</span></a></li>
-        <li><a class="icon-link" href="{{ site.resume }}" aria-label="Résumé PDF">{{ icon("resume") | safe }}<span class="icon-link__label" aria-hidden="true">Résumé PDF</span></a></li>
+        <li class="icon-link--resume"><a class="icon-link" href="{{ site.resume }}" aria-label="Résumé PDF">{{ icon("resume") | safe }}<span class="icon-link__label" aria-hidden="true">Résumé PDF</span></a></li>
       </ul>
     </div>
   </div>

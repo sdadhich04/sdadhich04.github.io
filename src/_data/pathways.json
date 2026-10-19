@@ -3,7 +3,7 @@
     "name": "Embedded systems & firmware",
     "card": {
       "title": "BackOnTrack: posture-monitor firmware",
-      "result": "I wrote all of the firmware (15/15 commits) for a four-person course team's wearable posture monitor: modular FreeRTOS/ESP-IDF on an ESP32-S3, with a real-time rule-based classifier (good posture + 5 fault states) that was 95.3% accurate when checked against real-time movements.",
+      "result": "I wrote all of the firmware (15/15 commits) for a four-person course team's wearable posture monitor: modular FreeRTOS/ESP-IDF on an ESP32-S3, with a real-time rule-based classifier (good posture + 5 fault states) that classified 95 of 100 live movements correctly in an informal check.",
       "context": [
         "COURSE · TEAM OF 4"
       ],
@@ -121,9 +121,9 @@
         }
       ],
       "also": [
-        "[`Faraday-Cage-design-`](https://github.com/sdadhich04/Faraday-Cage-design-) (6/6 commits his): the 3D-printable cage, as Onshape CAD exports (STL and STEP).",
-        "`shaker-table-test` (4/4 commits his): the Python runners that drive the shaker table. Not linked.",
-        "`Project_Shield_PCB` (10/13 commits his): zipped KiCad project versions of the board."
+        "[`Faraday-Cage-design-`](https://github.com/sdadhich04/Faraday-Cage-design-): my 3D-printable cage, as Onshape CAD exports (STL and STEP).",
+        "`shaker-table-test`: the Python runners that drive the shaker table (described on the SHIELD page).",
+        "`Project_Shield_PCB`: zipped KiCad project versions of the board."
       ]
     }
   },
@@ -254,7 +254,7 @@
       "context": [],
       "contextNote": null,
       "status": [],
-      "statusText": "A small robotics build is planned after launch (for example, an ESP32 closed-loop servo or motor controller with an IMU).",
+      "statusText": null,
       "tags": [
         "state estimation",
         "closed-loop control",

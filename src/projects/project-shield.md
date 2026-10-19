@@ -16,8 +16,6 @@ key_numbers:
     value: "81 steps, one boot"
   - label: "Shaker-table sequencer"
     value: "4 sessions × 70 min"
-  - label: "My commits to the team firmware"
-    value: "8 of 60"
 links:
   - https://github.com/sdadhich04/Faraday-Cage-design-
 layout: layouts/project.njk

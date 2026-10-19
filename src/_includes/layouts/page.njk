@@ -3,4 +3,7 @@ layout: layouts/base.njk
 ---
 <div class="wrap page prose">
 {{ content | pageBody(pageClass) | safe }}
+{%- if pageClass == "page-about" or pageClass == "page-publications" %}
+{% include "partials/contactstrip.njk" %}
+{%- endif %}
 </div>
