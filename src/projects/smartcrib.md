@@ -42,6 +42,8 @@ The detector has to work without streaming audio to a server, which keeps latenc
 Cry recall is the metric that matters most, because a false negative means a cry was missed.
 It has to fit the Nano 33 BLE Sense: 1 MB of flash and 256 KB of SRAM, with targets of a model under 100 KB and inference under 200 ms per window.
 
+Figure: smartcrib-memory-budget
+
 ## Approach
 
 - **Data:** cry clips from the Donate-a-Cry corpus as positives; ESC-50 clips as negatives, excluding its `crying_baby` category.
@@ -50,6 +52,8 @@ It has to fit the Nano 33 BLE Sense: 1 MB of flash and 256 KB of SRAM, with targ
 - **Features:** 16 kHz mono audio, 1-second windows, 13 MFCCs × 40 frames (512-point FFT, Hann window, 26 mel bins), standardized with training-set statistics that are exported to the device.
 - **Model:** two Conv1D layers (16 and 32 filters), global average pooling and a two-class softmax.
 - **Deployment:** full-integer post-training quantization with representative MFCC windows, export to a C array, and a Nano sketch that computes MFCCs with CMSIS-DSP.
+
+Figure: smartcrib-mfcc-windows
 
 ## Architecture / signal chain
 
@@ -87,6 +91,8 @@ It has to fit the Nano 33 BLE Sense: 1 MB of flash and 256 KB of SRAM, with targ
 - **Pick:** 0.7, the lowest-false-positive threshold that met the recall target.
 - **Limitations:** it misses 3 cry windows where 0.5 misses 1, at the cost of two extra false alarms; the final report says to drop to 0.5 if on-device recordings show missed cries. The threshold was chosen on the same held-out split that the results are reported on, and that split has only 96 windows.
 
+Figure: smartcrib-threshold-sweep
+
 ### 2. Audio and ML on the Nano, alerts on an ESP32, joined by one GPIO line
 
 - **Criteria:** keep all audio processing and inference on one board, and keep the link to the alert board simple and reliable.
@@ -102,13 +108,15 @@ It has to fit the Nano 33 BLE Sense: 1 MB of flash and 256 KB of SRAM, with targ
 - **Criteria:** fit the Nano's memory with margin and lose no detection performance.
 - **Options:** float32 TFLite (12,508 bytes; estimated arena 56,320 bytes) or full-integer INT8 (7,392 bytes; estimated arena 27,648 bytes); both scored 94.79% accuracy and 93.75% cry recall at threshold 0.7.
 - **Pick:** INT8. The course didn't require the float32-vs-INT8 comparison; we ran it as our own extra step, to check that quantizing cost nothing on the test set before we committed to INT8.
-- **Limitations:** the arena sizes are host-side estimates to confirm on the board, and on-device latency was not measured; the only latency figure in the project is the target of under 200 ms per window.
+- **Limitations:** the arena sizes are host-side estimates to confirm on the board. On-device latency was never logged to the repo's reports; the sketch times each inference and prints it, and during the demo the serial monitor showed about 8.7 ms per window against the 200 ms target.
 
 ## What didn't work
 
 **Converting the Conv1D model for the Arduino library.** A standard Conv1D export produced `EXPAND_DIMS` operations that the Arduino TensorFlowLite 2.4.0-ALPHA library does not support.
 Finding the cause meant inspecting the generated TFLite graph and the list of supported operators.
 We rebuilt the converter to write a Conv2D-equivalent graph with the same trained weights, so the model uses only supported ops.
+
+Figure: smartcrib-tflite-ops
 
 **On-device validation stopped short.** No recordings from the Nano's own microphone were collected, so we have not measured how the public-dataset model transfers to that microphone.
 The Arduino MFCC code was also never checked against the Python MFCC extraction on a known clip.
@@ -118,6 +126,8 @@ The Arduino MFCC code was also never checked against the Python MFCC extraction 
 - **Held-out evaluation:** float32 and INT8 models on the same 96-window test split, with a threshold sweep from 0.3 to 0.7.
 - **Bench test plan:** wiring smoke test (`PinSmokeTest.ino`); driving the ESP32 alert pin by hand; subscribing from a BLE scanner app; and the `MUTE`, `UNMUTE`, `ACK` and `TEST` writes.
 - **End-to-end demo:** cry audio played through a nearby speaker was detected by the Nano, which lit its LED and raised D2; the ESP32 sounded the buzzer and sent a BLE notification to a phone.
+
+Figure: smartcrib-bench-photo
 
 ## Results
 
@@ -129,6 +139,10 @@ The Arduino MFCC code was also never checked against the Python MFCC extraction 
 - On the 96 test windows the INT8 model found 45 of 48 cry windows and raised 2 false alarms out of 48 non-cry windows.
 - Training stopped after 12 epochs at 97.5% training accuracy and 89.6% validation accuracy; the gap points to some overfitting.
 - These numbers come from public-dataset clips, not from audio recorded on the Nano.
+
+Figure: smartcrib-training-curves
+
+Figure: smartcrib-confusion
 
 ## What I'd do differently
 
@@ -143,7 +157,7 @@ Next steps already listed in the project:
 My own additions:
 
 - pick the operating threshold on the validation split, not the test split, so the reported test numbers stay unbiased (Decision 1);
-- measure inference latency on the device, not only against the 200 ms target.
+- log the per-window inference time the sketch already prints into the repo's reports, instead of reading it off the serial monitor during the demo.
 
 ## Credits & acknowledgements
 
