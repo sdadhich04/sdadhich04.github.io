@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 212" width="100%" role="img" aria-labelledby="botpkt-t botpkt-d" style="font-family:Inter, system-ui, sans-serif">
+<title id="botpkt-t">BackOnTrack: the 72-byte BLE telemetry packet</title><desc id="botpkt-d">One packed, little-endian 72-byte notification every 50 milliseconds, 20 per second, on the sensor characteristic. Bytes 0 to 3: uptime in milliseconds. Bytes 4 to 31: the upper IMU as seven floats, pitch, roll, yaw and the quaternion i, j, k, r. Bytes 32 to 59: the same seven floats for the lower IMU, all zero while it is disabled. Bytes 60 to 67: EMG filtered ADC value and millivolts. Byte 68: status flags, bit 0 upper IMU valid, bit 1 lower IMU valid, bit 2 EMG valid, bit 3 calibrated. Byte 69: sequence number, so the receiver can count dropped packets. Bytes 70 to 71: raw EMG ADC. The packet carries raw values only; classification stays on the device.</desc>
+<defs><marker id="botpkt-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#F2E9E4" fill-opacity=".7"/></marker></defs>
+<rect x="10" y="44" width="82" height="44" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.35"/>
+<text x="18" y="62" fill="#F2E9E4" font-size="11.5" font-weight="600">uptime ms</text>
+<text x="18" y="78" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">4 B · uint32</text>
+<text x="10" y="38" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9">0</text>
+<rect x="92" y="44" width="228" height="44" fill="#000000" stroke="#E8483A" stroke-opacity="1"/>
+<text x="100" y="62" fill="#F2E9E4" font-size="11.5" font-weight="600">upper IMU · pitch roll yaw · q i j k r</text>
+<text x="100" y="78" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">28 B · 7 × float32</text>
+<text x="92" y="38" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9">4</text>
+<rect x="320" y="44" width="182" height="44" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.35" stroke-dasharray="4 3"/>
+<text x="328" y="62" fill="#8C877D" font-size="11.5" font-weight="600">lower IMU · zeros (disabled)</text>
+<text x="328" y="78" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">28 B · 7 × float32</text>
+<text x="320" y="38" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9">32</text>
+<rect x="502" y="44" width="98" height="44" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.35"/>
+<text x="510" y="62" fill="#F2E9E4" font-size="11.5" font-weight="600">EMG</text>
+<text x="510" y="78" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">8 B · 2 × f32</text>
+<text x="502" y="38" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9">60</text>
+<rect x="600" y="44" width="44" height="44" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.35"/>
+<text x="600" y="38" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9">68</text>
+<text x="622.0" y="70" text-anchor="middle" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">flags</text>
+<rect x="644" y="44" width="44" height="44" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.35"/>
+<text x="644" y="38" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9">69</text>
+<text x="666.0" y="70" text-anchor="middle" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">seq</text>
+<rect x="688" y="44" width="42" height="44" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.35"/>
+<text x="688" y="38" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9">70</text>
+<text x="709.0" y="70" text-anchor="middle" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">raw</text>
+<text x="730" y="38" text-anchor="end" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9">72</text>
+<text x="10" y="24" text-anchor="start" fill="#8C877D" font-size="10">BYTE OFFSET</text>
+<path d="M622,88 V102" stroke="#F2E9E4" stroke-opacity=".35"/><path d="M666,88 V120" stroke="#F2E9E4" stroke-opacity=".35"/><path d="M709,88 V138" stroke="#F2E9E4" stroke-opacity=".35"/>
+<text x="618" y="112" text-anchor="end" fill="#9C9389" font-size="10.5">byte 68 · flags: b0 upper IMU valid · b1 lower IMU valid · b2 EMG valid · b3 calibrated</text>
+<text x="662" y="130" text-anchor="end" fill="#9C9389" font-size="10.5">byte 69 · seq: increments each packet, so dropped packets can be counted</text>
+<text x="705" y="148" text-anchor="end" fill="#9C9389" font-size="10.5">bytes 70–71 · raw EMG ADC</text>
+<text x="10" y="184" text-anchor="start" fill="#9C9389" font-size="10.5">Raw values only: the classifier, streaks and points stay on the ESP32-S3 (serial). Control characteristic: 0x01 recalibrate · 0x02 reset.</text>
+<text x="10" y="202" text-anchor="start" fill="#8C877D" font-size="10">Packed, little-endian, 20 Hz NimBLE GATT notify · widths not to scale · from ble_telemetry.h in the public repo</text>
+</svg>

@@ -1,5 +1,15 @@
 {
   "items": {
+    "backontrack-lean-rules": {
+      "src": "/assets/svg/backontrack-lean-rules.svg",
+      "kind": "plot",
+      "width": 720,
+      "height": 372,
+      "title": "BackOnTrack: forward and lateral lean against the rule thresholds, same session",
+      "desc": "The same 48,593-frame, 40.5-minute session, with the firmware's lean features recomputed from the logged quaternion against a neutral taken from the first 10 seconds. Upper panel: forward lean in degrees with the 10 degree Slouching and 25 degree Leaning Forward thresholds; it stays below the Slouching line for 100 percent of frames. Lower panel: lateral lean in degrees with the plus and minus 12 degree Leaning Left and Right thresholds; the wearer sits past the Leaning Left line for 19 percent of the session, one sustained stretch, marked in red.",
+      "caption": "The same session, with the firmware's forward and lateral lean recomputed from the logged quaternion exactly as posture_features.c does, against the thresholds in data_types.h. The device's calibration vector is not in the BLE packet, so the neutral reference is the median gravity direction over the first 10 s of the log. A recomputation, not the classifier's output: forward lean never reaches the 10° line, and lateral lean sits past −12° for 19.3% of frames, one sustained stretch from minute 33.",
+      "side": false
+    },
     "backontrack-telemetry": {
       "src": "/assets/svg/backontrack-telemetry.svg",
       "kind": "plot",
@@ -8,6 +18,16 @@
       "title": "BackOnTrack: upper-back pitch and EMG over one recorded session",
       "desc": "48,593 telemetry frames over 40.5 minutes at a median 50 ms frame interval. Upper panel: upper-back IMU pitch in degrees. Lower panel: EMG in millivolts.",
       "caption": "Upper-back pitch (BNO085) and the MyoWare 2.0 signal at the ADC over one 40.5-minute session I wore the device for, from the BLE log in the public repo (tools/bot_20260609_213341.csv). Frames come every 50 ms (20 Hz); the plot draws the min–max band per 7-second window. Only the upper IMU was running, and one calibration-sentinel frame was dropped (48,593 of 48,594 frames plotted). Raw signals, not classifier output. Team project: Sparsh, Matthew, Parneet and Ella.",
+      "side": false
+    },
+    "emg-bci-decoder": {
+      "src": "/assets/svg/emg-bci-decoder.svg",
+      "kind": "plot",
+      "width": 640,
+      "height": 400,
+      "title": "EMG BCI: what the Kalman decoder does during one reach",
+      "desc": "One successful reach toward the +6 target in the zero-lag run, about 6 seconds. Top: the two scaled EMG channels the filter uses as its measurement. Middle: the decoded velocity, pushed up by channel 1 and down by channel 2. Bottom: the cursor position, which integrates the velocity, leaves the center at the go cue, enters the target band at 5.3 to 6.7 units and holds there for half a second until the trial succeeds.",
+      "caption": "One successful reach in the zero-lag run, read from its run file: the two scaled EMG channels the filter measures, the decoded velocity and the cursor, with the task phases marked.",
       "side": false
     },
     "emg-bci-lag-sweep": {
@@ -79,6 +99,151 @@
         ]
       }
     },
+    "emg-bci-loop-timing": {
+      "src": "/assets/svg/emg-bci-loop-timing.svg",
+      "kind": "plot",
+      "width": 460,
+      "height": 330,
+      "title": "EMG BCI: the loop ran at about 120 ms, so the real lags were longer than set",
+      "desc": "Per-loop period in each lag run, 10th to 90th percentile with the median marked, against the nominal 100 ms. Medians: 0 ms run 120 ms, ≈125 ms run 125 ms, ≈360 ms run 119 ms, ≈590 ms run 118 ms. Because lag is set in whole loops (1, 3 and 5), the added lags were about 125, 360 and 590 ms instead of 100, 300 and 500 ms.",
+      "caption": "Decision 2: per-loop periods from the timing saved in each run (first loop dropped), and the added lag they imply.",
+      "side": true,
+      "table": {
+        "headers": [
+          "Run",
+          "Lag (loops)",
+          "Set lag (ms)",
+          "Loop p10 (ms)",
+          "Loop median (ms)",
+          "Loop p90 (ms)",
+          "Real lag (ms)"
+        ],
+        "rows": [
+          [
+            "0 ms",
+            "0",
+            "0",
+            "104",
+            "120",
+            "130",
+            "0"
+          ],
+          [
+            "≈125 ms",
+            "1",
+            "100",
+            "101",
+            "125",
+            "134",
+            "125"
+          ],
+          [
+            "≈360 ms",
+            "3",
+            "300",
+            "104",
+            "119",
+            "131",
+            "357"
+          ],
+          [
+            "≈590 ms",
+            "5",
+            "500",
+            "103",
+            "118",
+            "131",
+            "590"
+          ]
+        ]
+      }
+    },
+    "emg-bci-session": {
+      "src": "/assets/svg/emg-bci-session.svg",
+      "kind": "plot",
+      "width": 460,
+      "height": 236,
+      "title": "EMG BCI: the recording session on 3 March 2026",
+      "desc": "All five runs were recorded in one session, within about 45 minutes, in this order: zero lag, about 125 ms, about 590 ms, about 360 ms, then position control. 0 ms from 17:18 to 17:21; ≈125 ms from 17:37 to 17:40; ≈590 ms from 17:43 to 17:52; ≈360 ms from 17:55 to 18:01; position from 18:02 to 18:05. The order was not counterbalanced.",
+      "caption": "From each run file's save time and summed loop time. Recorded with my lab group; I was the test subject.",
+      "side": true
+    },
+    "emg-bci-traces": {
+      "src": "/assets/svg/emg-bci-traces.svg",
+      "kind": "plot",
+      "width": 640,
+      "height": 470,
+      "title": "EMG BCI: every reach the user saw, by feedback lag and in position control",
+      "desc": "Displayed cursor position against time from the go cue for all 19 reaches in each run, with the target folded to the top so 6 means on target. 0 ms: 10 of 19 reaches succeeded; ≈125 ms: 16 of 19 reaches succeeded; ≈360 ms: 2 of 19 reaches succeeded; ≈590 ms: 4 of 19 reaches succeeded; position control: 0 of 19 reaches succeeded. At zero and about 125 ms of added lag most reaches settle in the target band; from about 360 ms the cursor overshoots and oscillates, and in position control every reach reaches the target but none holds it.",
+      "caption": "Every reach in each run, read from the saved Kalman estimates and task events: the cursor as it was displayed (delayed by the run's lag), folded so the target is always up. Recorded with Jonathan and Olivia; I was the test subject.",
+      "side": false
+    },
+    "smartcrib-confusion": {
+      "src": "/assets/svg/smartcrib-confusion.svg",
+      "kind": "plot",
+      "width": 400,
+      "height": 300,
+      "title": "SmartCrib: confusion matrix of the INT8 model at threshold 0.7",
+      "desc": "On the 96 held-out test windows (48 cry, 48 non-cry) the INT8 model found 45 cry windows, missed 3, raised 2 false alarms and classified 46 non-cry windows correctly: recall 93.75%, precision 95.74%, accuracy 94.79%.",
+      "caption": "The INT8 model's confusion matrix at threshold 0.7 on the 96 held-out windows, from the repo's selected_threshold.json. The two red cells are the errors: 3 missed cry windows and 2 false alarms.",
+      "side": true
+    },
+    "smartcrib-memory-budget": {
+      "src": "/assets/svg/smartcrib-memory-budget.svg",
+      "kind": "plot",
+      "width": 440,
+      "height": 250,
+      "title": "SmartCrib: how much of the Nano 33 BLE Sense the model uses",
+      "desc": "Against the board's 1 MB flash and 256 KB SRAM: the INT8 model is 7,392 bytes (0.7% of flash); the sketch allocates a 60 KB tensor arena (23.4% of SRAM) of which the INT8 graph is estimated to need 27,648 bytes; the float32 model's estimated arena would have been 56,320 bytes (21% of SRAM). Arena figures are the repo's host-side estimates.",
+      "caption": "How much of the Nano 33 BLE Sense the model takes: flash use from the INT8 model size, SRAM use from the 60 KB arena the sketch allocates and the repo's estimated arena needs. Arena needs are host-side estimates, not measured on the board.",
+      "side": true
+    },
+    "smartcrib-mfcc-windows": {
+      "src": "/assets/svg/smartcrib-mfcc-windows.svg",
+      "kind": "plot",
+      "width": 760,
+      "height": 400,
+      "title": "SmartCrib: what the model sees, three one-second windows and the INT8 model's answer",
+      "desc": "Three public-dataset clips run through the project's own MFCC pipeline and INT8 TensorFlow Lite model: an infant cry from Donate-a-Cry, a dog bark and a vacuum cleaner from ESC-50. Each column shows the 1-second waveform, the 40-frame by 13-coefficient MFCC input as a heatmap (standardized with the training-set statistics the device uses), and the model's P(cry): 0.9961 for the cry, 0.0547 for the dog bark and 0.0000 for the vacuum cleaner, against the 0.7 operating threshold.",
+      "caption": "Three public-dataset clips run through the project's own MFCC code and INT8 model (re-run from the public repo's scripts and models): a Donate-a-Cry cry, and a dog bark and a vacuum cleaner from ESC-50. Each column is the loudest one-second window of the clip, its 40 × 13 MFCC input standardized the way the device does it, and the model's P(cry) against the 0.7 threshold. Illustrative: these clips come from the training corpora, not the held-out split.",
+      "side": false,
+      "table": {
+        "headers": [
+          "Clip",
+          "Source",
+          "Window start (s)",
+          "P(cry), INT8",
+          "P(cry), float32",
+          "Decision at 0.7"
+        ],
+        "rows": [
+          [
+            "Infant cry",
+            "Donate-a-Cry (hungry)",
+            "0.5",
+            "0.9961",
+            "0.9997",
+            "cry"
+          ],
+          [
+            "Dog bark",
+            "ESC-50 · dog",
+            "2.0",
+            "0.0547",
+            "0.0507",
+            "non-cry"
+          ],
+          [
+            "Vacuum cleaner",
+            "ESC-50 · vacuum_cleaner",
+            "2.0",
+            "0.0000",
+            "0.0003",
+            "non-cry"
+          ]
+        ]
+      }
+    },
     "smartcrib-quantization": {
       "src": "/assets/svg/smartcrib-quantization.svg",
       "kind": "plot",
@@ -86,7 +251,7 @@
       "height": 290,
       "title": "SmartCrib: INT8 quantization shrank model and memory with no accuracy change",
       "desc": "Model size: Keras 58.8 kB, float32 TFLite 12.5 kB, INT8 TFLite 7.4 kB. Tensor arena: float32 56.3 kB, INT8 27.6 kB. Accuracy 94.8% for both on 96 test windows.",
-      "caption": "Model size and estimated tensor arena, Keras → float32 TFLite → INT8, from the public repo's reports (model_sizes.csv, metrics_summary.csv). The arena sizes are the repo's estimates, and on-device latency was not measured. Both TFLite models scored 94.8% accuracy on the 96 held-out test windows. Joint project with Jonathan Lu.",
+      "caption": "Model size and estimated tensor arena, Keras → float32 TFLite → INT8, from the public repo's reports (model_sizes.csv, metrics_summary.csv). The arena sizes are the repo's estimates. Both TFLite models scored 94.8% accuracy on the 96 held-out test windows. Joint project with Jonathan Lu.",
       "side": false,
       "table": {
         "headers": [
@@ -119,6 +284,257 @@
             "tensor arena (est.)",
             "INT8 TFLite",
             "27648"
+          ]
+        ]
+      }
+    },
+    "smartcrib-threshold-sweep": {
+      "src": "/assets/svg/smartcrib-threshold-sweep.svg",
+      "kind": "plot",
+      "width": 720,
+      "height": 330,
+      "title": "SmartCrib: threshold sweep on the 96 held-out windows, why 0.7 was picked",
+      "desc": "Cry recall and cry precision of the INT8 TensorFlow Lite model at decision thresholds 0.3 to 0.7 on the 96 held-out test windows, with the float32 model as hollow reference points. Recall is 97.9% at 0.3 to 0.5, 95.8% at 0.6 and 93.75% at 0.7; precision rises from 83.9% at 0.3 to 95.7% at 0.7. The target line is cry recall of at least 0.90; 0.7 is the highest threshold that still meets it, with the fewest false alarms (2 of 48 non-cry windows) and 3 missed cry windows.",
+      "caption": "Cry recall and precision of the INT8 model at each decision threshold on the 96 held-out windows, from the repo's threshold_sweep.csv; hollow points are the float32 model on the same sweep. The dashed line is the 0.90 recall target the threshold had to clear. Joint project with Jonathan Lu.",
+      "side": false,
+      "table": {
+        "headers": [
+          "Model",
+          "Threshold",
+          "Accuracy",
+          "Cry recall",
+          "Cry precision",
+          "Cry F1",
+          "Missed cries (FN)",
+          "False alarms (FP)",
+          "True negatives",
+          "True positives"
+        ],
+        "rows": [
+          [
+            "float32_tflite",
+            "0.3",
+            "0.8958",
+            "0.9792",
+            "0.8393",
+            "0.9038",
+            "1",
+            "9",
+            "39",
+            "47"
+          ],
+          [
+            "float32_tflite",
+            "0.4",
+            "0.9167",
+            "0.9792",
+            "0.8704",
+            "0.9216",
+            "1",
+            "7",
+            "41",
+            "47"
+          ],
+          [
+            "float32_tflite",
+            "0.5",
+            "0.9375",
+            "0.9583",
+            "0.9200",
+            "0.9388",
+            "2",
+            "4",
+            "44",
+            "46"
+          ],
+          [
+            "float32_tflite",
+            "0.6",
+            "0.9375",
+            "0.9583",
+            "0.9200",
+            "0.9388",
+            "2",
+            "4",
+            "44",
+            "46"
+          ],
+          [
+            "float32_tflite",
+            "0.7",
+            "0.9479",
+            "0.9375",
+            "0.9574",
+            "0.9474",
+            "3",
+            "2",
+            "46",
+            "45"
+          ],
+          [
+            "int8_tflite",
+            "0.3",
+            "0.8958",
+            "0.9792",
+            "0.8393",
+            "0.9038",
+            "1",
+            "9",
+            "39",
+            "47"
+          ],
+          [
+            "int8_tflite",
+            "0.4",
+            "0.9062",
+            "0.9792",
+            "0.8545",
+            "0.9126",
+            "1",
+            "8",
+            "40",
+            "47"
+          ],
+          [
+            "int8_tflite",
+            "0.5",
+            "0.9479",
+            "0.9792",
+            "0.9216",
+            "0.9495",
+            "1",
+            "4",
+            "44",
+            "47"
+          ],
+          [
+            "int8_tflite",
+            "0.6",
+            "0.9375",
+            "0.9583",
+            "0.9200",
+            "0.9388",
+            "2",
+            "4",
+            "44",
+            "46"
+          ],
+          [
+            "int8_tflite",
+            "0.7",
+            "0.9479",
+            "0.9375",
+            "0.9574",
+            "0.9474",
+            "3",
+            "2",
+            "46",
+            "45"
+          ]
+        ]
+      }
+    },
+    "smartcrib-training-curves": {
+      "src": "/assets/svg/smartcrib-training-curves.svg",
+      "kind": "plot",
+      "width": 720,
+      "height": 320,
+      "title": "SmartCrib: training and validation curves over 12 epochs",
+      "desc": "Accuracy and cross-entropy loss per epoch for the Conv1D model, training (448 windows) against validation (96 windows). Training accuracy rises from 64.7% to 97.5%; validation accuracy from 71.9% to 91.7% at epoch 9 and 10, ending at 89.6%. Validation loss falls from 0.54 to 0.23 by epoch 7 and then flattens while training loss keeps falling to 0.08, the gap that points to some overfitting.",
+      "caption": "Per-epoch accuracy and cross-entropy loss from the repo's training_history.csv: 448 training and 96 validation windows, 12 epochs. Validation loss flattens after epoch 7 while training loss keeps falling, the gap the Results text calls out.",
+      "side": false,
+      "table": {
+        "headers": [
+          "Epoch",
+          "Training loss",
+          "Training accuracy",
+          "Validation loss",
+          "Validation accuracy"
+        ],
+        "rows": [
+          [
+            "1",
+            "0.6296",
+            "0.6473",
+            "0.5439",
+            "0.7188"
+          ],
+          [
+            "2",
+            "0.4487",
+            "0.8326",
+            "0.4063",
+            "0.7917"
+          ],
+          [
+            "3",
+            "0.3294",
+            "0.8817",
+            "0.3215",
+            "0.8438"
+          ],
+          [
+            "4",
+            "0.2459",
+            "0.9085",
+            "0.2703",
+            "0.8750"
+          ],
+          [
+            "5",
+            "0.1935",
+            "0.9241",
+            "0.2483",
+            "0.8958"
+          ],
+          [
+            "6",
+            "0.1625",
+            "0.9442",
+            "0.2417",
+            "0.8958"
+          ],
+          [
+            "7",
+            "0.1414",
+            "0.9487",
+            "0.2379",
+            "0.9062"
+          ],
+          [
+            "8",
+            "0.1266",
+            "0.9531",
+            "0.2328",
+            "0.9062"
+          ],
+          [
+            "9",
+            "0.1114",
+            "0.9598",
+            "0.2364",
+            "0.9167"
+          ],
+          [
+            "10",
+            "0.0994",
+            "0.9710",
+            "0.2342",
+            "0.9167"
+          ],
+          [
+            "11",
+            "0.0879",
+            "0.9732",
+            "0.2429",
+            "0.8958"
+          ],
+          [
+            "12",
+            "0.0788",
+            "0.9754",
+            "0.2385",
+            "0.8958"
           ]
         ]
       }
@@ -347,6 +763,66 @@
         ]
       }
     },
+    "backontrack-bringup": {
+      "src": "/assets/svg/backontrack-bringup.svg",
+      "kind": "diagram",
+      "width": 460,
+      "height": 392,
+      "title": "BackOnTrack: how the IMU bring-up fault was run down",
+      "desc": "Six steps. One: both BNO085s return valid part numbers, but calibration fails and every posture value stays at zero. Two: wiring, interrupt and reset lines and the SPI transport are verified, so the hardware is ruled out. Three: comparing against a standalone diagnostic app, iterated six times, shows the diagnostic resets the sensor and drains its boot packets before enabling the Game Rotation Vector report; copying that sequence makes the sensor stream channel-3 reports. Four: values still read zero, so the fault has moved to parsing: wrong feature flags and report ID, fixed on 9 June 2026. Five: the same day the firmware switches to the bundled esp32_BNO08x library. Six: that library is single-instance, which is what left the lower-back IMU disabled.",
+      "caption": "From my debugging summary (ten phases, condensed to six steps), the repo's debugging/imu_diag project and the commits of 9 June 2026.",
+      "side": true
+    },
+    "backontrack-confirm": {
+      "src": "/assets/svg/backontrack-confirm.svg",
+      "kind": "diagram",
+      "width": 460,
+      "height": 236,
+      "title": "BackOnTrack: the 750 millisecond confirmation window",
+      "desc": "A timeline of four seconds. The top row is the raw rule output every frame: Good, then a 400 millisecond Slouching reading at 0.8 seconds while the wearer reaches for something, then Good, then Slouching from 2.0 seconds onward. The bottom row is the reported state: a new state is reported only once the raw output has held it for 750 milliseconds, so the 400 millisecond reach never shows, and the sustained slouch is reported at 2.75 seconds, when the correction alert fires.",
+      "caption": "Candidate versus reported state in posture_classifier.c: a 400 ms reach never shows, and a sustained slouch is reported 750 ms after it starts. The example timings are illustrative.",
+      "side": true
+    },
+    "backontrack-gravity": {
+      "src": "/assets/svg/backontrack-gravity.svg",
+      "kind": "diagram",
+      "width": 460,
+      "height": 356,
+      "title": "BackOnTrack: lean measured from the gravity vector, not Euler angles",
+      "desc": "The BNO085 quaternion gives the direction of gravity in the sensor frame. At calibration the firmware stores that direction as the neutral vector g0 and builds a right axis and a forward axis from it. Each frame it projects the live gravity direction g onto those axes: forward lean is the angle of g in the forward-up plane, lateral lean its angle in the right-up plane, and total lean the angle between g and g0. Everything is a difference from the neutral vector, so the sensor's sign convention and mounting angle drop out. The decomposition holds until the body tilts about 90 degrees from neutral.",
+      "caption": "How posture_features.c turns the quaternion into forward, lateral and total lean, and the thresholds before and after the 10 June 2026 change.",
+      "side": true
+    },
+    "backontrack-packet": {
+      "src": "/assets/svg/backontrack-packet.svg",
+      "kind": "diagram",
+      "width": 740,
+      "height": 212,
+      "title": "BackOnTrack: the 72-byte BLE telemetry packet",
+      "desc": "One packed, little-endian 72-byte notification every 50 milliseconds, 20 per second, on the sensor characteristic. Bytes 0 to 3: uptime in milliseconds. Bytes 4 to 31: the upper IMU as seven floats, pitch, roll, yaw and the quaternion i, j, k, r. Bytes 32 to 59: the same seven floats for the lower IMU, all zero while it is disabled. Bytes 60 to 67: EMG filtered ADC value and millivolts. Byte 68: status flags, bit 0 upper IMU valid, bit 1 lower IMU valid, bit 2 EMG valid, bit 3 calibrated. Byte 69: sequence number, so the receiver can count dropped packets. Bytes 70 to 71: raw EMG ADC. The packet carries raw values only; classification stays on the device.",
+      "caption": "The 72-byte notification the desktop receiver logs to CSV, drawn from ble_telemetry.h in the public repo. Field widths are not to scale.",
+      "side": false
+    },
+    "backontrack-placement": {
+      "src": "/assets/svg/backontrack-placement.svg",
+      "kind": "diagram",
+      "width": 460,
+      "height": 430,
+      "title": "BackOnTrack: where the sensors sit on the back",
+      "desc": "Back view of a person. The main module, an ESP32-S3 with the upper BNO085 IMU, sits between the shoulder blades on the strap; it samples the IMU at 50 hertz over SPI. A MyoWare 2.0 EMG sensor sits on the upper trapezius with three gel electrodes and is read by the ESP32-S3's ADC at 100 hertz. A second BNO085 in the lower strap pocket near the lumbar region is part of the team's design and is configured in the firmware, but is disabled at runtime because the bundled driver supports one sensor. Vibration alerts and the companion app over BLE complete the manual's design.",
+      "caption": "Back view, drawn from the team's user manual and the firmware pin map. The lower module is in the design and the code but disabled at runtime (Decision 2). The manual does not say which side of the trapezius; it is drawn on the wearer's right.",
+      "side": true
+    },
+    "backontrack-rules": {
+      "src": "/assets/svg/backontrack-rules.svg",
+      "kind": "diagram",
+      "width": 740,
+      "height": 404,
+      "title": "BackOnTrack: the posture rules as a map of forward and lateral lean",
+      "desc": "Left, a map with forward lean on the horizontal axis and lateral lean on the vertical axis, both measured from the calibrated neutral. Forward lean of 25 degrees or more is Leaning Forward; 10 to 25 degrees is Slouching; otherwise lateral lean of minus 12 degrees or less is Leaning Left and plus 12 or more is Leaning Right; otherwise a total lean of 14 degrees or more, for example a diagonal lean or leaning back, is reported as Slouching; the small region inside all of these is Good. Right, the rule order the classifier evaluates on every frame: sensor error gives Unknown; EMG 80 ADC counts above the resting baseline gives High Tension before any angle is checked; a spinal flexion of 12 degrees between the two IMUs would give Lumbar Collapse but needs the disabled lower IMU; then the four angle rules, then Good. A state must hold for 750 milliseconds before it is reported.",
+      "caption": "Every threshold in data_types.h as one map, and the order posture_classifier.c checks them on each frame. Lumbar Collapse is greyed: it needs the disabled lower IMU. Leaning back is caught only by the 14° total-lean rule.",
+      "side": false
+    },
     "backontrack-system": {
       "src": "/assets/svg/backontrack-system.svg",
       "kind": "diagram",
@@ -357,6 +833,26 @@
       "caption": "Firmware block diagram, drawn from the public repo's README and source. The lower-back IMU is configured but disabled at runtime.",
       "side": false
     },
+    "emg-bci-kalman": {
+      "src": "/assets/svg/emg-bci-kalman.svg",
+      "kind": "diagram",
+      "width": 460,
+      "height": 430,
+      "title": "EMG BCI: the three-state Kalman filter that turns two EMG channels into a cursor",
+      "desc": "State: position, velocity and an offset. Each loop the filter predicts with A, in which position gains 0.1 times velocity and velocity decays by a factor of 0.9; process noise is 0.9 on velocity only. The measurement is the two scaled EMG channels, with H mapping channel 1 to plus velocity and channel 2 to minus velocity (in the position-control run, plus and minus position instead), and measurement noise 0.2 per channel. The gain settles to about 0.45 on velocity per unit of channel difference. The update is x equals the prediction plus K times the innovation; the cursor shown is the position from L loops earlier, clamped to plus or minus 10.",
+      "caption": "Values as saved in the run files; the gain is the one at the end of the zero-lag run. The decoder settings followed the course protocol.",
+      "side": true
+    },
+    "emg-bci-lag-buffer": {
+      "src": "/assets/svg/emg-bci-lag-buffer.svg",
+      "kind": "diagram",
+      "width": 460,
+      "height": 230,
+      "title": "EMG BCI: the lag buffer",
+      "desc": "The decoder makes a new estimate every loop, but the screen shows the estimate from L loops earlier, where L is the set lag divided by the 0.1 second loop period, rounded: 1, 3 or 5 loops for 100, 300 and 500 milliseconds. The loops actually took about 120 milliseconds, so the cursor was about 125, 360 and 590 milliseconds behind the decoder.",
+      "caption": "Decision 2: lag is set in whole loops, so the real delay depends on how long each loop actually took.",
+      "side": true
+    },
     "emg-bci-loop": {
       "src": "/assets/svg/emg-bci-loop.svg",
       "kind": "diagram",
@@ -366,6 +862,16 @@
       "desc": "Two EMG channels arrive as a Lab Streaming Layer stream. Every 0.1 seconds MATLAB takes the mean absolute value of each channel, a three-state Kalman filter estimates cursor position, velocity and offset, a lag buffer delays the displayed state by 0, 100, 300 or 500 milliseconds, and the display shows a one-dimensional center-out task. The participant watches the cursor and changes muscle activity, closing the loop.",
       "caption": "The closed loop, drawn from the public repo's README and lag-sweep script.",
       "side": false
+    },
+    "emg-bci-task": {
+      "src": "/assets/svg/emg-bci-task.svg",
+      "kind": "diagram",
+      "width": 460,
+      "height": 440,
+      "title": "EMG BCI: the center-out task and how each trial ends",
+      "desc": "The display is one-dimensional, from minus 10 to plus 10 units, with a center target and two peripheral targets at plus and minus 6, each 0.7 units in radius. Each trial waits 0.5 seconds, then the cursor must hold in the center for 0.5 seconds; leaving early is a failed center hold (code 9) and the trial restarts. At the go cue the user has 5 seconds to reach the target (otherwise a reach timeout, code 8), then must hold it for 0.5 seconds (leaving early is a target-hold failure, code 10). Only a reach that holds counts as a successful reach. A run has 20 trials, 10 to each target.",
+      "caption": "The task as the lag-sweep script defines it; targets, hold times, limits and error codes are read from the saved run files.",
+      "side": true
     },
     "shield-bias-sweep": {
       "src": "/assets/svg/shield-bias-sweep.svg",
@@ -437,6 +943,16 @@
       "caption": "Training pipeline (offline) and on-device detection (Nano 33 BLE Sense → ESP32 alert bridge), drawn from the public repo's README and source.",
       "side": false
     },
+    "smartcrib-tflite-ops": {
+      "src": "/assets/svg/smartcrib-tflite-ops.svg",
+      "kind": "diagram",
+      "width": 460,
+      "height": 400,
+      "title": "SmartCrib: why the Conv1D model was rebuilt as a Conv2D-equivalent graph",
+      "desc": "The standard Conv1D export wraps each convolution in EXPAND_DIMS operations, which the Arduino TensorFlowLite 2.4.0-ALPHA library does not support. The converter was rebuilt to emit a graph of six supported operators with the same trained weights: input 40 by 1 by 13, CONV_2D with a 3 by 1 kernel and 16 filters, MAX_POOL_2D, CONV_2D with 32 filters, MEAN (global average pooling), FULLY_CONNECTED to two classes and SOFTMAX. Operator list and shapes read from the INT8 .tflite file.",
+      "caption": "The Conv1D export that failed and the six-operator graph that replaced it, with the kernel sizes and tensor shapes read from the INT8 .tflite file in the public repo.",
+      "side": true
+    },
     "tpt-finder-electrodes": {
       "src": "/assets/svg/tpt-finder-electrodes.svg",
       "kind": "diagram",
@@ -456,6 +972,17 @@
       "desc": "A Python GUI on a laptop talks over USB to an ESP32 running ESP-IDF firmware with the AD5933 I2C driver. On the BioZ v2 board, the AD5933 impedance converter, clocked by a 16 MHz oscillator, sends its excitation from VOUT through a 47 nF coupling capacitor, biased to mid-supply by a 49.9 kilohm divider, into channel A of an AD8606 wired as a unity buffer, which drives electrode E1. The current through the tissue returns on electrode E2 into channel B of the AD8606, a transimpedance stage with 49.9 kilohm feedback, then through a 20 kilohm input resistor (20 kilohm RFB) into the AD5933's VIN, where an on-chip DFT gives the real and imaginary parts. The same electrode pair drives and senses, so electrode contact impedance is part of every reading. Calibration against a 2200 ohm reference reached 0.034 percent error at 33 kHz.",
       "caption": "The BioZ v2 measurement chain, which took the poster data, read from the board's KiCad netlist. The same electrode pair drives and senses.",
       "side": false
+    },
+    "emg-bci-setup-photo": {
+      "src": "/assets/img/emg-bci-setup-photo.png",
+      "kind": "image",
+      "raster": true,
+      "width": 680,
+      "height": 907,
+      "title": "Signal check, 24 February 2026",
+      "alt": "Photo of a forearm with adhesive electrodes on clip leads: two pairs on red leads along the forearm and one on a black lead near the elbow. Behind it a laptop shows two EMG traces, pink and green, each with a burst as the hand clenches into a fist; a lab partner's hand rests on the touchpad and an orange amplifier box sits on the desk.",
+      "caption": "A week before the lag-sweep runs: two electrode pairs on my forearm and a reference near the elbow, with both EMG channels on the laptop as I clench.",
+      "side": true
     },
     "faraday-cage-line": {
       "src": "/assets/svg/faraday-cage-line.svg",
@@ -530,6 +1057,17 @@
       "title": null,
       "alt": null,
       "caption": null,
+      "side": true
+    },
+    "smartcrib-bench-photo": {
+      "src": "/assets/img/smartcrib-bench-photo.png",
+      "kind": "image",
+      "raster": true,
+      "width": 544,
+      "height": 670,
+      "title": "The demo bench",
+      "alt": "Photo of the SmartCrib prototype on a breadboard: an ESP32-S3 dev board at the top, a buzzer and a small mute button in the middle, an Arduino Nano 33 BLE Sense at the bottom with its green LED lit, jumper wires between them, and a phone beside it showing a BLE scanner app subscribed to the SmartCrib-ESP32 alert characteristic.",
+      "caption": "A still from our final-demo video: the Nano listens, the ESP32 drives the buzzer and the BLE alert, and the phone's BLE scanner shows the notifications arriving. Joint project with Jonathan Lu.",
       "side": true
     },
     "tpt-finder-poster-2026": {

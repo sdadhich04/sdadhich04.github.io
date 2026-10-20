@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 404" width="100%" role="img" aria-labelledby="botrules-t botrules-d" style="font-family:Inter, system-ui, sans-serif">
+<title id="botrules-t">BackOnTrack: the posture rules as a map of forward and lateral lean</title><desc id="botrules-d">Left, a map with forward lean on the horizontal axis and lateral lean on the vertical axis, both measured from the calibrated neutral. Forward lean of 25 degrees or more is Leaning Forward; 10 to 25 degrees is Slouching; otherwise lateral lean of minus 12 degrees or less is Leaning Left and plus 12 or more is Leaning Right; otherwise a total lean of 14 degrees or more, for example a diagonal lean or leaning back, is reported as Slouching; the small region inside all of these is Good. Right, the rule order the classifier evaluates on every frame: sensor error gives Unknown; EMG 80 ADC counts above the resting baseline gives High Tension before any angle is checked; a spinal flexion of 12 degrees between the two IMUs would give Lumbar Collapse but needs the disabled lower IMU; then the four angle rules, then Good. A state must hold for 750 milliseconds before it is reported.</desc>
+<defs><marker id="botrules-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#F2E9E4" fill-opacity=".7"/></marker></defs>
+<rect x="316.0" y="40.0" width="64.0" height="281.6" fill="#F2E9E4" fill-opacity=".10"/>
+<rect x="220.0" y="40.0" width="96.0" height="281.6" fill="#F2E9E4" fill-opacity=".06"/>
+<rect x="60.0" y="40.0" width="160.0" height="64.0" fill="#F2E9E4" fill-opacity=".06"/>
+<rect x="60.0" y="257.6" width="160.0" height="64.0" fill="#F2E9E4" fill-opacity=".06"/>
+<defs><clipPath id="botrules-c"><rect x="60.0" y="104.0" width="160.0" height="153.60000000000002"/></clipPath><mask id="botrules-m"><rect x="0" y="0" width="740" height="400" fill="white"/><circle cx="156.0" cy="180.8" r="89.60000000000001" fill="black"/></mask></defs>
+<rect x="60.0" y="104.0" width="160.0" height="153.60000000000002" fill="#F2E9E4" fill-opacity=".035" mask="url(#botrules-m)"/>
+<g clip-path="url(#botrules-c)"><circle cx="156.0" cy="180.8" r="89.60000000000001" fill="none" stroke="#E8483A" stroke-width="1.8"/></g>
+<path d="M220.0,118.09306258475065 V243.50693741524935 M109.84894367406093,104.0 H202.15105632593907 M109.84894367406093,257.6 H202.15105632593907" fill="none" stroke="#E8483A" stroke-width="1.8"/>
+<path d="M220.0,40.0 V321.6" stroke="#F2E9E4" stroke-opacity=".35" stroke-dasharray="3 3"/>
+<path d="M316.0,40.0 V321.6" stroke="#F2E9E4" stroke-opacity=".35" stroke-dasharray="3 3"/>
+<path d="M60.0,104.0 H220.0" stroke="#F2E9E4" stroke-opacity=".35" stroke-dasharray="3 3"/>
+<path d="M60.0,257.6 H220.0" stroke="#F2E9E4" stroke-opacity=".35" stroke-dasharray="3 3"/>
+<rect x="60.0" y="40.0" width="320.0" height="281.6" fill="none" stroke="#3a3734"/>
+<path d="M60.0,180.8 H380.0 M156.0,40.0 V321.6" stroke="#3a3734"/>
+<text x="92.0" y="335.6" text-anchor="middle" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">-10</text>
+<text x="156.0" y="335.6" text-anchor="middle" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">0</text>
+<text x="220.0" y="335.6" text-anchor="middle" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">10</text>
+<text x="284.0" y="335.6" text-anchor="middle" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">20</text>
+<text x="316.0" y="335.6" text-anchor="middle" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">25</text>
+<text x="348.0" y="335.6" text-anchor="middle" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">30</text>
+<text x="54.0" y="312.3" text-anchor="end" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">-20</text>
+<text x="54.0" y="261.1" text-anchor="end" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">-12</text>
+<text x="54.0" y="184.3" text-anchor="end" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">0</text>
+<text x="54.0" y="107.5" text-anchor="end" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">+12</text>
+<text x="54.0" y="56.3" text-anchor="end" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">+20</text>
+<text x="220.0" y="351.6" text-anchor="middle" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" letter-spacing="1">FORWARD LEAN FROM NEUTRAL (°)</text>
+<text transform="translate(18 180.8) rotate(-90)" text-anchor="middle" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" letter-spacing="1">LATERAL LEAN (°) · + RIGHT</text>
+<text x="348.0" y="180.8" text-anchor="middle" fill="#F2E9E4" font-size="10.5" font-weight="600">LEANING</text>
+<text x="348.0" y="196.8" text-anchor="middle" fill="#F2E9E4" font-size="10.5" font-weight="600">FORWARD</text>
+<text x="268.0" y="175.68" text-anchor="middle" fill="#F2E9E4" font-size="10.5" font-weight="600">SLOUCHING</text>
+<text x="140.0" y="72.0" text-anchor="middle" fill="#F2E9E4" font-size="10.5" font-weight="600">LEANING RIGHT</text>
+<text x="140.0" y="292.8" text-anchor="middle" fill="#F2E9E4" font-size="10.5" font-weight="600">LEANING LEFT</text>
+<text x="156.0" y="175.68" text-anchor="middle" fill="#E8483A" font-size="12" font-weight="600">GOOD</text>
+<text x="20" y="371.6" text-anchor="start" fill="#9C9389" font-size="10.5">Inside the dashed lines but outside the red outline (diagonal, or leaning back):</text>
+<text x="20" y="385.6" text-anchor="start" fill="#9C9389" font-size="10.5">total lean ≥ 14°, reported as Slouching. Rules 3–7 use the upper IMU only.</text>
+<text x="428" y="32" text-anchor="start" fill="#8C877D" font-size="10.5">RULE ORDER · EVALUATED EVERY FRAME</text>
+<line x1="428" y1="38" x2="722" y2="38" stroke="#F2E9E4" stroke-opacity=".1"/>
+<text x="428" y="52" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10">0</text>
+<text x="450" y="52" fill="#F2E9E4" font-size="12.5" font-weight="600">Unknown</text>
+<text x="450" y="66" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">both IMUs invalid</text>
+<line x1="428" y1="74" x2="722" y2="74" stroke="#F2E9E4" stroke-opacity=".1"/>
+<text x="428" y="88" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10">1</text>
+<text x="450" y="88" fill="#F2E9E4" font-size="12.5" font-weight="600">High tension</text>
+<text x="450" y="102" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">EMG ≥ baseline + 80 ADC counts · checked first</text>
+<line x1="428" y1="110" x2="722" y2="110" stroke="#F2E9E4" stroke-opacity=".1"/>
+<text x="428" y="124" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10">2</text>
+<text x="450" y="124" fill="#8C877D" font-size="12.5" font-weight="600">Lumbar collapse</text>
+<text x="450" y="138" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">lower − upper pitch ≥ 12° · lower IMU is off</text>
+<line x1="428" y1="146" x2="722" y2="146" stroke="#F2E9E4" stroke-opacity=".1"/>
+<text x="428" y="160" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10">3</text>
+<text x="450" y="160" fill="#F2E9E4" font-size="12.5" font-weight="600">Leaning forward</text>
+<text x="450" y="174" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">forward lean ≥ 25°</text>
+<line x1="428" y1="182" x2="722" y2="182" stroke="#F2E9E4" stroke-opacity=".1"/>
+<text x="428" y="196" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10">4</text>
+<text x="450" y="196" fill="#F2E9E4" font-size="12.5" font-weight="600">Slouching</text>
+<text x="450" y="210" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">forward lean ≥ 10°</text>
+<line x1="428" y1="218" x2="722" y2="218" stroke="#F2E9E4" stroke-opacity=".1"/>
+<text x="428" y="232" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10">5</text>
+<text x="450" y="232" fill="#F2E9E4" font-size="12.5" font-weight="600">Leaning left</text>
+<text x="450" y="246" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">lateral lean ≤ −12°</text>
+<line x1="428" y1="254" x2="722" y2="254" stroke="#F2E9E4" stroke-opacity=".1"/>
+<text x="428" y="268" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10">6</text>
+<text x="450" y="268" fill="#F2E9E4" font-size="12.5" font-weight="600">Leaning right</text>
+<text x="450" y="282" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">lateral lean ≥ +12°</text>
+<line x1="428" y1="290" x2="722" y2="290" stroke="#F2E9E4" stroke-opacity=".1"/>
+<text x="428" y="304" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10">7</text>
+<text x="450" y="304" fill="#F2E9E4" font-size="12.5" font-weight="600">Slouching</text>
+<text x="450" y="318" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">total lean ≥ 14° (diagonal, or leaning back)</text>
+<line x1="428" y1="326" x2="722" y2="326" stroke="#F2E9E4" stroke-opacity=".1"/>
+<text x="428" y="340" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10">—</text>
+<text x="450" y="340" fill="#E8483A" font-size="12.5" font-weight="600">Good</text>
+<text x="450" y="354" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">none of the above</text>
+<text x="428" y="370" text-anchor="start" fill="#9C9389" font-size="11">A state is reported only after it holds for 750 ms.</text>
+</svg>

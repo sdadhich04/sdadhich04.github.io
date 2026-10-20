@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 236" width="100%" role="img" aria-labelledby="botconf-t botconf-d" style="font-family:Inter, system-ui, sans-serif">
+<title id="botconf-t">BackOnTrack: the 750 millisecond confirmation window</title><desc id="botconf-d">A timeline of four seconds. The top row is the raw rule output every frame: Good, then a 400 millisecond Slouching reading at 0.8 seconds while the wearer reaches for something, then Good, then Slouching from 2.0 seconds onward. The bottom row is the reported state: a new state is reported only once the raw output has held it for 750 milliseconds, so the 400 millisecond reach never shows, and the sustained slouch is reported at 2.75 seconds, when the correction alert fires.</desc>
+<defs><marker id="botconf-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#F2E9E4" fill-opacity=".7"/></marker></defs>
+<text x="30" y="22" text-anchor="start" fill="#8C877D" font-size="10.5">RAW RULE OUTPUT · EVERY FRAME</text>
+<text x="30" y="128" text-anchor="start" fill="#8C877D" font-size="10.5">REPORTED STATE · AFTER 750 MS</text>
+<path d="M30,184 H440" stroke="#3a3734"/>
+<path d="M30.0,184 v4" stroke="#3a3734"/><text x="30.0" y="200" text-anchor="middle" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">0 s</text>
+<path d="M132.5,184 v4" stroke="#3a3734"/><text x="132.5" y="200" text-anchor="middle" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">1 s</text>
+<path d="M235.0,184 v4" stroke="#3a3734"/><text x="235.0" y="200" text-anchor="middle" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">2 s</text>
+<path d="M337.5,184 v4" stroke="#3a3734"/><text x="337.5" y="200" text-anchor="middle" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">3 s</text>
+<path d="M440.0,184 v4" stroke="#3a3734"/><text x="440.0" y="200" text-anchor="middle" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">4 s</text>
+<path d="M30.0,78 H112.0" stroke="#F2E9E4" stroke-opacity="0.35" stroke-width="6" stroke-linecap="butt"/>
+<text x="71.0" y="68" text-anchor="middle" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">GOOD</text>
+<path d="M112.0,78 H153.0" stroke="#F2E9E4" stroke-opacity="0.9" stroke-width="6" stroke-linecap="butt"/>
+<path d="M153.0,78 H235.0" stroke="#F2E9E4" stroke-opacity="0.35" stroke-width="6" stroke-linecap="butt"/>
+<path d="M235.0,78 H440.0" stroke="#F2E9E4" stroke-opacity="0.9" stroke-width="6" stroke-linecap="butt"/>
+<text x="337.5" y="68" text-anchor="middle" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">SLOUCHING</text>
+<text x="132.5" y="68" text-anchor="middle" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">REACH · 400 MS</text>
+<path d="M30.0,150 H311.875" stroke="#F2E9E4" stroke-opacity="0.35" stroke-width="6" stroke-linecap="butt"/>
+<text x="170.9375" y="140" text-anchor="middle" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">GOOD</text>
+<path d="M311.875,150 H440.0" stroke="#E8483A" stroke-opacity="1" stroke-width="6" stroke-linecap="butt"/>
+<text x="375.9375" y="140" text-anchor="middle" fill="#E8483A" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">SLOUCHING</text>
+<path d="M112.0,90 V100 H188.875 V90" fill="none" stroke="#8C877D" stroke-width="1.2"/>
+<text x="112.0" y="112" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">750 ms not reached</text>
+<path d="M235.0,90 V100 H311.875 V90" fill="none" stroke="#E8483A" stroke-width="1.2"/>
+<text x="235.0" y="112" fill="#E8483A" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5">750 ms held → report</text>
+<path d="M311.875,100 V144" stroke="#E8483A" stroke-opacity=".7" stroke-dasharray="3 3"/>
+<text x="317.875" y="162" text-anchor="start" fill="#E8483A" font-size="10.5">alert at 2.75 s</text>
+<text x="30" y="220" text-anchor="start" fill="#9C9389" font-size="10.5">Tuning range 500–2000 ms; a real fault is reported ≥ 750 ms late.</text>
+</svg>

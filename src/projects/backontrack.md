@@ -52,6 +52,8 @@ Orientation alone cannot separate some cases: leaning forward is an orientation 
 - **Classifier:** threshold rules on forward lean, sideways lean, total lean and EMG above baseline, each held for a confirmation window before it counts. I set and checked the thresholds through experimentation and trial and error.
 - **Feedback for the user:** the manual's design alerts with vibration and pairs with the companion app; the firmware also tracks gamified streaks and points for time spent in good posture.
 
+Figure: backontrack-placement
+
 ## Architecture / signal chain
 
 1. **BNO085 (upper back)** on SPI3 → `imu_upper_task` at 50 Hz → IMU queue. Runs on Core 0.
@@ -65,7 +67,13 @@ Orientation alone cannot separate some cases: leaning forward is an orientation 
 5. **Desktop receiver:** `tools/bot_ble_receiver.py` (Python, bleak) subscribes and logs packets to CSV.
 6. **Second BNO085 (lower back):** drawn greyed out. It is configured in the source but disabled at runtime (Decision 2).
 
+Figure: backontrack-packet
+
 ## Decisions & trade-offs
+
+Figure: backontrack-gravity
+
+Figure: backontrack-confirm
 
 ### 1. Rule-based classifier instead of a trained model
 
@@ -73,6 +81,8 @@ Orientation alone cannot separate some cases: leaning forward is an orientation 
 - **Options:** threshold rules on calibrated features, or a trained classifier (a TinyML model was listed as a later step).
 - **Pick:** rules. We had no labelled posture data yet, so rules we could explain and tune beat a model we couldn't validate. Current thresholds: forward lean of 10° for slouching and 25° for leaning forward, ±12° sideways, 14° total lean for diagonal leans, and EMG 80 ADC counts above baseline for high tension.
 - **Limitations:** I set and checked the thresholds through experimentation and trial and error, so they are not trained or validated on labelled posture data. Logged CSV telemetry could become training data for a TinyML model later.
+
+Figure: backontrack-rules
 
 ### 2. One IMU instead of two
 
@@ -108,6 +118,8 @@ Values still stayed at zero, so the problem had moved to parsing: we had set the
 Later the same day I switched to the bundled BNO08x library.
 That library is single-instance, which is what forced the one-IMU design: the lower-back IMU, which Lumbar Collapse needs, is still configured but disabled (Decision 2).
 
+Figure: backontrack-bringup
+
 ## Testing
 
 - **Live check:** I checked the classification against 100 live movements; it got 95 right. This was a check against live movements, not an evaluation on a labelled dataset.
@@ -120,6 +132,8 @@ That library is single-instance, which is what forced the one-IMU design: the lo
 - 95 of 100 live movements classified correctly (an informal check, not a labelled dataset).
 - A root-caused IMU calibration fault (mis-set BNO08x feature flags), documented with the diagnostic project in the repo.
 - A 40.5-minute logged session of 48,594 telemetry frames (upper-back IMU + EMG).
+
+Figure: backontrack-lean-rules
 
 ## What I'd do differently
 
