@@ -279,8 +279,25 @@ a.card:hover .card__title { color: var(--accent); }
 .toc li + li { margin-top: 0; }
 .toc a { display: inline-flex; min-height: 44px; align-items: center; font-size: 0.9375rem; }
 
-.prose { max-width: 48rem; }
-.prose h2 { margin-top: var(--space-7); padding-top: var(--space-3); border-top: 1px solid var(--line); scroll-margin-top: var(--space-4); }
+.prose { max-width: none; }
+.prose h2 { margin-top: var(--space-6); padding-top: var(--space-3); border-top: 1px solid var(--line); scroll-margin-top: var(--space-4); }
+/* text keeps its reading measure; figures in a plain section may run wider */
+.prose > :not(section), .prose > section:not(.sec--split) > :not(.fig):not(h2) { max-width: 46rem; }
+.prose > section:not(.sec--split) > .fig { max-width: 56rem; }
+
+/* a section with side visuals splits into text | visuals from 72rem up;
+   below that, the visuals follow the text */
+.sec__main > :first-child { margin-top: 0; }
+.sec__side { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-4); margin-top: var(--space-4); }
+.sec__side > * { min-width: 0; }
+.sec__side .fig { margin: 0; max-width: 30rem; }
+.fig--side figcaption { max-width: none; }
+@media (min-width: 72rem) {
+  .sec--split { display: grid; grid-template-columns: minmax(0, 40rem) minmax(0, 1fr); column-gap: var(--space-5); align-items: start; }
+  .sec--split > h2 { grid-column: 1 / -1; }
+  .sec__side { margin-top: 0; align-content: start; }
+  .sec__side .fig { max-width: none; }
+}
 .prose h3 { margin-top: var(--space-5); }
 .prose > :first-child, .prose > section:first-child h2 { margin-top: 0; }
 .prose li { color: var(--text); }
@@ -304,7 +321,7 @@ a.card:hover .card__title { color: var(--accent); }
 @media (min-width: 48rem) { .decision__row { grid-template-columns: 9rem 1fr; } }
 
 /* "What I'd do differently" closes the page */
-.sec--what-i-d-do-differently { border-left: 2px solid var(--accent); padding-left: 13px; margin-top: var(--space-7); }
+.sec--what-i-d-do-differently { border-left: 2px solid var(--accent); padding-left: 13px; margin-top: var(--space-6); }
 .prose .sec--what-i-d-do-differently h2 { border-top: 0; margin-top: 0; padding-top: 0; }
 
 .project__foot { margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-4); align-items: center; }
@@ -325,8 +342,13 @@ a.card:hover .card__title { color: var(--accent); }
 .fig--art figcaption { font-family: var(--font-mono); font-size: var(--fs-label); text-transform: uppercase; letter-spacing: .1em; color: var(--faint); border-left: 1px solid var(--line); padding-left: var(--space-3); }
 .fig--art .fig__method { display: block; font-family: var(--font-body); font-size: 0.875rem; text-transform: none; letter-spacing: 0; color: var(--muted); }
 .fig--shield-pcb-line img { max-width: min(100%, 40rem); }
+.fig--image img, .fig--main img { width: 100%; }
+.fig--shield-board-photo img { max-width: min(100%, 22rem); border: 1px solid var(--line); }
+.fig--faraday-cage-render img { max-width: min(100%, 20rem); }
+.fig--faraday-cage-line img { max-width: min(100%, 15rem); }
 @media (max-width: 40rem) {
   .fig--plot .fig__scroll img, .fig--diagram .fig__scroll img { min-width: 600px; }
+  .fig--side.fig--diagram .fig__scroll img { min-width: 440px; }
 }
 .table-scroll { overflow-x: auto; margin: 0 0 var(--space-3); }
 .table-scroll table { margin: 0; min-width: 32rem; }

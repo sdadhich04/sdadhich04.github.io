@@ -16,12 +16,14 @@ key_numbers:
     value: "81 steps, one boot"
   - label: "Shaker-table sequencer"
     value: "4 sessions × 70 min"
+  - label: "Nominal data: breadboard, then PCB (poster)"
+    value: "2 × 100 h"
 links:
   - https://github.com/sdadhich04/Faraday-Cage-design-
 layout: layouts/project.njk
 permalink: /projects/project-shield/
 tags: [project]
-mainVisual: shield-pcb-line
+mainVisual: shield-render-page
 order: 2
 ---
 
@@ -34,12 +36,29 @@ Since June 2026 I have worked on SHIELD at ARC Lab as Data Acquisition & Instrum
 There I lead the undergraduate stress-test campaign and wrote the automation that drives the orbital-shaker vibration rig; I also designed and built the Faraday cage used in the EMI tests.
 I also extended the team's firmware (8 of 60 commits).
 
+Figure: shield-board-photo
+
 ## The problem
 
 Sensors fail or degrade quietly, and the project's first phase was to build a clean, well-labelled dataset of healthy behavior across the board's sensors before any fault work.
 The success criteria asked for data from at least five physical units per sensor type, at fixed, tiered sampling rates.
 The board therefore had to mix many interfaces, stay within a sponsor budget of $4,000, and scale to several identical units.
 The later stress campaign adds a second problem: long, repeated sessions (vibration, thermal, EMI and fault injection) that are slow and error-prone to run by hand.
+
+The capstone's requirements, as printed on the team's poster:
+
+| Requirement | Goal |
+|---|---|
+| Sensor modalities | 8 supported sensor types |
+| Sensor identity | A unique `{sensor_type, sensor_unit_id}` per run |
+| Sampling architecture | Fast / medium / slow tiered sampling |
+| Timestamping | ≤ 1 ms resolution |
+| Storage | Binary logs + JSON metadata |
+| Firmware pipeline | FreeRTOS buffering + async SD writing |
+| Dataset output | CSV files for visualization and ML |
+| Final ML target | Predict failure ≥ 20 s before functional loss |
+
+Figure: shield-ml-pipeline
 
 ## Approach
 
@@ -59,15 +78,25 @@ The later stress campaign adds a second problem: long, repeated sessions (vibrat
 - I extended the team's firmware: noise-dataset logging across the IMU, microphone, pressure, temperature and photodiode drivers, a BNO08x gyro/magnetometer API fix, and two autonomous test sequencers (81-step bias injection; 4-session shaker table).
 - I lead the undergraduate team on the stress-test campaign: I assign sessions, train people on the shaker-rig and Faraday-cage setups, and review data before it enters the shared dataset.
 
+Figure: faraday-cage-render
+
+Figure: faraday-cage-line
+
 ## Architecture / signal chain
 
 **Panel A: DAQ board (team design)**
+
+Figure: shield-system
 
 1. **Power:** 9 V battery → 9 V-to-5 V converter → 5 V rail. In the prototype, the analog current sensor and the microSD module moved to an external, stable 5 V supply (see Decision 1).
 2. **Sensors (8 types)** on SPI, I²C, ADC and I²S; I²C is the main shared bus.
 3. **ESP32-S3 DevKit**, dual-core FreeRTOS firmware: Core 0 runs Fast, Medium and Slow acquisition tasks that push samples into FreeRTOS queues; Core 1 runs only an asynchronous SD-writer task.
 4. **microSD (SPI):** `fast_data.bin`, `medium_data.bin`, `slow_data.bin` per session plus `meta.json`.
 5. **Offline:** a team script converts the binary files to one CSV per sensor.
+
+Figure: shield-freertos
+
+Figure: shield-pcb-line
 
 **Panel B: stress-test rig (my automation)**
 
@@ -76,11 +105,11 @@ The later stress campaign adds a second problem: long, repeated sessions (vibrat
 3. **Faraday cage** around the board for the EMI sessions.
 4. **Shared dataset:** I review each session's data before it is added.
 
-![Line drawing of the Faraday cage I designed, from my Onshape CAD](/assets/svg/faraday-cage-line.svg)
-
-I designed this: a two-part, 3D-printable Faraday cage for the EMI sessions (Onshape CAD).
-
 ## Decisions & trade-offs
+
+Figure: shield-bias-sweep
+
+Figure: shield-shaker-campaign
 
 ### 1. Where the analog current sensor and SD card get their 5 V (capstone)
 
@@ -129,6 +158,8 @@ I designed this: a two-part, 3D-printable Faraday cage for the EMI sessions (Ons
 - **Sequencer validation:** I tested the bias-injection sequencer end to end with a 20 s-per-session build, including a mid-sweep abort and a power-cycle resume, before flashing the real 5-minute-per-session build.
 - **Campaign:** vibration, thermal, EMI and fault-injection sessions. Results are not shown here because the benchmark is unpublished.
 
+Figure: shield-fault-map
+
 ## Results
 
 - A custom ESP32-S3 DAQ board for 8 sensor types, taken from schematic to fabrication and used for the 100-hour no-fault collection.
@@ -150,3 +181,4 @@ I designed this: a two-part, 3D-printable Faraday cage for the EMI sessions (Ons
 - Mentors: industry mentor Alperen Cucioglu (Guide Air Labs); faculty mentor and ARC Lab PI Prof. Sep Makhsous.
 - Roles from the Design Report: Thomas Glass was system & product lead and shared the hardware lead with me; Houser Zhang and Sam Korostov led firmware; Jocelyn He and Sam Korostov led data and metadata.
 - The acquisition firmware is the team's; my commits extend it.
+- The board photo, the system diagram, the firmware pipeline, the ML pipeline and the fault list come from the team's capstone poster; I redrew the diagrams in this site's style.

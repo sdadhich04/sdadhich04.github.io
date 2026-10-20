@@ -7,7 +7,8 @@
       "height": 360,
       "title": "BackOnTrack: upper-back pitch and EMG over one recorded session",
       "desc": "48,593 telemetry frames over 40.5 minutes at a median 50 ms frame interval. Upper panel: upper-back IMU pitch in degrees. Lower panel: EMG in millivolts.",
-      "caption": "Upper-back pitch (BNO085) and the MyoWare 2.0 signal at the ADC over one 40.5-minute session I wore the device for, from the BLE log in the public repo (tools/bot_20260609_213341.csv). Frames come every 50 ms (20 Hz); the plot draws the min–max band per 7-second window. Only the upper IMU was running, and one calibration-sentinel frame was dropped (48,593 of 48,594 frames plotted). Raw signals, not classifier output. Team project: Sparsh, Matthew, Parneet and Ella."
+      "caption": "Upper-back pitch (BNO085) and the MyoWare 2.0 signal at the ADC over one 40.5-minute session I wore the device for, from the BLE log in the public repo (tools/bot_20260609_213341.csv). Frames come every 50 ms (20 Hz); the plot draws the min–max band per 7-second window. Only the upper IMU was running, and one calibration-sentinel frame was dropped (48,593 of 48,594 frames plotted). Raw signals, not classifier output. Team project: Sparsh, Matthew, Parneet and Ella.",
+      "side": false
     },
     "emg-bci-lag-sweep": {
       "src": "/assets/svg/emg-bci-lag-sweep.svg",
@@ -17,6 +18,7 @@
       "title": "EMG cursor BCI: successful reaches and failed center holds versus added feedback lag",
       "desc": "Successful reaches out of 19 attempts, by measured added lag (script setting in brackets): 0 ms (0): 10, about 125 ms (100): 16, about 360 ms (300): 2, about 590 ms (500): 4. Failed center holds: 0 ms: 4, about 125 ms: 5, about 360 ms: 49, about 590 ms: 78. One run per lag condition; the loop ran about 0.12 s instead of the nominal 0.1 s, so the settings of 100, 300 and 500 ms gave about 125, 360 and 590 ms.",
       "caption": "Successful reaches (of 19) and failed center holds at each added feedback lag, counted from the task events in the repo's .mat runs. The loop ran about 120 ms instead of the nominal 100 ms, so the script settings of 100, 300 and 500 ms gave about 125, 360 and 590 ms of added lag. Each lag condition is one run, so the ≈125 ms run beating 0 ms can't be separated from practice or run-to-run effects; the drop from ≈360 ms upward is the effect. Recorded in a three-person EE 466 lab group with Jonathan and Olivia.",
+      "side": false,
       "table": {
         "headers": [
           "Added lag (measured)",
@@ -85,6 +87,7 @@
       "title": "SmartCrib: INT8 quantization shrank model and memory with no accuracy change",
       "desc": "Model size: Keras 58.8 kB, float32 TFLite 12.5 kB, INT8 TFLite 7.4 kB. Tensor arena: float32 56.3 kB, INT8 27.6 kB. Accuracy 94.8% for both on 96 test windows.",
       "caption": "Model size and estimated tensor arena, Keras → float32 TFLite → INT8, from the public repo's reports (model_sizes.csv, metrics_summary.csv). The arena sizes are the repo's estimates, and on-device latency was not measured. Both TFLite models scored 94.8% accuracy on the 96 held-out test windows. Joint project with Jonathan Lu.",
+      "side": false,
       "table": {
         "headers": [
           "Measure",
@@ -127,7 +130,8 @@
       "height": 40,
       "title": "BackOnTrack: upper-back pitch over one 40.5-minute session",
       "desc": "Median upper-back pitch per 30-second window across the 9 June 2026 logged session (48,593 frames), ranging from 7 to 24 degrees.",
-      "caption": null
+      "caption": null,
+      "side": true
     },
     "spark-emg-reaches": {
       "src": "/assets/svg/spark-emg-reaches.svg",
@@ -136,7 +140,8 @@
       "height": 40,
       "title": "EMG BCI: successful reaches by added feedback lag",
       "desc": "Successful reaches out of 19: about 0 ms 10, about 125 ms 16, about 360 ms 2, about 590 ms 4 (higher lags highlighted).",
-      "caption": null
+      "caption": null,
+      "side": true
     },
     "spark-smartcrib-size": {
       "src": "/assets/svg/spark-smartcrib-size.svg",
@@ -145,7 +150,8 @@
       "height": 40,
       "title": "SmartCrib: model size by format",
       "desc": "Model size: Keras 58.8 kB, float32 TFLite 12.5 kB, INT8 TFLite 7.4 kB (highlighted).",
-      "caption": null
+      "caption": null,
+      "side": true
     },
     "tpt-chicken-cluster": {
       "src": "/assets/svg/tpt-chicken-cluster.svg",
@@ -155,6 +161,7 @@
       "title": "TPT-Finder, BioZ v2: 20 chicken-breast samples at 33 kHz cluster tightly in magnitude and phase",
       "desc": "Impedance magnitude against phase at 33 kHz for 167 measurements on 20 ex-vivo chicken-breast samples, measured on the two-electrode BioZ v2 board on 6 November 2025. The 20 per-sample means run from 590.7 to 601.1 ohms (mean 595.5, standard deviation 3.0) and from -6.3 to -4.6 degrees in phase. One reading of 36.6 kilohms was excluded as an outlier.",
       "caption": "Redrawn from the poster's Figures II and III using the raw lab file: 167 measurements on 20 ex-vivo chicken-breast samples at 33 kHz, BioZ v2, 6 November 2025. Red dots are the per-sample means; grey dots are the single measurements. One 36.6 kΩ reading was excluded as an outlier.",
+      "side": false,
       "table": {
         "headers": [
           "Sample",
@@ -294,6 +301,7 @@
       "title": "TPT-Finder, BioZ v2: impedance and phase of four liquids at 33 kHz",
       "desc": "Mean ± standard deviation at 33 kHz, measured on the two-electrode BioZ v2 board on 12 February 2026. Distilled water, n = 11: |Z| 207,667 ± 19,990 ohms, phase 45.5 ± 7.8 degrees; Drinking water, n = 15: |Z| 12,294 ± 646 ohms, phase 3.4 ± 0.4 degrees; Gatorade, n = 21: |Z| 616 ± 3 ohms, phase -1.5 ± 0.1 degrees; Saline, n = 10: |Z| 592 ± 0 ohms, phase 6.1 ± 0.0 degrees. Impedance falls by more than two orders of magnitude from distilled water to Gatorade and saline, tracking conductivity.",
       "caption": "Redrawn from the poster's Figure I using the raw lab files: mean ± SD at 33 kHz on BioZ v2 (two electrodes), 12 February 2026, with n measurements per liquid as printed on the poster. Distilled water, at about 208 kΩ, varies most in both magnitude and phase.",
+      "side": false,
       "table": {
         "headers": [
           "Liquid",
@@ -346,7 +354,8 @@
       "height": 360,
       "title": "BackOnTrack: wearable posture firmware on an ESP32-S3",
       "desc": "A BNO085 IMU on the upper back over SPI and a MyoWare 2.0 EMG sensor on the ADC feed FreeRTOS tasks and queues on an ESP32-S3. A processing task calibrates, computes posture features, runs a rule-based classifier with good posture plus five fault states, and keeps session statistics. Outputs: a NimBLE GATT packet to a desktop receiver that logs CSV, and serial CSV or JSON telemetry. A second lower-back IMU is configured but disabled at runtime.",
-      "caption": "Firmware block diagram, drawn from the public repo's README and source. The lower-back IMU is configured but disabled at runtime."
+      "caption": "Firmware block diagram, drawn from the public repo's README and source. The lower-back IMU is configured but disabled at runtime.",
+      "side": false
     },
     "emg-bci-loop": {
       "src": "/assets/svg/emg-bci-loop.svg",
@@ -355,7 +364,68 @@
       "height": 300,
       "title": "EMG cursor control: closed loop with an added feedback lag",
       "desc": "Two EMG channels arrive as a Lab Streaming Layer stream. Every 0.1 seconds MATLAB takes the mean absolute value of each channel, a three-state Kalman filter estimates cursor position, velocity and offset, a lag buffer delays the displayed state by 0, 100, 300 or 500 milliseconds, and the display shows a one-dimensional center-out task. The participant watches the cursor and changes muscle activity, closing the loop.",
-      "caption": "The closed loop, drawn from the public repo's README and lag-sweep script."
+      "caption": "The closed loop, drawn from the public repo's README and lag-sweep script.",
+      "side": false
+    },
+    "shield-bias-sweep": {
+      "src": "/assets/svg/shield-bias-sweep.svg",
+      "kind": "diagram",
+      "width": 460,
+      "height": 212,
+      "title": "Project SHIELD: the 81-step bias-injection sweep",
+      "desc": "The firmware sequencer I wrote runs 81 bias-injection sessions from one boot: 3 trials, each covering 9 axes at 3 severities. Bias values are registers the sequencer sets per step; an NVS checkpoint after each step makes the sweep resume-safe after a power cycle, and every run writes a b4_meta.json sidecar with its axis, severity, trial, step index, status and firmware commit.",
+      "caption": "Decision 3: what my firmware sequencer runs from a single boot.",
+      "side": true
+    },
+    "shield-fault-map": {
+      "src": "/assets/svg/shield-fault-map.svg",
+      "kind": "diagram",
+      "width": 460,
+      "height": 500,
+      "title": "Project SHIELD: faults, stress sessions and the rigs that run them",
+      "desc": "From the capstone poster's Fault Injection panel: software faults to inject are bias, drift, burst noise, dropouts, stuck-at, clipping and latency; hardware faults are power variation, EMI or analog noise, and bus disturbance; the goal is to compare fault behaviour against the nominal baseline and produce a labelled dataset for fault detection and machine learning. In the ARC Lab stress campaign, bias injection runs on my 81-step firmware sequencer, vibration sessions run on the orbital shaker driven by my PC scripts, EMI sessions use the Faraday cage I designed and built, and thermal sessions use the team's setup.",
+      "caption": "The poster's fault list, and the rig behind each stress session in the ARC Lab campaign. Red tags mark the parts I built.",
+      "side": true
+    },
+    "shield-freertos": {
+      "src": "/assets/svg/shield-freertos.svg",
+      "kind": "diagram",
+      "width": 640,
+      "height": 384,
+      "title": "Project SHIELD: the dual-core FreeRTOS acquisition pipeline",
+      "desc": "Redrawn from the capstone poster's Figure 2. On core 0, three acquisition tasks poll the sensors in three tiers: FastTask at priority 10 runs a 1 millisecond loop for the BNO085 accelerometer, gyroscope and magnetometer, the SW-420 and the INMP441 (1 kHz); MediumTask at priority 8 runs a 5 millisecond loop for the ACS723 current sensor and the photodiode through the ADS1115 (200 Hz); SlowTask at priority 6 runs a 20 millisecond loop for the MPL3115A2 pressure and MCP9808 temperature sensors (50 Hz). Each task pushes records into its own FreeRTOS queue. On core 1, a single SDWriter task at priority 5 drains the three queues into 16 KB per-file buffers, flushes every second or when a buffer is full, and updates the metadata every 60 seconds, writing fast_data.bin, medium_data.bin, slow_data.bin, meta.json and events.log to a run folder on the microSD card. A live streamer sends the data over USB serial to pc_viewer.py on the PC. Every stored sample is written as raw plus processed 20-byte V2 records.",
+      "caption": "Redrawn from the capstone poster's Figure 2. The acquisition firmware is the team's; my commits extend it.",
+      "side": false
+    },
+    "shield-ml-pipeline": {
+      "src": "/assets/svg/shield-ml-pipeline.svg",
+      "kind": "diagram",
+      "width": 460,
+      "height": 296,
+      "title": "Project SHIELD: the team's machine-learning pipeline design",
+      "desc": "Redrawn from the capstone poster's Figure 5. Raw sensor telemetry is cut into fixed-length windows and labelled using synthetically injected faults with randomized onsets and severities; each window becomes a feature vector of time-domain statistics, frequency-domain spectral features and wavelet coefficients; classification models are trained to tell healthy sensor behaviour from fault conditions. The requirements set the final target: predict a failure at least 20 seconds before functional loss.",
+      "caption": "Redrawn from the poster's Figure 5: the team's ML pipeline design. Model training is ongoing.",
+      "side": true
+    },
+    "shield-shaker-campaign": {
+      "src": "/assets/svg/shield-shaker-campaign.svg",
+      "kind": "diagram",
+      "width": 460,
+      "height": 240,
+      "title": "Project SHIELD: the four-session shaker campaign",
+      "desc": "Four back-to-back 70-minute sessions at low, medium, medium and high speed, 280 minutes in all. Each session is 5 minutes settling with the shaker off, 60 minutes at the target speed and 5 minutes of recovery. One button press on the board arms the first session; after that the board follows the PC script's zero-gap chaining for sessions 2 to 4. The A1 protocol's speeds are 80, 140 and 200 RPM.",
+      "caption": "Decision 4: one button press arms the first session; the PC script chains the other three.",
+      "side": true
+    },
+    "shield-system": {
+      "src": "/assets/svg/shield-system.svg",
+      "kind": "diagram",
+      "width": 470,
+      "height": 592,
+      "title": "Project SHIELD: system diagram of the DAQ board",
+      "desc": "Redrawn from the capstone poster's Figure 1. A 9 volt battery feeds a 9 to 5 volt converter; 5 volts powers the ESP32-S3 board, the microSD module and the current sensor, and the ESP32-S3 supplies 3.3 volts to the other modules. Inside the ESP32-S3, raw sensor data is scaled and converted, tagged with metadata (sensor type, unit ID, model, sampling rate, timestamp reference and run ID) and buffered. The sensor modules, tested one at a time on five units each, are an IMU (BNO085, SPI: accelerometer, gyroscope, magnetometer), a pressure sensor (MPL3115A2, I2C), a temperature sensor (MCP9808, I2C), a microphone (INMP441, I2S), a photodiode and a current sensor (ACS723) read through an ADS1115 analog-to-digital converter on I2C, and a vibration switch (SW-420, GPIO). Data goes to a microSD card over SPI as binary sensor files plus JSON metadata, and to a host PC over USB serial; a Wi-Fi web view exists but is compiled off by default.",
+      "caption": "Redrawn from the capstone poster's Figure 1 (team design).",
+      "side": true
     },
     "smartcrib-pipeline": {
       "src": "/assets/svg/smartcrib-pipeline.svg",
@@ -364,7 +434,8 @@
       "height": 330,
       "title": "SmartCrib: training pipeline and on-device cry detection",
       "desc": "Offline: Donate-a-Cry cry clips and ESC-50 negatives become 40-frame by 13-coefficient MFCC features, train a compact Conv1D model, which is quantized to an 7.4 kB INT8 TensorFlow Lite model, and a threshold sweep picks 0.7 to meet a 0.90 recall target. On device: an Arduino Nano 33 BLE Sense records from its PDM microphone, computes MFCCs for each one-second window, runs the INT8 model, applies the threshold and a three-window majority vote, and raises a GPIO alert to an ESP32 bridge that sounds a buzzer and exposes a BLE alert.",
-      "caption": "Training pipeline (offline) and on-device detection (Nano 33 BLE Sense → ESP32 alert bridge), drawn from the public repo's README and source."
+      "caption": "Training pipeline (offline) and on-device detection (Nano 33 BLE Sense → ESP32 alert bridge), drawn from the public repo's README and source.",
+      "side": false
     },
     "tpt-finder-electrodes": {
       "src": "/assets/svg/tpt-finder-electrodes.svg",
@@ -373,7 +444,8 @@
       "height": 330,
       "title": "TPT-Finder: two-electrode BioZ v2 versus four-electrode BioZ v4",
       "desc": "Left, BioZ v2: two electrodes on the tissue. E1 is driven by the AD8606 buffer and E2 returns the current to the AD8606 transimpedance stage, so the reading includes the contact impedance at both electrodes in series with the tissue. Right, BioZ v4: four electrodes. The outer pair injects the current (driven by the AD8606 buffer) and returns it to ground; the inner pair senses the voltage through an INA333 instrumentation amplifier with a gain of about 1000 and its reference at 1.65 volts, into the AD5933. The sense electrodes carry almost no current, so their contact impedance stays out of the measured voltage.",
-      "caption": "Why BioZ v4 moved to four electrodes. The v2 wiring is read from its KiCad netlist; the v4 wiring is from the March 2026 design worklog for the four-port redesign."
+      "caption": "Why BioZ v4 moved to four electrodes. The v2 wiring is read from its KiCad netlist; the v4 wiring is from the March 2026 design worklog for the four-port redesign.",
+      "side": false
     },
     "tpt-finder-signal-chain": {
       "src": "/assets/svg/tpt-finder-signal-chain.svg",
@@ -382,7 +454,8 @@
       "height": 384,
       "title": "TPT-Finder: the BioZ v2 two-electrode measurement chain",
       "desc": "A Python GUI on a laptop talks over USB to an ESP32 running ESP-IDF firmware with the AD5933 I2C driver. On the BioZ v2 board, the AD5933 impedance converter, clocked by a 16 MHz oscillator, sends its excitation from VOUT through a 47 nF coupling capacitor, biased to mid-supply by a 49.9 kilohm divider, into channel A of an AD8606 wired as a unity buffer, which drives electrode E1. The current through the tissue returns on electrode E2 into channel B of the AD8606, a transimpedance stage with 49.9 kilohm feedback, then through a 20 kilohm input resistor (20 kilohm RFB) into the AD5933's VIN, where an on-chip DFT gives the real and imaginary parts. The same electrode pair drives and senses, so electrode contact impedance is part of every reading. Calibration against a 2200 ohm reference reached 0.034 percent error at 33 kHz.",
-      "caption": "The BioZ v2 measurement chain, which took the poster data, read from the board's KiCad netlist. The same electrode pair drives and senses."
+      "caption": "The BioZ v2 measurement chain, which took the poster data, read from the board's KiCad netlist. The same electrode pair drives and senses.",
+      "side": false
     },
     "faraday-cage-line": {
       "src": "/assets/svg/faraday-cage-line.svg",
@@ -391,7 +464,30 @@
       "height": 1401,
       "title": "Faraday cage test enclosure, line drawing from my Onshape CAD",
       "desc": "Exploded axonometric line drawing of a two-part shielding enclosure, 190 by 190 by 200 millimetres, with its lid lifted above the body and a panel of holes on the front. Visible edges are solid; hidden edges are faint dashed lines.",
-      "caption": null
+      "caption": "The same two-part cage as an exploded line drawing, hidden edges removed.",
+      "side": true
+    },
+    "faraday-cage-render": {
+      "src": "/assets/img/faraday-cage-render.png",
+      "kind": "image",
+      "raster": true,
+      "width": 1217,
+      "height": 1726,
+      "title": "My Faraday cage, rendered from its CAD",
+      "alt": "Shaded render of the two-part Faraday cage from its Onshape STL: a square box with a perforated connector panel on the front, and its lid, with a small boss on top, lifted above it.",
+      "caption": "Rendered from the Onshape STL in my public repo, in a neutral clay material rather than the printed colour; the lid is lifted to show the box.",
+      "side": true
+    },
+    "shield-board-photo": {
+      "src": "/assets/img/shield-board-photo.png",
+      "kind": "image",
+      "raster": true,
+      "width": 437,
+      "height": 559,
+      "title": "The assembled DAQ board (poster Fig. 4)",
+      "alt": "Photo of the assembled SHIELD prototype board running on a desk: the purple PCB with the ESP32-S3 DevKit, the microSD adapter and 9 V battery standing upright, sensor breakout boards and lit green and blue LEDs.",
+      "caption": "From the team's capstone poster, cropped. This is the earlier purple prototype PCB; the render at the top shows the final layout.",
+      "side": true
     },
     "shield-pcb-line": {
       "src": "/assets/svg/shield-pcb-line.svg",
@@ -400,7 +496,8 @@
       "height": 621,
       "title": "Project SHIELD sensor DAQ board, drawn from its KiCad Gerbers",
       "desc": "Line drawing of the ESP32-S3 sensor data-acquisition PCB co-designed for Project SHIELD. Top-layer copper is drawn in cream and bottom-layer copper in faint tan: the ESP32-S3 module footprint in the centre, sensor headers around it, and the traces and ground pour between them.",
-      "caption": "The SHIELD ESP32-S3 DAQ PCB I co-designed with Thomas Glass, drawn from its public Gerbers: top copper in off-white, bottom copper in grey."
+      "caption": "The SHIELD ESP32-S3 DAQ PCB I co-designed with Thomas Glass, drawn from its public Gerbers: top copper in off-white, bottom copper in grey.",
+      "side": true
     },
     "shield-render-mobile": {
       "src": "/assets/img/shield-render-mobile.png",
@@ -408,7 +505,21 @@
       "raster": true,
       "width": 819,
       "height": 800,
-      "title": null
+      "title": null,
+      "alt": null,
+      "caption": null,
+      "side": true
+    },
+    "shield-render-page": {
+      "src": "/assets/img/shield-render-page.png",
+      "kind": "image",
+      "raster": true,
+      "width": 1684,
+      "height": 1113,
+      "title": null,
+      "alt": "3D render of the Project SHIELD DAQ board: an ESP32-S3 DevKit on a black PCB with the sensor breakout boards, the upright microSD adapter and vibration switch, three status LEDs and the 9 V input.",
+      "caption": "Rendered from our KiCad PCB layout; component models include approximations.",
+      "side": true
     },
     "shield-render-wide": {
       "src": "/assets/img/shield-render-wide.png",
@@ -416,7 +527,10 @@
       "raster": true,
       "width": 1835,
       "height": 1202,
-      "title": null
+      "title": null,
+      "alt": null,
+      "caption": null,
+      "side": true
     },
     "tpt-finder-poster-2026": {
       "src": "/assets/img/tpt-finder-poster-2026.png",
@@ -437,7 +551,7 @@
       "plot": "tpt-liquid-validation"
     },
     "project-shield": {
-      "main": "shield-pcb-line"
+      "main": "shield-render-page"
     },
     "backontrack": {
       "main": "backontrack-system",

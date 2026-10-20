@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 592" width="100%" role="img" aria-labelledby="shsys-t shsys-d" style="font-family:Inter, system-ui, sans-serif">
+<title id="shsys-t">Project SHIELD: system diagram of the DAQ board</title><desc id="shsys-d">Redrawn from the capstone poster's Figure 1. A 9 volt battery feeds a 9 to 5 volt converter; 5 volts powers the ESP32-S3 board, the microSD module and the current sensor, and the ESP32-S3 supplies 3.3 volts to the other modules. Inside the ESP32-S3, raw sensor data is scaled and converted, tagged with metadata (sensor type, unit ID, model, sampling rate, timestamp reference and run ID) and buffered. The sensor modules, tested one at a time on five units each, are an IMU (BNO085, SPI: accelerometer, gyroscope, magnetometer), a pressure sensor (MPL3115A2, I2C), a temperature sensor (MCP9808, I2C), a microphone (INMP441, I2S), a photodiode and a current sensor (ACS723) read through an ADS1115 analog-to-digital converter on I2C, and a vibration switch (SW-420, GPIO). Data goes to a microSD card over SPI as binary sensor files plus JSON metadata, and to a host PC over USB serial; a Wi-Fi web view exists but is compiled off by default.</desc>
+<defs><marker id="shsys-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#F2E9E4" fill-opacity=".7"/></marker></defs>
+<rect x="10" y="10" width="124" height="44" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="20" y="31" fill="#F2E9E4" font-size="13.5" font-weight="600">9 V battery</text>
+<rect x="170" y="10" width="150" height="44" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="180" y="31" fill="#F2E9E4" font-size="13.5" font-weight="600">9 V → 5 V converter</text>
+<path d="M134,32 L168,32" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3" marker-end="url(#shsys-a)"/>
+<path d="M245,54 L245,74 L115,74 L115,86" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3" marker-end="url(#shsys-a)"/>
+<text x="252" y="70" text-anchor="start" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10">5 V</text>
+<rect x="10" y="88" width="210" height="300" rx="2" fill="none" stroke="#F2E9E4" stroke-opacity=".22" stroke-dasharray="4 4"/>
+<text x="20" y="104" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" letter-spacing="1.2">ESP32-S3 DEVKIT</text>
+<text x="20" y="122" text-anchor="start" fill="#8C877D" font-size="10.5">start button · status LEDs</text>
+<rect x="22" y="134" width="186" height="34" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="32" y="155" fill="#F2E9E4" font-size="13.5" font-weight="600">Raw sensor data</text>
+<rect x="22" y="184" width="186" height="34" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="32" y="205" fill="#F2E9E4" font-size="13.5" font-weight="600">Scale · convert</text>
+<rect x="22" y="234" width="186" height="78" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="32" y="255" fill="#F2E9E4" font-size="13.5" font-weight="600">Metadata</text>
+<text x="32" y="272" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">type · unit ID · model</text>
+<text x="32" y="287" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">rate · timestamp ref</text>
+<text x="32" y="302" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">run ID</text>
+<rect x="22" y="328" width="186" height="34" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="32" y="349" fill="#F2E9E4" font-size="13.5" font-weight="600">Buffer</text>
+<path d="M115,168 L115,182" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3" marker-end="url(#shsys-a)"/>
+<path d="M115,218 L115,232" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3" marker-end="url(#shsys-a)"/>
+<path d="M115,312 L115,326" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3" marker-end="url(#shsys-a)"/>
+<text x="252" y="102" text-anchor="start" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" letter-spacing="1">SENSOR MODULES</text>
+<text x="252" y="116" text-anchor="start" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" letter-spacing="1">one tested at a time, 5 units</text>
+<rect x="252" y="126" width="208" height="44" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="262" y="147" fill="#F2E9E4" font-size="13.5" font-weight="600">IMU · BNO085</text>
+<text x="262" y="164" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">SPI · accel, gyro, mag</text>
+<path d="M236,148 H252" fill="none" stroke="#F2E9E4" stroke-opacity=".45" stroke-width="1.2"/>
+<rect x="252" y="176" width="208" height="44" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="262" y="197" fill="#F2E9E4" font-size="13.5" font-weight="600">Pressure · MPL3115A2</text>
+<text x="262" y="214" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">I2C</text>
+<path d="M236,198 H252" fill="none" stroke="#F2E9E4" stroke-opacity=".45" stroke-width="1.2"/>
+<rect x="252" y="226" width="208" height="44" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="262" y="247" fill="#F2E9E4" font-size="13.5" font-weight="600">Temperature · MCP9808</text>
+<text x="262" y="264" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">I2C</text>
+<path d="M236,248 H252" fill="none" stroke="#F2E9E4" stroke-opacity=".45" stroke-width="1.2"/>
+<rect x="252" y="276" width="208" height="44" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="262" y="297" fill="#F2E9E4" font-size="13.5" font-weight="600">Microphone · INMP441</text>
+<text x="262" y="314" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">I2S</text>
+<path d="M236,298 H252" fill="none" stroke="#F2E9E4" stroke-opacity=".45" stroke-width="1.2"/>
+<rect x="252" y="326" width="208" height="44" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="262" y="347" fill="#F2E9E4" font-size="13.5" font-weight="600">Photodiode</text>
+<text x="262" y="364" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">ADC (ADS1115 on I2C)</text>
+<path d="M236,348 H252" fill="none" stroke="#F2E9E4" stroke-opacity=".45" stroke-width="1.2"/>
+<rect x="252" y="376" width="208" height="44" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="262" y="397" fill="#F2E9E4" font-size="13.5" font-weight="600">Current · ACS723</text>
+<text x="262" y="414" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">ADC (ADS1115) · 5 V</text>
+<path d="M236,398 H252" fill="none" stroke="#F2E9E4" stroke-opacity=".45" stroke-width="1.2"/>
+<rect x="252" y="426" width="208" height="44" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="262" y="447" fill="#F2E9E4" font-size="13.5" font-weight="600">Vibration · SW-420</text>
+<text x="262" y="464" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">GPIO</text>
+<path d="M236,448 H252" fill="none" stroke="#F2E9E4" stroke-opacity=".45" stroke-width="1.2"/>
+<path d="M236,148 V448" fill="none" stroke="#F2E9E4" stroke-opacity=".45" stroke-width="1.2"/>
+<path d="M220,260 L234,260" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3" marker-end="url(#shsys-a)"/>
+<path d="M18,388 V559" fill="none" stroke="#F2E9E4" stroke-opacity=".45" stroke-width="1.2"/>
+<rect x="32" y="404" width="188" height="62" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="42" y="425" fill="#F2E9E4" font-size="13.5" font-weight="600">microSD · SPI</text>
+<text x="42" y="442" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">binary sensor files</text>
+<text x="42" y="457" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">JSON metadata</text>
+<path d="M18,435.0 L30,435.0" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3" marker-end="url(#shsys-a)"/>
+<rect x="32" y="478" width="188" height="46" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="42" y="499" fill="#F2E9E4" font-size="13.5" font-weight="600">Host PC</text>
+<text x="42" y="516" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">USB serial (UART)</text>
+<path d="M18,501.0 L30,501.0" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3" marker-end="url(#shsys-a)"/>
+<rect x="32" y="536" width="188" height="46" rx="2" fill="none" stroke="#F2E9E4" stroke-opacity="0.3" stroke-dasharray="4 3"/>
+<text x="42" y="557" fill="#8C877D" font-size="13.5" font-weight="600">Wi-Fi web view</text>
+<text x="42" y="574" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">off by default</text>
+<path d="M18,559.0 L30,559.0" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#shsys-a)"/>
+<text x="252" y="500" text-anchor="start" fill="#9C9389" font-size="11">5 V feeds the board, the microSD</text>
+<text x="252" y="516" text-anchor="start" fill="#9C9389" font-size="11">and the current sensor; the ESP32-S3</text>
+<text x="252" y="532" text-anchor="start" fill="#9C9389" font-size="11">supplies 3.3 V to the other modules.</text>
+</svg>
