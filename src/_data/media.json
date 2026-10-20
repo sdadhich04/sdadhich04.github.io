@@ -196,16 +196,16 @@
       "src": "/assets/img/shield-render-mobile.png",
       "kind": "image",
       "raster": true,
-      "width": 824,
-      "height": 867,
+      "width": 819,
+      "height": 800,
       "title": null
     },
     "shield-render-wide": {
       "src": "/assets/img/shield-render-wide.png",
       "kind": "image",
       "raster": true,
-      "width": 1844,
-      "height": 1207,
+      "width": 1835,
+      "height": 1202,
       "title": null
     },
     "tpt-finder-poster-2026": {

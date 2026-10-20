@@ -61,3 +61,23 @@ eleventyComputed:
     <p class="label">{{ home.location }}</p>
   </div>
 </section>
+
+{%- if home.approach %}
+<section class="wrap section approach" aria-labelledby="approach">
+  <div class="section__head"><h2 id="approach" class="label-heading">{{ home.approach.heading }}</h2></div>
+  <div class="approach__grid">
+    <p class="approach__head">{{ home.approach.headline }}</p>
+    <div class="approach__body">
+    {%- for t in home.approach.body %}
+      <p>{{ t | mdInline | safe }}</p>
+    {%- endfor %}
+      <ol class="approach__chain" aria-label="The stages, in order">
+      {%- for c in home.approach.chain %}<li>{{ c }}</li>{% endfor -%}
+      </ol>
+    {%- if home.approach.link %}
+      <a class="mono-link" href="{{ home.approach.link.href }}">{{ home.approach.link.label }} →</a>
+    {%- endif %}
+    </div>
+  </div>
+</section>
+{%- endif %}

@@ -190,5 +190,23 @@
       "href": "/resume.pdf"
     }
   ],
-  "location": "Based in Seattle, WA."
+  "location": "Based in Seattle, WA.",
+  "approach": {
+    "heading": "Approach",
+    "headline": "From noisy signal to trusted decision.",
+    "body": [
+      "Across my projects I've worked every stage between the two: a breadboard prototype, the board, the firmware that samples it, the analysis that checks the data, and the model that runs on the microcontroller. Knowing the whole chain is how I find where a signal goes wrong."
+    ],
+    "chain": [
+      "Prototype",
+      "Hardware",
+      "Firmware",
+      "Analysis",
+      "ML / TinyML"
+    ],
+    "link": {
+      "label": "Résumé PDF",
+      "href": "/resume.pdf"
+    }
+  }
 }
