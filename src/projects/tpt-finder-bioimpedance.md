@@ -22,7 +22,7 @@ links: []
 layout: layouts/project.njk
 permalink: /projects/tpt-finder-bioimpedance/
 tags: [project]
-mainVisual: tpt-finder-signal-chain
+mainVisual: tpt-bioz-v2-render
 plotVisual: tpt-liquid-validation
 order: 1
 ---
@@ -56,7 +56,7 @@ My part is bioimpedance. The signal chain has to measure tissue impedance with i
 
 ## Architecture
 
-The board that took the poster data, BioZ v2 (the diagram at the top, read from its KiCad netlist):
+The board that took the poster data, BioZ v2 (rendered at the top; the diagram below is read from its KiCad netlist):
 
 - **AD5933 impedance analyzer**, clocked by a 16 MHz oscillator and configured and read by the MCU over I²C; its on-chip DFT gives the real and imaginary parts of each reading.
 - **Drive:** the AD5933's excitation is AC-coupled through 47 nF, re-biased to mid-supply, and buffered by one channel of an AD8606 onto electrode E1.
@@ -64,6 +64,8 @@ The board that took the poster data, BioZ v2 (the diagram at the top, read from 
 - **Two electrodes:** the same pair drives and senses.
 - **ESP32 running ESP-IDF firmware**, with a **Python GUI** on the host PC that runs sweeps and logs results.
 - **Calibration:** structured RC reference networks in place of tissue, including the 2200 Ω calibration.
+
+Figure: tpt-finder-signal-chain
 
 BioZ v4 keeps the AD5933 and the AD8606 drive buffer and moves to four electrodes: the outer pair injects and returns the current, and the inner pair senses the voltage through an **INA333 instrumentation amplifier** (Decision 2).
 

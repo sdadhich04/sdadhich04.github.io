@@ -1070,6 +1070,17 @@
       "caption": "A still from our final-demo video: the Nano listens, the ESP32 drives the buzzer and the BLE alert, and the phone's BLE scanner shows the notifications arriving. Joint project with Jonathan Lu.",
       "side": true
     },
+    "tpt-bioz-v2-render": {
+      "src": "/assets/img/tpt-bioz-v2-render.png",
+      "kind": "image",
+      "raster": true,
+      "width": 1800,
+      "height": 493,
+      "title": null,
+      "alt": "3D render of the BioZ v2 board: a long, pen-shaped green PCB that narrows to a tip with two gold electrode contacts, carrying the AD5933 impedance chip, the AD8606 op-amp, a red electrolytic capacitor and through-hole resistors; four wires run through a white connector to a small ESP32 module above the board's back end.",
+      "caption": "BioZ v2, the two-electrode board that took the poster data, rendered from our KiCad layout; component models include approximations. The ESP32 module and its wiring are modeled on the assembled prototype.",
+      "side": true
+    },
     "tpt-finder-poster-2026": {
       "src": "/assets/img/tpt-finder-poster-2026.png",
       "kind": "image",
@@ -1085,7 +1096,7 @@
   },
   "projects": {
     "tpt-finder-bioimpedance": {
-      "main": "tpt-finder-signal-chain",
+      "main": "tpt-bioz-v2-render",
       "plot": "tpt-liquid-validation"
     },
     "project-shield": {
