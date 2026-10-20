@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 430" width="100%" role="img" aria-labelledby="emgkf-t emgkf-d" style="font-family:Inter, system-ui, sans-serif">
+<title id="emgkf-t">EMG BCI: the three-state Kalman filter that turns two EMG channels into a cursor</title><desc id="emgkf-d">State: position, velocity and an offset. Each loop the filter predicts with A, in which position gains 0.1 times velocity and velocity decays by a factor of 0.9; process noise is 0.9 on velocity only. The measurement is the two scaled EMG channels, with H mapping channel 1 to plus velocity and channel 2 to minus velocity (in the position-control run, plus and minus position instead), and measurement noise 0.2 per channel. The gain settles to about 0.45 on velocity per unit of channel difference. The update is x equals the prediction plus K times the innovation; the cursor shown is the position from L loops earlier, clamped to plus or minus 10.</desc>
+<defs><marker id="emgkf-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#F2E9E4" fill-opacity=".7"/></marker></defs>
+<text x="10" y="16" text-anchor="start" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" letter-spacing="1">EVERY LOOP · STATE x = [ position, velocity, offset ]</text>
+<rect x="10" y="32" width="440" height="112" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="22" y="50" text-anchor="start" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" letter-spacing="1">PREDICT</text>
+<text x="22" y="70" text-anchor="start" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" xml:space="preserve">x⁻ = A · x</text>
+<text x="22" y="85" text-anchor="start" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" xml:space="preserve"></text>
+<text x="22" y="100" text-anchor="start" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" xml:space="preserve">A = ⎡1  0.1  0⎤</text>
+<text x="22" y="115" text-anchor="start" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" xml:space="preserve">    ⎢0  0.9  0⎥</text>
+<text x="22" y="130" text-anchor="start" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" xml:space="preserve">    ⎣0  0    1⎦</text>
+<text x="236" y="70" text-anchor="start" fill="#9C9389" font-size="11">position += 0.1 · velocity;</text>
+<text x="236" y="86" text-anchor="start" fill="#9C9389" font-size="11">velocity decays × 0.9</text>
+<text x="236" y="102" text-anchor="start" fill="#9C9389" font-size="11">process noise W: 0.9 on velocity</text>
+<path d="M230,144 L230,156" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3" marker-end="url(#emgkf-a)"/>
+<rect x="10" y="156" width="440" height="96" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="22" y="174" text-anchor="start" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" letter-spacing="1">MEASURE</text>
+<text x="22" y="194" text-anchor="start" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" xml:space="preserve">z = [ EMG ch 1, EMG ch 2 ]</text>
+<text x="22" y="209" text-anchor="start" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" xml:space="preserve"></text>
+<text x="22" y="224" text-anchor="start" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" xml:space="preserve">H = ⎡0   1  0⎤</text>
+<text x="22" y="239" text-anchor="start" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" xml:space="preserve">    ⎣0  −1  0⎦</text>
+<text x="236" y="194" text-anchor="start" fill="#9C9389" font-size="11">ch 1 reads +velocity, ch 2 −velocity</text>
+<text x="236" y="210" text-anchor="start" fill="#9C9389" font-size="11">position-control run: H = [±1 0 0]</text>
+<text x="236" y="226" text-anchor="start" fill="#9C9389" font-size="11">measurement noise Q: 0.2 per channel</text>
+<path d="M230,252 L230,264" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3" marker-end="url(#emgkf-a)"/>
+<rect x="10" y="264" width="440" height="112" rx="2" fill="#000000" stroke="#E8483A" stroke-opacity="1"/>
+<text x="22" y="282" text-anchor="start" fill="#E8483A" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" letter-spacing="1">UPDATE</text>
+<text x="22" y="302" text-anchor="start" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" xml:space="preserve">x = x⁻ + K (z − H x⁻)</text>
+<text x="22" y="317" text-anchor="start" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" xml:space="preserve"></text>
+<text x="22" y="332" text-anchor="start" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" xml:space="preserve">K ≈ ⎡0.004  −0.004⎤</text>
+<text x="22" y="347" text-anchor="start" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" xml:space="preserve">    ⎢0.453  −0.453⎥</text>
+<text x="22" y="362" text-anchor="start" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" xml:space="preserve">    ⎣0      0    ⎦</text>
+<text x="236" y="302" text-anchor="start" fill="#9C9389" font-size="11">gain at the end of the 0 ms run:</text>
+<text x="236" y="318" text-anchor="start" fill="#9C9389" font-size="11">≈ 0.45 velocity per unit of</text>
+<text x="236" y="334" text-anchor="start" fill="#9C9389" font-size="11">ch 1 − ch 2</text>
+<text x="22" y="400" text-anchor="start" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" xml:space="preserve">cursor = position from L loops ago, clamped to ±10</text>
+<text x="10" y="422" text-anchor="start" fill="#8C877D" font-size="10.5">Matrices as saved in the run files (results/lag_sweep_data).</text>
+</svg>

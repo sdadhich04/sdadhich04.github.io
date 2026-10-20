@@ -33,6 +33,8 @@ I built a real-time EMG cursor interface in MATLAB for EE 466 (Winter 2026): EMG
 The code reads two EMG channels from a Lab Streaming Layer (LSL) stream, reduces each 100 ms chunk to mean absolute EMG per channel, and uses a Kalman filter to turn it into a one-dimensional cursor in a center-out reaching task.
 The lag-sweep version delays the displayed cursor by a set number of loop iterations, and the task was recorded at 0, 100, 300 and 500 ms of lag, plus a position-control condition.
 
+Figure: emg-bci-setup-photo
+
 > Built for EE 466 (Winter 2026) at UW in a three-person lab group with Jonathan and Olivia, following the course protocol and script outlines by A. L. Orsborn. The code here and the lag-sweep analysis are my own.
 
 ## The problem
@@ -50,7 +52,11 @@ The experiment asks two things: how performance changes as feedback lag grows, a
 - **Logging:** each run saves its full workspace, including task events and per-loop timing, to a time-stamped `.mat` file.
 - **What was mine:** the decoder parameters, lag values and trial counts came from the course protocol, and our lab group of three ran the sessions, with me as the test subject. I wrote the code in this repo (streaming, Kalman filter, task loop and lag buffer, filling in the course outline scripts) and did the lag-sweep analysis below.
 
+Figure: emg-bci-task
+
 ## Architecture / signal chain
+
+Figure: emg-bci-kalman
 
 1. **EMG electrodes and amplifier** → two-channel LSL stream.
 2. **MATLAB loop, every 100 ms:** pull the latest chunk → mean absolute value per channel → subtract offset, multiply by scale.
@@ -59,9 +65,15 @@ The experiment asks two things: how performance changes as feedback lag grows, a
 5. **Task state machine and display:** center hold → go → reach → target hold → inter-trial interval; success or error codes are logged as task events.
 6. **Output:** one `.mat` file per run.
 
+Figure: emg-bci-decoder
+
 ## Decisions & trade-offs
 
 Most of the setup (bin width, decoder matrices, lag values and trial counts) followed the course protocol, so I describe it above as the setup rather than as my choices. The two decisions below are in the analysis.
+
+Figure: emg-bci-lag-buffer
+
+Figure: emg-bci-loop-timing
 
 ### 1. How a successful reach is scored
 
@@ -88,11 +100,16 @@ Most of the setup (bin width, decoder matrices, lag values and trial counts) fol
 - **Recorded runs:** all conditions were recorded on 3 March 2026 within about 45 minutes, with me as the test subject, in the order 0 ms (the experiment-2 run, reused as the zero-lag condition), 100 ms, 500 ms, 300 ms, then position control.
 - **Completed trials:** each of the four lag runs reached its 20 planned trials, with 19 scored reaches per run.
 
+Figure: emg-bci-session
+
 ## Results
 
 - The closed loop ran live at four feedback lags and in a position-control condition, with every run saved.
 - Successful reaches fell from 10 and 16 of 19 at 0 and 100 ms added lag to 2 and 4 of 19 at 300 and 500 ms, and failed center holds rose from 4–5 to 49–78. With one run per condition, the 0 vs 100 ms gap may be practice; the drop from 300 ms upward is the effect.
 - The loop ran at about 120 ms rather than the nominal 100 ms, so the real added lags were about 125, 360 and 590 ms.
+- In the position-control run, where the EMG set the cursor position directly, all 19 reaches got to the target but none held it for the 0.5 s (19 target-hold failures, plus 38 failed center holds). In this session, velocity control was far easier to use.
+
+Figure: emg-bci-traces
 
 ## What I'd do differently
 

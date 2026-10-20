@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 230" width="100%" role="img" aria-labelledby="emglag-t emglag-d" style="font-family:Inter, system-ui, sans-serif">
+<title id="emglag-t">EMG BCI: the lag buffer</title><desc id="emglag-d">The decoder makes a new estimate every loop, but the screen shows the estimate from L loops earlier, where L is the set lag divided by the 0.1 second loop period, rounded: 1, 3 or 5 loops for 100, 300 and 500 milliseconds. The loops actually took about 120 milliseconds, so the cursor was about 125, 360 and 590 milliseconds behind the decoder.</desc>
+<defs><marker id="emglag-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#F2E9E4" fill-opacity=".7"/></marker></defs>
+<text x="10" y="16" text-anchor="start" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" letter-spacing="1">CURSOR ON SCREEN = ESTIMATE FROM L LOOPS AGO</text>
+<circle cx="30" cy="150" r="5" fill="none" stroke="#F2E9E4" stroke-opacity=".7"/>
+<text x="30" y="176" text-anchor="middle" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" letter-spacing="1">k-5</text>
+<circle cx="98" cy="150" r="5" fill="none" stroke="#F2E9E4" stroke-opacity=".7"/>
+<text x="98" y="176" text-anchor="middle" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" letter-spacing="1">k-4</text>
+<circle cx="166" cy="150" r="5" fill="none" stroke="#F2E9E4" stroke-opacity=".7"/>
+<text x="166" y="176" text-anchor="middle" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" letter-spacing="1">k-3</text>
+<circle cx="234" cy="150" r="5" fill="none" stroke="#F2E9E4" stroke-opacity=".7"/>
+<text x="234" y="176" text-anchor="middle" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" letter-spacing="1">k-2</text>
+<circle cx="302" cy="150" r="5" fill="none" stroke="#F2E9E4" stroke-opacity=".7"/>
+<text x="302" y="176" text-anchor="middle" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" letter-spacing="1">k-1</text>
+<circle cx="370" cy="150" r="5" fill="none" stroke="#F2E9E4" stroke-opacity=".7"/>
+<text x="370" y="176" text-anchor="middle" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" letter-spacing="1">k</text>
+<path d="M18,150 H410" stroke="#F2E9E4" stroke-opacity=".3"/>
+<text x="414" y="154" text-anchor="start" fill="#8C877D" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" letter-spacing="1">loop</text>
+<rect x="344" y="34" width="52" height="26" fill="none" stroke="#E8483A"/>
+<text x="370" y="51" text-anchor="middle" fill="#E8483A" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" letter-spacing="1">screen</text>
+<path d="M302,144 C302,118 340,104 364,62" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3" marker-end="url(#emglag-a)"/>
+<text x="296" y="134" text-anchor="end" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" letter-spacing="1">L=1</text>
+<path d="M166,144 C166,96 340,82 364,62" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3" marker-end="url(#emglag-a)"/>
+<text x="160" y="134" text-anchor="end" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" letter-spacing="1">L=3</text>
+<path d="M30,144 C30,74 340,60 364,62" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3" marker-end="url(#emglag-a)"/>
+<text x="24" y="134" text-anchor="end" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" letter-spacing="1">L=5</text>
+<text x="10" y="200" text-anchor="start" fill="#F2E9E4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" letter-spacing="1">L=1 ≈125 ms · L=3 ≈360 ms · L=5 ≈590 ms</text>
+<text x="10" y="220" text-anchor="start" fill="#9C9389" font-size="11">L = round(LAG_T / 0.1 s), but the loop really took ≈120 ms.</text>
+</svg>
