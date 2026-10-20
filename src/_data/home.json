@@ -40,7 +40,7 @@
   "featuredHeading": "Featured projects",
   "featured": [
     {
-      "title": "TPT-Finder bioimpedance instrument (BioZ v4)",
+      "title": "TPT-Finder bioimpedance instrument",
       "slug": "tpt-finder-bioimpedance",
       "href": "/projects/tpt-finder-bioimpedance/",
       "chips": [
@@ -48,8 +48,8 @@
         "● ACTIVE"
       ],
       "text": [
-        "A tetrapolar bioimpedance board (BioZ v4) for a pen-like surgical probe that tells thyroid from parathyroid tissue in real time; I ran the ex-vivo study and all 500+ tissue measurements.",
-        "I designed the board as Biomedical Instrumentation & Impedance Lead at the UW BioRobotics Lab."
+        "Bioimpedance boards for a pen-like surgical probe that tells thyroid from parathyroid tissue in real time. I ran the ex-vivo study and all 500+ tissue measurements on the two-electrode BioZ v2, then designed the four-electrode BioZ v4.",
+        "I designed BioZ v4 as Biomedical Instrumentation & Impedance Lead at the UW BioRobotics Lab."
       ],
       "key": {
         "value": "0.034%",

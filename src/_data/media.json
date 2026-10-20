@@ -147,6 +147,198 @@
       "desc": "Model size: Keras 58.8 kB, float32 TFLite 12.5 kB, INT8 TFLite 7.4 kB (highlighted).",
       "caption": null
     },
+    "tpt-chicken-cluster": {
+      "src": "/assets/svg/tpt-chicken-cluster.svg",
+      "kind": "plot",
+      "width": 720,
+      "height": 372,
+      "title": "TPT-Finder, BioZ v2: 20 chicken-breast samples at 33 kHz cluster tightly in magnitude and phase",
+      "desc": "Impedance magnitude against phase at 33 kHz for 167 measurements on 20 ex-vivo chicken-breast samples, measured on the two-electrode BioZ v2 board on 6 November 2025. The 20 per-sample means run from 590.7 to 601.1 ohms (mean 595.5, standard deviation 3.0) and from -6.3 to -4.6 degrees in phase. One reading of 36.6 kilohms was excluded as an outlier.",
+      "caption": "Redrawn from the poster's Figures II and III using the raw lab file: 167 measurements on 20 ex-vivo chicken-breast samples at 33 kHz, BioZ v2, 6 November 2025. Red dots are the per-sample means; grey dots are the single measurements. One 36.6 kΩ reading was excluded as an outlier.",
+      "table": {
+        "headers": [
+          "Sample",
+          "Measurements",
+          "|Z| mean (Ω)",
+          "Phase mean (°)"
+        ],
+        "rows": [
+          [
+            "1",
+            "11",
+            "594.6",
+            "-6.34"
+          ],
+          [
+            "2",
+            "8",
+            "600.7",
+            "-6.15"
+          ],
+          [
+            "3",
+            "3",
+            "601.1",
+            "-6.03"
+          ],
+          [
+            "4",
+            "6",
+            "598.4",
+            "-5.91"
+          ],
+          [
+            "5",
+            "5",
+            "597.4",
+            "-5.65"
+          ],
+          [
+            "6",
+            "11",
+            "596.3",
+            "-5.86"
+          ],
+          [
+            "7",
+            "9",
+            "598.1",
+            "-6.22"
+          ],
+          [
+            "8",
+            "4",
+            "594.1",
+            "-5.24"
+          ],
+          [
+            "9",
+            "8",
+            "593.7",
+            "-5.17"
+          ],
+          [
+            "10",
+            "7",
+            "592.5",
+            "-4.92"
+          ],
+          [
+            "11",
+            "8",
+            "595.2",
+            "-6.08"
+          ],
+          [
+            "12",
+            "13",
+            "596.7",
+            "-5.89"
+          ],
+          [
+            "13",
+            "7",
+            "592.1",
+            "-6.0"
+          ],
+          [
+            "14",
+            "9",
+            "593.6",
+            "-5.74"
+          ],
+          [
+            "15",
+            "10",
+            "596.4",
+            "-5.86"
+          ],
+          [
+            "16",
+            "7",
+            "598.5",
+            "-5.88"
+          ],
+          [
+            "17",
+            "9",
+            "591.5",
+            "-4.83"
+          ],
+          [
+            "18",
+            "14",
+            "592.5",
+            "-4.63"
+          ],
+          [
+            "19",
+            "7",
+            "595.3",
+            "-5.82"
+          ],
+          [
+            "20",
+            "11",
+            "590.7",
+            "-5.89"
+          ]
+        ]
+      }
+    },
+    "tpt-liquid-validation": {
+      "src": "/assets/svg/tpt-liquid-validation.svg",
+      "kind": "plot",
+      "width": 720,
+      "height": 372,
+      "title": "TPT-Finder, BioZ v2: impedance and phase of four liquids at 33 kHz",
+      "desc": "Mean ± standard deviation at 33 kHz, measured on the two-electrode BioZ v2 board on 12 February 2026. Distilled water, n = 11: |Z| 207,667 ± 19,990 ohms, phase 45.5 ± 7.8 degrees; Drinking water, n = 15: |Z| 12,294 ± 646 ohms, phase 3.4 ± 0.4 degrees; Gatorade, n = 21: |Z| 616 ± 3 ohms, phase -1.5 ± 0.1 degrees; Saline, n = 10: |Z| 592 ± 0 ohms, phase 6.1 ± 0.0 degrees. Impedance falls by more than two orders of magnitude from distilled water to Gatorade and saline, tracking conductivity.",
+      "caption": "Redrawn from the poster's Figure I using the raw lab files: mean ± SD at 33 kHz on BioZ v2 (two electrodes), 12 February 2026, with n measurements per liquid as printed on the poster. Distilled water, at about 208 kΩ, varies most in both magnitude and phase.",
+      "table": {
+        "headers": [
+          "Liquid",
+          "Measurements (n)",
+          "|Z| mean (Ω)",
+          "|Z| SD (Ω)",
+          "Phase mean (°)",
+          "Phase SD (°)"
+        ],
+        "rows": [
+          [
+            "Distilled water",
+            "11",
+            "207666.9",
+            "19989.6",
+            "45.47",
+            "7.84"
+          ],
+          [
+            "Drinking water",
+            "15",
+            "12293.6",
+            "645.9",
+            "3.39",
+            "0.41"
+          ],
+          [
+            "Gatorade",
+            "21",
+            "615.5",
+            "3.1",
+            "-1.55",
+            "0.12"
+          ],
+          [
+            "Saline",
+            "10",
+            "592.3",
+            "0.2",
+            "6.11",
+            "0.04"
+          ]
+        ]
+      }
+    },
     "backontrack-system": {
       "src": "/assets/svg/backontrack-system.svg",
       "kind": "diagram",
@@ -173,6 +365,24 @@
       "title": "SmartCrib: training pipeline and on-device cry detection",
       "desc": "Offline: Donate-a-Cry cry clips and ESC-50 negatives become 40-frame by 13-coefficient MFCC features, train a compact Conv1D model, which is quantized to an 7.4 kB INT8 TensorFlow Lite model, and a threshold sweep picks 0.7 to meet a 0.90 recall target. On device: an Arduino Nano 33 BLE Sense records from its PDM microphone, computes MFCCs for each one-second window, runs the INT8 model, applies the threshold and a three-window majority vote, and raises a GPIO alert to an ESP32 bridge that sounds a buzzer and exposes a BLE alert.",
       "caption": "Training pipeline (offline) and on-device detection (Nano 33 BLE Sense → ESP32 alert bridge), drawn from the public repo's README and source."
+    },
+    "tpt-finder-electrodes": {
+      "src": "/assets/svg/tpt-finder-electrodes.svg",
+      "kind": "diagram",
+      "width": 760,
+      "height": 330,
+      "title": "TPT-Finder: two-electrode BioZ v2 versus four-electrode BioZ v4",
+      "desc": "Left, BioZ v2: two electrodes on the tissue. E1 is driven by the AD8606 buffer and E2 returns the current to the AD8606 transimpedance stage, so the reading includes the contact impedance at both electrodes in series with the tissue. Right, BioZ v4: four electrodes. The outer pair injects the current (driven by the AD8606 buffer) and returns it to ground; the inner pair senses the voltage through an INA333 instrumentation amplifier with a gain of about 1000 and its reference at 1.65 volts, into the AD5933. The sense electrodes carry almost no current, so their contact impedance stays out of the measured voltage.",
+      "caption": "Why BioZ v4 moved to four electrodes. The v2 wiring is read from its KiCad netlist; the v4 wiring is from the March 2026 design worklog for the four-port redesign."
+    },
+    "tpt-finder-signal-chain": {
+      "src": "/assets/svg/tpt-finder-signal-chain.svg",
+      "kind": "diagram",
+      "width": 760,
+      "height": 384,
+      "title": "TPT-Finder: the BioZ v2 two-electrode measurement chain",
+      "desc": "A Python GUI on a laptop talks over USB to an ESP32 running ESP-IDF firmware with the AD5933 I2C driver. On the BioZ v2 board, the AD5933 impedance converter, clocked by a 16 MHz oscillator, sends its excitation from VOUT through a 47 nF coupling capacitor, biased to mid-supply by a 49.9 kilohm divider, into channel A of an AD8606 wired as a unity buffer, which drives electrode E1. The current through the tissue returns on electrode E2 into channel B of the AD8606, a transimpedance stage with 49.9 kilohm feedback, then through a 20 kilohm input resistor (20 kilohm RFB) into the AD5933's VIN, where an on-chip DFT gives the real and imaginary parts. The same electrode pair drives and senses, so electrode contact impedance is part of every reading. Calibration against a 2200 ohm reference reached 0.034 percent error at 33 kHz.",
+      "caption": "The BioZ v2 measurement chain, which took the poster data, read from the board's KiCad netlist. The same electrode pair drives and senses."
     },
     "faraday-cage-line": {
       "src": "/assets/svg/faraday-cage-line.svg",
@@ -222,7 +432,10 @@
     }
   },
   "projects": {
-    "tpt-finder-bioimpedance": {},
+    "tpt-finder-bioimpedance": {
+      "main": "tpt-finder-signal-chain",
+      "plot": "tpt-liquid-validation"
+    },
     "project-shield": {
       "main": "shield-pcb-line"
     },

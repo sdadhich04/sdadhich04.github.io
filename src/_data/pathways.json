@@ -65,8 +65,8 @@
   {
     "name": "Biomedical instrumentation & medical sensing",
     "card": {
-      "title": "TPT-Finder bioimpedance instrument (BioZ v4)",
-      "result": "A tetrapolar bioimpedance board, BioZ v4 (AD5933, INA333, AD8606 Howland current source). On the earlier BioZ v2 I calibrated the sensing chain to 0.034% error at 33 kHz (2200 Ω calibration), and I ran the ex-vivo study and all 500+ tissue measurements.",
+      "title": "TPT-Finder bioimpedance instrument",
+      "result": "Two bioimpedance boards. On BioZ v2, a two-electrode board (AD5933, AD8606 drive buffer and transimpedance stage), I calibrated the sensing chain to 0.034% error at 33 kHz (2200 Ω calibration) and ran the ex-vivo study and all 500+ tissue measurements. I then designed BioZ v4, a tetrapolar board that adds an INA333 instrumentation amplifier on the sense pair.",
       "context": [
         "LAB · TEAM"
       ],
@@ -85,7 +85,7 @@
       "links": [
         {
           "href": "/projects/tpt-finder-bioimpedance/",
-          "label": "TPT-Finder bioimpedance instrument (BioZ v4)"
+          "label": "TPT-Finder bioimpedance instrument"
         }
       ],
       "also": [
@@ -213,7 +213,7 @@
         },
         {
           "href": "/projects/tpt-finder-bioimpedance/",
-          "label": "TPT-Finder bioimpedance instrument (BioZ v4)"
+          "label": "TPT-Finder bioimpedance instrument"
         }
       ],
       "also": [

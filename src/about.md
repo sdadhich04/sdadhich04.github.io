@@ -52,10 +52,10 @@ Minor: Neural Computation & Engineering
 
 **Biomedical Instrumentation & Impedance Lead** · Sep 2025–present · `● ACTIVE`
 
-- I built two bioimpedance instruments end to end for TPT-Finder: a tetrapolar board (AD5933 impedance analyzer, INA333 instrumentation amplifier, AD8606 Howland current source) and a two-electrode pen (AD5934).
+- I built two bioimpedance instruments end to end for TPT-Finder: a tetrapolar board (AD5933 impedance analyzer, INA333 instrumentation amplifier, AD8606 drive buffer) and a two-electrode pen (AD5934).
 - The tetrapolar board (BioZ v4) moved the sub-team from a bipolar to a tetrapolar measurement approach.
 - I ran an electrode-material study across 40 tissue measurements.
-- On an earlier board, BioZ v2, I calibrated the sensing chain to 0.034% error at 33 kHz (2200 Ω calibration).
+- On the earlier two-electrode board, BioZ v2, which took the poster data, I calibrated the sensing chain to 0.034% error at 33 kHz (2200 Ω calibration).
 - I ran the ex-vivo study and all 500+ tissue measurements, and I designed the experiments that showed the compression below 1 kΩ was an instrument-level artifact, not tissue behavior.
 - I designed the phantom-test experiments that check the readings shift with conductivity as expected.
 - I support the ultrasound and photonics sub-modalities, and I wrote the team's UW Undergraduate Research Symposium abstract.

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" width="100%" role="img" aria-labelledby="tptel-t tptel-d" style="font-family:Inter, system-ui, sans-serif">
+<title id="tptel-t">TPT-Finder: two-electrode BioZ v2 versus four-electrode BioZ v4</title><desc id="tptel-d">Left, BioZ v2: two electrodes on the tissue. E1 is driven by the AD8606 buffer and E2 returns the current to the AD8606 transimpedance stage, so the reading includes the contact impedance at both electrodes in series with the tissue. Right, BioZ v4: four electrodes. The outer pair injects the current (driven by the AD8606 buffer) and returns it to ground; the inner pair senses the voltage through an INA333 instrumentation amplifier with a gain of about 1000 and its reference at 1.65 volts, into the AD5933. The sense electrodes carry almost no current, so their contact impedance stays out of the measured voltage.</desc>
+<defs><marker id="tptel-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#F2E9E4" fill-opacity=".7"/></marker></defs>
+<line x1="380" y1="20" x2="380" y2="312" stroke="#F2E9E4" stroke-opacity=".14"/>
+<text x="20" y="24" text-anchor="start" fill="#8C877D" font-size="10.5">BIOZ V2 · TWO ELECTRODES · TOOK THE POSTER DATA</text>
+<rect x="40" y="48" width="130" height="50" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="50" y="69" fill="#F2E9E4" font-size="13.5" font-weight="600">AD8606 A</text>
+<text x="50" y="86" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">buffer · drives E1</text>
+<rect x="210" y="48" width="130" height="50" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="220" y="69" fill="#F2E9E4" font-size="13.5" font-weight="600">AD8606 B</text>
+<text x="220" y="86" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">TIA · measures I</text>
+<path d="M105,98 L105,150" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3" marker-end="url(#tptel-a)"/>
+<path d="M275,150 L275,100" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3" marker-end="url(#tptel-a)"/>
+<rect x="91" y="152" width="28" height="10" fill="none" stroke="#F2E9E4" stroke-opacity=".6"/>
+<text x="105" y="146" text-anchor="middle" fill="#F2E9E4" font-size="10.5"></text>
+<rect x="261" y="152" width="28" height="10" fill="none" stroke="#F2E9E4" stroke-opacity=".6"/>
+<text x="275" y="146" text-anchor="middle" fill="#F2E9E4" font-size="10.5"></text>
+<text x="82" y="146" text-anchor="end" fill="#F2E9E4" font-size="10.5">E1</text>
+<text x="298" y="146" text-anchor="start" fill="#F2E9E4" font-size="10.5">E2</text>
+<polyline points="105.0,162.0 110.0,166.2 100.0,174.8 110.0,183.2 100.0,191.8 105.0,196.0" fill="none" stroke="#F2E9E4" stroke-opacity=".55" stroke-width="1.2"/>
+<polyline points="275.0,162.0 280.0,166.2 270.0,174.8 280.0,183.2 270.0,191.8 275.0,196.0" fill="none" stroke="#F2E9E4" stroke-opacity=".55" stroke-width="1.2"/>
+<text x="116" y="184" text-anchor="start" fill="#8C877D" font-size="10.5">Zc</text>
+<text x="286" y="184" text-anchor="start" fill="#8C877D" font-size="10.5">Zc</text>
+<rect x="20" y="196" width="340" height="56" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="30" y="217" fill="#F2E9E4" font-size="13.5" font-weight="600"></text>
+<text x="352" y="244" text-anchor="end" fill="#8C877D" font-size="10.5">TISSUE</text>
+<path d="M105,204 C120,246 260,246 275,204" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3" stroke-dasharray="4 3"/>
+<text x="20" y="276" text-anchor="start" fill="#9C9389" font-size="11.5">Reads Zc + Z(tissue) + Zc: the contact</text>
+<text x="20" y="293" text-anchor="start" fill="#9C9389" font-size="11.5">impedance is in series with every reading.</text>
+<text x="400" y="24" text-anchor="start" fill="#8C877D" font-size="10.5">BIOZ V4 · FOUR ELECTRODES</text>
+<rect x="400" y="44" width="120" height="64" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="410" y="65" fill="#F2E9E4" font-size="13.5" font-weight="600">AD8606 A</text>
+<text x="410" y="82" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">buffer</text>
+<text x="410" y="97" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">drives OUT1</text>
+<rect x="560" y="44" width="180" height="64" rx="2" fill="#000000" stroke="#E8483A" stroke-opacity="1"/>
+<text x="570" y="65" fill="#F2E9E4" font-size="13.5" font-weight="600">INA333</text>
+<text x="570" y="82" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">≈1000× · REF 1.65 V</text>
+<text x="570" y="97" fill="#9C9389" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5">out → AD5933 VIN</text>
+<text x="598" y="122" text-anchor="end" fill="#F2E9E4" font-size="11">+</text>
+<text x="698" y="122" text-anchor="end" fill="#F2E9E4" font-size="11">−</text>
+<path d="M440,108 L440,150" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3" marker-end="url(#tptel-a)"/>
+<path d="M560,150 V126 H604 V108 M640,150 V126 H704 V108" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3"/>
+<rect x="426" y="152" width="28" height="10" fill="none" stroke="#F2E9E4" stroke-opacity=".6"/>
+<text x="440" y="146" text-anchor="middle" fill="#F2E9E4" font-size="10.5"></text>
+<rect x="546" y="152" width="28" height="10" fill="none" stroke="#F2E9E4" stroke-opacity=".6"/>
+<text x="560" y="146" text-anchor="middle" fill="#F2E9E4" font-size="10.5"></text>
+<rect x="626" y="152" width="28" height="10" fill="none" stroke="#F2E9E4" stroke-opacity=".6"/>
+<text x="640" y="146" text-anchor="middle" fill="#F2E9E4" font-size="10.5"></text>
+<rect x="706" y="152" width="28" height="10" fill="none" stroke="#F2E9E4" stroke-opacity=".6"/>
+<text x="720" y="146" text-anchor="middle" fill="#F2E9E4" font-size="10.5"></text>
+<text x="422" y="146" text-anchor="end" fill="#F2E9E4" font-size="10">OUT1</text>
+<text x="542" y="146" text-anchor="end" fill="#F2E9E4" font-size="10">IN1</text>
+<text x="622" y="146" text-anchor="end" fill="#F2E9E4" font-size="10">IN2</text>
+<text x="702" y="146" text-anchor="end" fill="#F2E9E4" font-size="10">OUT2</text>
+<path d="M720,152 V134" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3"/><path d="M712,134 H728 M715,130 H725 M718,126 H722" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3"/>
+<text x="732" y="134" text-anchor="start" fill="#8C877D" font-size="10">GND</text>
+<polyline points="440.0,162.0 445.0,166.2 435.0,174.8 445.0,183.2 435.0,191.8 440.0,196.0" fill="none" stroke="#F2E9E4" stroke-opacity=".55" stroke-width="1.2"/>
+<polyline points="560.0,162.0 565.0,166.2 555.0,174.8 565.0,183.2 555.0,191.8 560.0,196.0" fill="none" stroke="#F2E9E4" stroke-opacity=".55" stroke-width="1.2"/>
+<polyline points="640.0,162.0 645.0,166.2 635.0,174.8 645.0,183.2 635.0,191.8 640.0,196.0" fill="none" stroke="#F2E9E4" stroke-opacity=".55" stroke-width="1.2"/>
+<polyline points="720.0,162.0 725.0,166.2 715.0,174.8 725.0,183.2 715.0,191.8 720.0,196.0" fill="none" stroke="#F2E9E4" stroke-opacity=".55" stroke-width="1.2"/>
+<rect x="400" y="196" width="340" height="56" rx="2" fill="#000000" stroke="#F2E9E4" stroke-opacity="0.3"/>
+<text x="410" y="217" fill="#F2E9E4" font-size="13.5" font-weight="600"></text>
+<text x="732" y="244" text-anchor="end" fill="#8C877D" font-size="10.5">TISSUE</text>
+<path d="M440,204 C470,250 690,250 720,204" fill="none" stroke="#F2E9E4" stroke-opacity=".6" stroke-width="1.3" stroke-dasharray="4 3"/>
+<text x="400" y="276" text-anchor="start" fill="#9C9389" font-size="11.5">The outer pair carries the current; the inner pair</text>
+<text x="400" y="293" text-anchor="start" fill="#9C9389" font-size="11.5">senses the voltage and carries almost none, so its</text>
+<text x="400" y="310" text-anchor="start" fill="#9C9389" font-size="11.5">contact impedance stays out of the measured voltage.</text>
+</svg>
